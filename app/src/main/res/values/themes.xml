@@ -3,6 +3,10 @@
     <style name="Base.Theme.SugestorDeCurso" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#bff9ff</item>
+        <item name="colorSecondary">#2a058c</item>
+        <item name="colorOnBackground">#139796</item>
+        <item name="android:windowBackground">#cde0ff</item>
     </style>
 
     <style name="Theme.SugestorDeCurso" parent="Base.Theme.SugestorDeCurso" />
