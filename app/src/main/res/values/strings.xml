@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Sugestor de Curso</string>
+    <string name="CPF">CPF</string>
+    <string name="senha">Senha</string>
+    <string name="BotaoLogin">Continuar</string>
+    <string name="BotaoCadastro">Cadastrar</string>
+    <string name="Cadastro">Não possui cadastro?</string>
+    <string name="BotaoCadastroTelaMain">Cadastre-se</string>
+    <string name="NomeCompleto">Nome Completo</string>
+    <string name="Telefone">Telefone</string>
+    <string name="Email">E-mail</string>
+    <string name="DataN">Data de Nascimento</string>
 </resources>
