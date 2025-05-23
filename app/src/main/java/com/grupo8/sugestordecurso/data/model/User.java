@@ -1,7 +1,8 @@
-package com.grupo8.sugestordecurso;
+package com.grupo8.sugestordecurso.data.model;
 
-public class User {
-    private String nome;
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String CPF;
     private String email;
 
@@ -19,13 +20,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 }
