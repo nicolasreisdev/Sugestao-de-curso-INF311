@@ -13,16 +13,16 @@
         android:theme="@style/Theme.SugestorDeCurso"
         tools:targetApi="31">
         <activity
-            android:name=".Profile"
+            android:name=".ui.profile.Profile"
             android:exported="false" />
         <activity
-            android:name=".UserPage"
+            android:name=".ui.userPage.UserPage"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".ui.register.Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.login.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
