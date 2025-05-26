@@ -5,29 +5,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.api.APIClient;
 import com.grupo8.sugestordecurso.data.api.APIRubeus;
-import com.grupo8.sugestordecurso.data.model.Contato;
-import com.grupo8.sugestordecurso.data.model.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.Contato;
+import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.repository.ContatoRepository;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Register extends Activity {
+public class Register extends AppCompatActivity {
 
-    private Contato contato = new Contato();
+    private Contato contato;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
     }
 
     public void onClickRegister(View v){
-
+        contato = new Contato();
         // Recebe os dados
         TextInputEditText editTextNome = findViewById(R.id.Nome);
         TextInputEditText editTextCPF = findViewById(R.id.CPF);
@@ -36,43 +40,30 @@ public class Register extends Activity {
         TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
         TextInputEditText editTextSenha = findViewById(R.id.Senha);
 
-        contato.setNome(editTextNome.toString());
-        contato.setCpf(editTextCPF.toString());
-        contato.setTelefone(editTextTelefone.toString());
-        contato.setEmail(editTextEmail.toString());
-        contato.setNascimento(editTextNascimento.toString());
-        contato.setSenha(editTextSenha.toString());
-        contato.setToken("");
-        contato.setOrigem(1);
+        contato.setNome(editTextNome.getText().toString());
+        contato.setCpf(editTextCPF.getText().toString());
+        contato.setTelefone(editTextTelefone.getText().toString());
+        contato.setEmail(editTextEmail.getText().toString());
+        contato.setNascimento(editTextNascimento.getText().toString());
+        contato.setSenha(editTextSenha.getText().toString());
 
-        // Cria conexão com a APIRubeus
-        APIRubeus rubeus = APIClient.getClient().create(APIRubeus.class);
-
+        // Cria conexão com APIRubeus
+        ContatoRepository contatoRepository = new ContatoRepository();
         // Envia chamada
-        Call<RespostaCadastro> call = rubeus.cadastrarContato(contato);
-
-        call.enqueue(new Callback<RespostaCadastro>() {
-            @Override
-            public void onResponse(Call<RespostaCadastro> call, Response<RespostaCadastro> response) {
-                RespostaCadastro resposta = response.body();
-                if (resposta.isSuccess()) { // caso o contato seja cadastrado
-                    // intent para página do usuário (é necessário passar Activity.this pois
-                    // está dentro do onResponse que está apontando para o Callback e não para
-                    // a Activity
-                    Intent ituserPage = new Intent(Register.this, UserPage.class);
-                    // passa os dados do usuário
-                    ituserPage.putExtra("User", contato);
-                    // inicializa a página do usuário
-                    startActivity(ituserPage);
-                }else{ // erro no cadastro
-                    // exibir mensagem de erro
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RespostaCadastro> call, Throwable t) {
-                t.printStackTrace();
+        contatoRepository.cadastrarContato(contato).observe(this, resposta -> {
+            if(resposta != null && resposta.isSuccess()){
+                // intent para página do usuário (é necessário passar Activity.this pois
+                // está dentro do onResponse que está apontando para o Callback e não para
+                // a Activity
+                Intent ituserPage = new Intent(Register.this, UserPage.class);
+                // passa os dados do usuário
+                ituserPage.putExtra("User", contato);
+                // inicializa a página do usuário
+                startActivity(ituserPage);
+            }else{
+                // exibir mensagem de erro
             }
         });
+
     }
 }
