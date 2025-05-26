@@ -9,8 +9,8 @@ public class Contato implements Serializable {
     private String telefone;
     private String nascimento;
     private String senha;
-    private Integer origem = 7; // Código do canal
-    private String token = "f2240ed12dca63c0a425f028cd88500e"; // Token da API
+    private static final Integer origem = 7; // Código do canal
+    private static final String token = "f2240ed12dca63c0a425f028cd88500e"; // Token da API
 
     public String getNome() {
         return nome;
@@ -63,17 +63,10 @@ public class Contato implements Serializable {
     public Integer getOrigem() {
         return origem;
     }
-
-    public void setOrigem(Integer origem) {
-        this.origem = origem;
-    }
-
+    
     public String getToken() {
         return token;
     }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
 }
 
