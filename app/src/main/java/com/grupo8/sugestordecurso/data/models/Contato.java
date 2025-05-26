@@ -1,4 +1,4 @@
-package com.grupo8.sugestordecurso.data.model;
+package com.grupo8.sugestordecurso.data.models;
 
 import java.io.Serializable;
 
@@ -9,8 +9,8 @@ public class Contato implements Serializable {
     private String telefone;
     private String nascimento;
     private String senha;
-    private Integer origem;
-    private String token;
+    private Integer origem = 7; // Código do canal
+    private String token = "f2240ed12dca63c0a425f028cd88500e"; // Token da API
 
     public String getNome() {
         return nome;

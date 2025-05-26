@@ -1,4 +1,4 @@
-package com.grupo8.sugestordecurso.data.model;
+package com.grupo8.sugestordecurso.data.models;
 
 import java.io.Serializable;
 
