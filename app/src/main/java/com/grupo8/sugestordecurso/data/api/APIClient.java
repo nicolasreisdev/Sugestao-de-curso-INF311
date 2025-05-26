@@ -9,14 +9,10 @@ public class APIClient {
 
     // passar token e origem como parametro
     public static Retrofit getClient() {
-        //OkHttpClient client = new OkHttpClient.Builder()
-        //       .addInterceptor(new AuthInterceptor(token, origin))
-        //      .build();
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    //.client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

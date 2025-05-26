@@ -1,8 +1,8 @@
 package com.grupo8.sugestordecurso.data.api;
 
-import com.grupo8.sugestordecurso.data.model.Contato;
-import com.grupo8.sugestordecurso.data.model.RespostaCadastro;
-import com.grupo8.sugestordecurso.data.model.User;
+import com.grupo8.sugestordecurso.data.models.Contato;
+import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -24,7 +24,7 @@ public interface APIRubeus {
 
     // Busca por um usuário já cadastrado (Login)
     @POST("api/Contato/dadosPessoas")
-    Call<RespostaCadastro> buscaUser(@Body User user);
+    Call<RespostaCadastro> buscarUser(@Body User user);
 
 
 
