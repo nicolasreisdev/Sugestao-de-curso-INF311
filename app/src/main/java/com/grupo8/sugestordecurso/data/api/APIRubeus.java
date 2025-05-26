@@ -27,5 +27,4 @@ public interface APIRubeus {
     Call<RespostaCadastro> buscarUser(@Body User user);
 
 
-
 }
