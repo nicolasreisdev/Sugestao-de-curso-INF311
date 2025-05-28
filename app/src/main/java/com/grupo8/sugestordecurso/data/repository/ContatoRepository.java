@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.grupo8.sugestordecurso.data.api.APIClient;
 import com.grupo8.sugestordecurso.data.api.APIRubeus;
 import com.grupo8.sugestordecurso.data.models.Contato;
+import com.grupo8.sugestordecurso.data.models.Evento;
 import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.models.User;
 
@@ -66,8 +67,50 @@ public class ContatoRepository {
         return data; // retorna o LiveData
     }
 
-    public Call<RespostaCadastro> criarRegistro(Contato contato){
-        return rubeus.criarRegistro(contato);
+    public LiveData<RespostaCadastro> eventoNotaMatematica(Evento evento){
+        MutableLiveData<RespostaCadastro> data = new MutableLiveData<>();
+        rubeus.eventoNotaMatematica(evento).enqueue(new Callback<RespostaCadastro>() {
+            @Override
+            public void onResponse(Call<RespostaCadastro> call, Response<RespostaCadastro> response) {
+                RespostaCadastro resposta = response.body();
+                if(resposta.isSuccess()){
+                    data.setValue(resposta);
+                }else{
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RespostaCadastro> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
     }
+
+
+    public LiveData<RespostaCadastro> eventoNotaHistoria(Evento evento){
+        MutableLiveData<RespostaCadastro> data = new MutableLiveData<>();
+        rubeus.eventoNotaHistoria(evento).enqueue(new Callback<RespostaCadastro>() {
+            @Override
+            public void onResponse(Call<RespostaCadastro> call, Response<RespostaCadastro> response) {
+                RespostaCadastro resposta = response.body();
+                if(resposta.isSuccess()){
+                    data.setValue(resposta);
+                }else{
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RespostaCadastro> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
+    }
+
 
 }

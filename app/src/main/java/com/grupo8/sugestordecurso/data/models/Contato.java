@@ -4,10 +4,18 @@ import java.io.Serializable;
 
 public class Contato implements Serializable {
     private String nome;
-    private String cpf;
     private String email;
     private String telefone;
     private String nascimento;
+    private String sexo;
+    private String curso;
+    private String cpf;
+    private String cidade;
+    private String estado;
+    private String cep;
+    private String endereco;
+    private String numero;
+    private String bairro;
     private String senha;
     private static final Integer origem = 7; // Código do canal
     private static final String token = "f2240ed12dca63c0a425f028cd88500e"; // Token da API
