@@ -13,6 +13,15 @@
         android:theme="@style/Theme.SugestorDeCurso"
         tools:targetApi="31">
         <activity
+            android:name=".ui.profile.ProfileGradeData"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ProfilePersonalData"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.RegisterData"
+            android:exported="false" />
+        <activity
             android:name=".ui.profile.Profile"
             android:exported="false" />
         <activity

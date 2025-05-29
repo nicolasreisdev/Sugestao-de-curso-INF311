@@ -31,7 +31,7 @@ public class Register extends AppCompatActivity {
     }
 
     public void onClickRegister(View v){
-        contato = new Contato();
+        /*contato = new Contato();
         // Recebe os dados
         TextInputEditText editTextNome = findViewById(R.id.Nome);
         TextInputEditText editTextCPF = findViewById(R.id.CPF);
@@ -63,7 +63,11 @@ public class Register extends AppCompatActivity {
             }else{
                 // exibir mensagem de erro
             }
-        });
+        });*/
+
+        //navega para a próxima etapa de cadastro
+        Intent it = new Intent(Register.this,RegisterData.class);
+        startActivity(it);
 
     }
 }

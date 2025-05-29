@@ -6,19 +6,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/primary"
     android:padding="24dp"
-    android:background="#cde0ff"
     >
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/CampoCPF"
         android:layout_width="match_parent"
+        app:hintTextColor="@color/black"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/userCPF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/CPF"
+            android:textColorHint="@color/black"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -26,12 +28,15 @@
         android:id="@+id/CampoSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+
         android:layout_marginTop="8dp">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/userSenha"
             android:layout_width="match_parent"
+            android:textColorHint="@color/black"
             android:layout_height="wrap_content"
-            android:hint="@string/senha"
+            android:hint="@string/Senha"
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,6 +56,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:text="@string/Cadastro"/>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/BtCadastro"

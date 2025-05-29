@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View v){
-        TextInputEditText editTextCPF = findViewById(R.id.userCPF);
+        /*TextInputEditText editTextCPF = findViewById(R.id.userCPF);
         TextInputEditText editTextSenha = findViewById(R.id.userSenha);
         user.setCPF(editTextCPF.getText().toString());
         user.setEmail(editTextSenha.getText().toString());
@@ -53,7 +53,11 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 // exibir mensagem de erro
             }
-        });
+        });*/
+
+        //navega para a página do usuário
+        Intent it = new Intent(MainActivity.this, UserPage.class);
+        startActivity(it);
 
     }
 

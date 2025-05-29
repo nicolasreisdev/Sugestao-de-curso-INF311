@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Sugestor de Curso</string>
     <string name="CPF">CPF</string>
-    <string name="senha">Senha</string>
+    <string name="Senha">Senha</string>
     <string name="BotaoLogin">Continuar</string>
     <string name="BotaoCadastro">Cadastrar</string>
     <string name="Cadastro">Não possui cadastro?</string>
@@ -10,4 +10,28 @@
     <string name="Telefone">Telefone</string>
     <string name="Email">E-mail</string>
     <string name="DataN">Data de Nascimento</string>
+    <string name="ExplicaInfos">Preencha as seguintes informações em relação a suas notas para realizarmos sua predição</string>
+    <string name="NotaMat">Matemática</string>
+    <string name="NotaPort">Português</string>
+    <string name="NotaRed">Redação</string>
+    <string name="NotaLit">Literatura</string>
+    <string name="NotaQuim">Química</string>
+    <string name="NotaBio">Biologia</string>
+    <string name="NotaFis">Física</string>
+    <string name="NotaGeo">Geografia</string>
+    <string name="NotaHist">História</string>
+    <string name="NotaSocio">Sociologia</string>
+    <string name="NotaFilo">Filosofia</string>
+    <string name="NotaArte">Artes</string>
+    <string name="Notas">Notas</string>
+    <string name="Historico">Histórico de sugestões</string>
+    <string name="Dados">Dados pessoais</string>
+    <string name="Configuracoes">Configurações</string>
+    <string name="BotaoSalvar">Salvar</string>
+    <string name="AlterarDadosPessoais">Alterar dados pessoais</string>
+    <string name="AlterarNotas">Alterar notas</string>
+    <string name="ConfigGeraisDoApp">Configurações gerais do aplicativo</string>
+    <string name="AnaliseHistorico">Analise seu histórico de sugestões de curso</string>
+    <string name="AtualizarNotas">Atualizar Dados de Notas</string>
+
 </resources>
