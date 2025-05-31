@@ -3,6 +3,7 @@ package com.grupo8.sugestordecurso.data.api;
 import com.grupo8.sugestordecurso.data.models.Contato;
 import com.grupo8.sugestordecurso.data.models.Evento;
 import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.RespostaUser;
 import com.grupo8.sugestordecurso.data.models.User;
 
 import retrofit2.Call;
@@ -21,7 +22,7 @@ public interface APIRubeus {
 
     // Busca por um usuário já cadastrado (Login)
     @POST("api/Contato/dadosPessoas")
-    Call<RespostaCadastro> buscarUser(@Body User user);
+    Call<RespostaUser> buscarUser(@Body User user);
 
     // Evento de nota de matématica
     @POST("api/Evento/cadastro")

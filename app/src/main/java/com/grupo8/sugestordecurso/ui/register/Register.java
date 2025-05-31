@@ -1,24 +1,13 @@
 package com.grupo8.sugestordecurso.ui.register;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
-import com.grupo8.sugestordecurso.data.api.APIClient;
-import com.grupo8.sugestordecurso.data.api.APIRubeus;
 import com.grupo8.sugestordecurso.data.models.Contato;
-import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
-import com.grupo8.sugestordecurso.data.repository.ContatoRepository;
-import com.grupo8.sugestordecurso.ui.userPage.UserPage;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Register extends AppCompatActivity {
 
