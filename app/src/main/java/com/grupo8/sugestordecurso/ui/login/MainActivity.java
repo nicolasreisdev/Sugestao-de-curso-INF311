@@ -2,6 +2,7 @@ package com.grupo8.sugestordecurso.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         TextInputEditText editTextCPF = findViewById(R.id.userCPF);
         TextInputEditText editTextSenha = findViewById(R.id.userSenha);
         user.setCPF(editTextCPF.getText().toString());
+        Log.i("API Test", "Passei");
 
         // Cria conexão com APIRubeus
         RequestRepository contatoRepository = new RequestRepository();
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(it);
         }
         else{
+            Log.i("API Test", "Error");
             //exibe mensagem de erro
         }
 
