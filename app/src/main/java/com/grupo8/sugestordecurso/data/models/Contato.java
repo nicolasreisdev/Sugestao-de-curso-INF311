@@ -4,19 +4,11 @@ import java.io.Serializable;
 
 public class Contato implements Serializable {
     private String nome;
-    private String email;
-    private String telefone;
-    private String nascimento;
-    private String sexo;
-    private String curso;
+    private String nomeSocial;
+    private String emailPrincipal;
+    private String telefonePrincipal;
+    private String dataNascimento;
     private String cpf;
-    private String cidade;
-    private String estado;
-    private String cep;
-    private String endereco;
-    private String numero;
-    private String bairro;
-    private String senha;
     private static final Integer origem = 7; // Código do canal
     private static final String token = "f2240ed12dca63c0a425f028cd88500e"; // Token da API
 
@@ -28,6 +20,38 @@ public class Contato implements Serializable {
         this.nome = nome;
     }
 
+    public String getNomeSocial() {
+        return nomeSocial;
+    }
+
+    public void setNomeSocial(String nomeSocial) {
+        this.nomeSocial = nomeSocial;
+    }
+
+    public String getEmailPrincipal() {
+        return emailPrincipal;
+    }
+
+    public void setEmailPrincipal(String emailPrincipal) {
+        this.emailPrincipal = emailPrincipal;
+    }
+
+    public String getTelefonePrincipal() {
+        return telefonePrincipal;
+    }
+
+    public void setTelefonePrincipal(String telefonePrincipal) {
+        this.telefonePrincipal = telefonePrincipal;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
     public String getCpf() {
         return cpf;
     }
@@ -35,46 +59,5 @@ public class Contato implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getNascimento() {
-        return nascimento;
-    }
-
-    public void setNascimento(String nascimento) {
-        this.nascimento = nascimento;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public Integer getOrigem() {
-        return origem;
-    }
-    
-    public String getToken() {
-        return token;
-    }
-
 }
 

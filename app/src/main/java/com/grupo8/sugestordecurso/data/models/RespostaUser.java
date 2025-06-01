@@ -1,8 +1,10 @@
 package com.grupo8.sugestordecurso.data.models;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
-class Dados{
+class Dados {
     private int id;
     private String nome;
 
@@ -23,10 +25,9 @@ class Dados{
     }
 }
 
-
 public class RespostaUser {
     private boolean success;
-    private List<Dados> dados;
+    private ArrayList<Dados> dados;
 
     public boolean isSuccess() {
         return success;
@@ -36,11 +37,11 @@ public class RespostaUser {
         this.success = success;
     }
 
-    public void setDados(List<Dados> dados) {
+    public void setDados(ArrayList<Dados> dados) {
         this.dados = dados;
     }
 
-    public List<Dados> getDados() {
-        return dados;
+    public String getDadosName() {
+        return dados.get(0).getNome();
     }
 }

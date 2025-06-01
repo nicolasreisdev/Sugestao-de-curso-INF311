@@ -19,5 +19,4 @@ public class RespostaCadastro {
         this.id = dados;
     }
 
-
 }

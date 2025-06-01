@@ -9,11 +9,11 @@ import com.grupo8.sugestordecurso.data.api.APIClient;
 import com.grupo8.sugestordecurso.data.api.APIRubeus;
 import com.grupo8.sugestordecurso.data.models.Contato;
 import com.grupo8.sugestordecurso.data.models.Evento;
+import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.models.RespostaUser;
 import com.grupo8.sugestordecurso.data.models.User;
-
-import java.util.List;
+import com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,23 +27,20 @@ public class RequestRepository {
     }
 
     //LiveData<RespostaCadastro>
-    public RespostaCadastro cadastrarContato(Contato contato) {
-
-        RespostaCadastro data = new RespostaCadastro();
-        data.setSuccess(false);
+    public void cadastrarContato(Contato contato, final ContatoCallback callback) {
         Call<RespostaCadastro> callCadastro = rubeus.cadastrarContato(contato);
         callCadastro.enqueue(new Callback<RespostaCadastro>() {
             @Override
             public void onResponse(Call<RespostaCadastro> call, Response<RespostaCadastro> response) {
 
-                if(response.isSuccessful()){ // accepted 200
-                    RespostaCadastro aux = response.body(); // recebe o retorno da requisição
-                    data.setSuccess(aux.isSuccess());
-                    data.setDados(aux.getDados());
-                    Log.i("API", "Requisição feita com sucesso e retornado os dados" );
+                if(response.isSuccessful() && response.body() != null && response.body().isSuccess()){ // accepted 200
+                    Log.i("API Test", "200 OK Cadastro");
+                    callback.onSuccess(response.body());
+                    Log.i("API Test", "Requisição feita com sucesso e retornado o id: " + response.body().getDados() );
                 }
                 else{ // error 400
-                    Log.i("API", "Error 400");
+
+                    Log.i("API Test", "Error 400" + response.body());
                 }
             }
 
@@ -53,80 +50,32 @@ public class RequestRepository {
             }
         });
 
-        return data;
-
-        /*
-        MutableLiveData<RespostaCadastro> data = new MutableLiveData<>();
-        // Envia chamada
-        rubeus.cadastrarContato(contato).enqueue(new Callback<RespostaCadastro>() {
-            @Override
-            public void onResponse(Call<RespostaCadastro> call, Response<RespostaCadastro> response) {
-                RespostaCadastro resposta = response.body();
-                if (resposta.isSuccess()) { // caso o contato seja cadastrado
-                    data.setValue(resposta);
-                } else { // erro no cadastro
-                    data.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RespostaCadastro> call, Throwable t) {
-                data.setValue(null);
-            }
-        });
-
-        return data; // retorna o LiveData*/
     }
 
     // LiveData<RespostaCadastro>
-    public RespostaUser buscarUser(User user){
-        RespostaUser data = new RespostaUser();
-        data.setSuccess(false);
+    public void buscarUser(User user, final UserCallback callback){
         Call<RespostaUser> callLogin = rubeus.buscarUser(user);
         callLogin.enqueue(new Callback<RespostaUser>() {
             @Override
             public void onResponse(Call<RespostaUser> call, Response<RespostaUser> response) {
 
-                if(response.isSuccessful()){ // accepted 200
-                    RespostaUser aux = response.body(); // recebe o retorno da requisição
-                    data.setSuccess(aux.isSuccess());
-                    data.setDados(aux.getDados());
-                    Log.i("API", "Requisição feita com sucesso e retornado os dados" );
+                if(response.isSuccessful() && response.body() != null && response.body().isSuccess()){ // accepted 200
+                    Log.i("API Teste", "200 OK Login");
+                    callback.onSuccess(response.body());
+                    Log.i("API Teste", "Requisição feita com sucesso e retornado os dados: " + response.body().getDadosName());
                 }
                 else{ // error 400
-                    Log.i("API", "Error 400");
+                    Log.i("API Teste", "Error 400");
+                    callback.onError("Error");
                 }
             }
 
             @Override
             public void onFailure(Call<RespostaUser> call, Throwable t) {
-                Log.i("API", t.toString());
+                Log.i("API Teste", t.toString());
             }
         });
 
-        return data;
-
-        /*
-        MutableLiveData<RespostaCadastro> data = new MutableLiveData<>();
-        // Envia chamada
-        rubeus.buscarUser(user).enqueue(new Callback<RespostaCadastro>() {
-            @Override
-            public void onResponse(Call<RespostaCadastro> call, Response<RespostaCadastro> response) {
-                RespostaCadastro resposta = response.body();
-                if (resposta.isSuccess()) { // caso o contato seja cadastrado
-                    data.setValue(resposta);
-                } else { // erro no cadastro
-                    data.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RespostaCadastro> call, Throwable t) {
-                data.setValue(null);
-            }
-        });
-
-        return data; // retorna o LiveData */
     }
 
     public LiveData<RespostaCadastro> eventoNotaMatematica(Evento evento){
