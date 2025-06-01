@@ -11,6 +11,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.RespostaUser;
 import com.grupo8.sugestordecurso.data.models.User;
+import com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.register.Register;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
@@ -29,22 +30,26 @@ public class MainActivity extends AppCompatActivity {
         TextInputEditText editTextCPF = findViewById(R.id.userCPF);
         TextInputEditText editTextSenha = findViewById(R.id.userSenha);
         user.setCPF(editTextCPF.getText().toString());
-        Log.i("API Test", "Passei");
+        Log.i("API Teste", "Passei");
 
         // Cria conexão com APIRubeus
         RequestRepository contatoRepository = new RequestRepository();
         // Envia chamada
-        RespostaUser response = contatoRepository.buscarUser(user);
+        contatoRepository.buscarUser(user, new UserCallback() {
+            @Override
+            public void onSuccess(RespostaUser response) {
+                Log.i("API Teste", "Navegando para a tela do usuário");
+                //navega para a página do usuário
 
-        if(response.isSuccess()){
-            //navega para a página do usuário
-            Intent it = new Intent(MainActivity.this, UserPage.class);
-            startActivity(it);
-        }
-        else{
-            Log.i("API Test", "Error");
-            //exibe mensagem de erro
-        }
+                Intent it = new Intent(MainActivity.this, UserPage.class);
+                startActivity(it);
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                Log.i("API Test", "Error");
+            }
+        });
 
     }
 

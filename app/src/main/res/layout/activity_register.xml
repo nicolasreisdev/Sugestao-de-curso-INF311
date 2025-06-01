@@ -23,16 +23,29 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoCPF"
+        android:id="@+id/CampoNomeSocial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/NomeSocial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NomeSocial"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/CampoEmail"
         android:layout_width="match_parent"
         android:layout_marginTop="15dp"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/CPF"
+            android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/CPF"
-            android:inputType="number"/>
+            android:hint="@string/Email"
+            android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -50,19 +63,6 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoEmail"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Email"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/CampoData"
         android:layout_width="match_parent"
         android:layout_marginTop="15dp"
@@ -76,17 +76,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoSenha"
+        android:id="@+id/CampoCPF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Senha"
+            android:id="@+id/CPF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Senha"
-            android:inputType="textPassword"/>
+            android:hint="@string/CPF"
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/BtCadastro"

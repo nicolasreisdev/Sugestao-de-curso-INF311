@@ -33,5 +33,6 @@
     <string name="ConfigGeraisDoApp">Configurações gerais do aplicativo</string>
     <string name="AnaliseHistorico">Analise seu histórico de sugestões de curso</string>
     <string name="AtualizarNotas">Atualizar Dados de Notas</string>
+    <string name="NomeSocial">Nome Social</string>
 
 </resources>
