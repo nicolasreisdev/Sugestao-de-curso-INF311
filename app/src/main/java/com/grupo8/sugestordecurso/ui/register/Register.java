@@ -18,7 +18,6 @@ import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
-import com.redmadrobot.inputmask.MaskedTextChangedListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -131,12 +130,16 @@ public class Register extends AppCompatActivity {
         contato = new Contato();
         // Recebe os dados
         /* FORMATO DOS DADOS
-        "nome": "TesteAPI",
-        "nomeSocial": "Teste",
-        "dataNascimento": "2006-10-14",
-        "telefonePrincipal": "+55 (38) 99979-7178",
-        "emailPrincipal": "grupo8@gmail.com",
-        "cpf": "910.108.870-09"
+        {
+            "nome": "TesteAPI",
+            "nomeSocial": "Teste",
+            "dataNascimento": "2024-12-31",
+            "emailPrincipal": "grupo8@gmail.com",
+            "telefonePrincipal": "38999999999",
+            "cpf": "333.333.333-33",
+            "origem": 7,
+            "token": "f2240ed12dca63c0a425f028cd88500e"
+        }
         */
         TextInputEditText editTextNome = findViewById(R.id.Nome);
         TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
@@ -150,7 +153,7 @@ public class Register extends AppCompatActivity {
         contato.setTelefonePrincipal(editTextTelefone.getText().toString());
         contato.setEmailPrincipal(editTextEmail.getText().toString());
         contato.setDataNascimento(editTextNascimento.getText().toString());
-
+        Log.i("API Teste", "CPF: " + contato.getCpf());
         // Cria conexão com APIRubeus
         RequestRepository contatoRepository = new RequestRepository();
         // Envia chamada

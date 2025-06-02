@@ -18,5 +18,4 @@ public class RespostaCadastro {
     public void setDados(int dados){
         this.id = dados;
     }
-
 }

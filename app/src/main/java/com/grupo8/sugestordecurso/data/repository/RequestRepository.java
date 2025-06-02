@@ -28,25 +28,25 @@ public class RequestRepository {
 
     //LiveData<RespostaCadastro>
     public void cadastrarContato(Contato contato, final ContatoCallback callback) {
+        Log.i("API Teste", "Chamada da requisição");
         Call<RespostaCadastro> callCadastro = rubeus.cadastrarContato(contato);
         callCadastro.enqueue(new Callback<RespostaCadastro>() {
             @Override
             public void onResponse(Call<RespostaCadastro> call, Response<RespostaCadastro> response) {
 
                 if(response.isSuccessful() && response.body() != null && response.body().isSuccess()){ // accepted 200
-                    Log.i("API Test", "200 OK Cadastro");
+                    Log.i("API Teste", "200 OK Cadastro");
                     callback.onSuccess(response.body());
-                    Log.i("API Test", "Requisição feita com sucesso e retornado o id: " + response.body().getDados() );
+                    Log.i("API Teste", "Requisição feita com sucesso e retornado o id: " + response.body().getDados() );
                 }
                 else{ // error 400
-
-                    Log.i("API Test", "Error 400" + response.body());
+                    Log.i("API Teste", "Error:  " + response);
                 }
             }
 
             @Override
             public void onFailure(Call<RespostaCadastro> call, Throwable t) {
-                Log.i("API", t.toString());
+                Log.i("API Teste", t.toString());
             }
         });
 
