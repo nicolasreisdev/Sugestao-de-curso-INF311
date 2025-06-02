@@ -1,105 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
     android:background="@color/primary"
-    >
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoNome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/NomeCompleto"
-            android:inputType="text"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoNomeSocial"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NomeSocial"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:background="@color/primary"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CampoNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/NomeCompleto"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CampoNomeSocial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/NomeSocial"
-            android:inputType="text"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="15dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/NomeSocial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/NomeSocial"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoEmail"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Email"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CampoEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Email"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Email"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoTelefone"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Telefone"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CampoTelefone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Telefone"
-            android:inputType="phone"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Telefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Telefone"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoData"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Nascimento"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CampoData"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/DataN"
-            android:inputType="date"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Nascimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/DataN"
+                android:inputType="date"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoCPF"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/CPF"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CampoCPF"
             android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CPF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/CPF"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/BtCadastro"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/CPF"
-            android:inputType="number"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="24dp"
+            android:text="@string/BotaoCadastro"
+            android:textColor="@color/black"
+            android:onClick="onClickRegister"
+            style="@style/Widget.Custom.RoundedButton"/>
 
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/BtCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/BotaoCadastro"
-        android:textColor="@color/black"
-        android:onClick="onClickRegister"
-        style="@style/Widget.Custom.RoundedButton"/>
-
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

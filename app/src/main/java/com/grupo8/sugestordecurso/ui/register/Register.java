@@ -2,9 +2,13 @@ package com.grupo8.sugestordecurso.ui.register;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -14,14 +18,112 @@ import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
+import com.redmadrobot.inputmask.MaskedTextChangedListener;
+
+import org.jetbrains.annotations.NotNull;
+
 
 public class Register extends AppCompatActivity {
 
     private Contato contato;
+    private TextInputEditText editTextCPF;
+    private TextInputEditText editTextTelefone;
+    private TextInputEditText editTextData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        editTextCPF = findViewById(R.id.CPF);
+        editTextTelefone = findViewById(R.id.Telefone);
+        editTextData = findViewById(R.id.Nascimento);
+
+        //cria uma mascara dinamicamente para que o input do usuario tenha formato xxx.xxx.xxx-xx
+        editTextCPF.addTextChangedListener(new TextWatcher() {
+            boolean isUpdating;
+            String oldText = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String str = s.toString().replaceAll("[^\\d]", "");
+
+                if (isUpdating) {
+                    oldText = str;
+                    isUpdating = false;
+                    return;
+                }
+
+                StringBuilder formatted = new StringBuilder();
+
+                int len = str.length();
+
+                if (len > 0) {
+                    for (int i = 0; i < len && i < 11; i++) {
+                        char c = str.charAt(i);
+                        if (i == 3 || i == 6) {
+                            formatted.append('.');
+                        } else if (i == 9) {
+                            formatted.append('-');
+                        }
+                        formatted.append(c);
+                    }
+                }
+
+                isUpdating = true;
+                editTextCPF.setText(formatted.toString());
+                editTextCPF.setSelection(formatted.length());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
+        //cria uma mascara para o input de telefone ser no formato +55 (xx) xxxxx-xxxx
+
+        //cria mascara para o input do usuario de data ser no formato YYYY-MM-DD
+        editTextData.addTextChangedListener(new TextWatcher() {
+            boolean isUpdating;
+            String oldText = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String str = s.toString().replaceAll("[^\\d]", "");
+
+                if (isUpdating) {
+                    oldText = str;
+                    isUpdating = false;
+                    return;
+                }
+
+                StringBuilder formatted = new StringBuilder();
+
+                int len = str.length();
+
+                if (len > 0) {
+                    for (int i = 0; i < len && i < 8; i++) {
+                        if (i == 4 || i == 6) {
+                            formatted.append("-");
+                        }
+                        formatted.append(str.charAt(i));
+                    }
+                }
+
+                isUpdating = true;
+                editTextData.setText(formatted.toString());
+                editTextData.setSelection(formatted.length());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
+
 
     }
 
@@ -39,9 +141,9 @@ public class Register extends AppCompatActivity {
         TextInputEditText editTextNome = findViewById(R.id.Nome);
         TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
         TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
-        TextInputEditText editTextTelefone = findViewById(R.id.Telefone);
         TextInputEditText editTextEmail = findViewById(R.id.Email);
         TextInputEditText editTextCPF = findViewById(R.id.CPF);
+
         contato.setNome(editTextNome.getText().toString());
         contato.setNomeSocial(editTextNomeSocial.getText().toString());
         contato.setCpf(editTextCPF.getText().toString());

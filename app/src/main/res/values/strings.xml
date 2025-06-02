@@ -9,7 +9,7 @@
     <string name="NomeCompleto">Nome Completo</string>
     <string name="Telefone">Telefone</string>
     <string name="Email">E-mail</string>
-    <string name="DataN">Data de Nascimento</string>
+    <string name="DataN">Data de Nascimento (YYYY-MM-DD)</string>
     <string name="ExplicaInfos">Preencha as seguintes informações em relação a suas notas para realizarmos sua predição</string>
     <string name="NotaMat">Matemática</string>
     <string name="NotaPort">Português</string>
