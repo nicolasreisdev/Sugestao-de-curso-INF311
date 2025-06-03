@@ -3,23 +3,19 @@ package com.grupo8.sugestordecurso.ui.register;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.Contato;
 import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
-import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
-
-import org.jetbrains.annotations.NotNull;
 
 
 public class Register extends AppCompatActivity {

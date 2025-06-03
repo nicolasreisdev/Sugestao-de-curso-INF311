@@ -1,4 +1,4 @@
-package com.grupo8.sugestordecurso.data.models;
+package com.grupo8.sugestordecurso.data.models.RespostasAPI;
 
 public class RespostaCadastro {
     private boolean success;

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
-import com.grupo8.sugestordecurso.data.models.RespostaUser;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;
 import com.grupo8.sugestordecurso.data.models.User;
 import com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;

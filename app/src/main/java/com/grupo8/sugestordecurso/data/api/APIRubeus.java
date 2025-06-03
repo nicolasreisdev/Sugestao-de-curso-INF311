@@ -1,9 +1,10 @@
 package com.grupo8.sugestordecurso.data.api;
 
 import com.grupo8.sugestordecurso.data.models.Contato;
-import com.grupo8.sugestordecurso.data.models.Evento;
-import com.grupo8.sugestordecurso.data.models.RespostaCadastro;
-import com.grupo8.sugestordecurso.data.models.RespostaUser;
+import com.grupo8.sugestordecurso.data.models.Notas;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;
 import com.grupo8.sugestordecurso.data.models.User;
 
 import retrofit2.Call;
@@ -24,21 +25,8 @@ public interface APIRubeus {
     @POST("api/Contato/dadosPessoas")
     Call<RespostaUser> buscarUser(@Body User user);
 
-    // Evento de nota de matématica
+    // Adiciona notas ao usuário
     @POST("api/Evento/cadastro")
-    Call<RespostaCadastro> eventoNotaMatematica(@Body Evento evento);
-
-    // Evento de nota de história
-    @POST("api/Evento/cadastro")
-    Call<RespostaCadastro> eventoNotaHistoria(@Body Evento evento);
-
-    // Evento de nota de geografia
-    @POST("api/Evento/cadastro")
-    Call<RespostaCadastro> eventoNotaGeografia(@Body Evento evento);
-
-    // Evento de nota de biologia
-    @POST("api/Evento/cadastro")
-    Call<RespostaCadastro> eventoNotaBiologia(@Body Evento evento);
-
+    Call<RespostaAddNotas> adicionarNotas(@Body Notas notas);
 
 }

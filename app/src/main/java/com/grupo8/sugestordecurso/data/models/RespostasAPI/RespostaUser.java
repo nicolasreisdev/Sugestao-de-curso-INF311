@@ -1,10 +1,9 @@
-package com.grupo8.sugestordecurso.data.models;
+package com.grupo8.sugestordecurso.data.models.RespostasAPI;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
-class Dados {
+class DadosUser {
     private int id;
     private String nome;
 
@@ -27,7 +26,7 @@ class Dados {
 
 public class RespostaUser {
     private boolean success;
-    private ArrayList<Dados> dados;
+    private ArrayList<DadosUser> dados;
 
     public boolean isSuccess() {
         return success;
@@ -37,7 +36,7 @@ public class RespostaUser {
         this.success = success;
     }
 
-    public void setDados(ArrayList<Dados> dados) {
+    public void setDados(ArrayList<DadosUser> dados) {
         this.dados = dados;
     }
 
