@@ -1,6 +1,5 @@
 package com.grupo8.sugestordecurso.ui.profile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.ui.base.Base;
 
-public class Profile extends Activity {
+public class Profile extends Base {
 
     LinearLayout menuNotas, menuHistorico, menuDados, menuConfigs;
 
@@ -23,9 +23,7 @@ public class Profile extends Activity {
         TextView textNome = findViewById(R.id.TextNomeSobrenome);
 
         menuNotas = findViewById(R.id.MenuNotas);
-        menuHistorico = findViewById(R.id.MenuHistorico);
         menuDados = findViewById(R.id.MenuDadosPessoais);
-        menuConfigs = findViewById(R.id.MenuConfigs);
 
         //setar o nome e imagem de acordo com o usuário
 
@@ -61,5 +59,8 @@ public class Profile extends Activity {
                 //startActivity(it);
             }
         });
+
+        setupBottomNavigation(R.id.nav_profile);
     }
+
 }
