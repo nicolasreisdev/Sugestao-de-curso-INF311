@@ -3,7 +3,7 @@ package com.grupo8.sugestordecurso.data.models.Utils;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private String nome;
+    private String nome = "Teste";
     private String nomeSocial;
     private int id;
 

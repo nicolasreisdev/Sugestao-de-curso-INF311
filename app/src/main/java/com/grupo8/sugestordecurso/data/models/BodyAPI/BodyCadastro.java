@@ -1,6 +1,6 @@
 package com.grupo8.sugestordecurso.data.models.BodyAPI;
 
-import java.io.Serializable;
+import com.google.gson.annotations.SerializedName;
 
 public class BodyCadastro{
     private String nome;
@@ -9,9 +9,8 @@ public class BodyCadastro{
     private String emailPrincipal;
     private String telefonePrincipal;
     private String cpf;
-    private final int origem = 7; // Código do canal
-    private final String token = "f2240ed12dca63c0a425f028cd88500e"; // Token da API
-
+    private int origem = 7;
+    private String token = "f2240ed12dca63c0a425f028cd88500e"; // Token da API
 
     public String getNome() {
         return nome;

@@ -12,7 +12,7 @@ import com.grupo8.sugestordecurso.ui.base.Base;
 
 public class Profile extends Base {
 
-    LinearLayout menuNotas, menuHistorico, menuDados, menuConfigs;
+    LinearLayout menuNotas, menuDados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +36,6 @@ public class Profile extends Base {
             }
         });
 
-        menuHistorico.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                //Intent it = new Intent(Profile.this, .class);
-                //startActivity(it);
-            }
-        });
-
         menuDados.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -52,13 +44,6 @@ public class Profile extends Base {
             }
         });
 
-        menuConfigs.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                //Intent it = new Intent(Profile.this, .class);
-                //startActivity(it);
-            }
-        });
 
         setupBottomNavigation(R.id.nav_profile);
     }

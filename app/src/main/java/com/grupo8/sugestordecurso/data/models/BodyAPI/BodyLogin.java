@@ -1,6 +1,5 @@
 package com.grupo8.sugestordecurso.data.models.BodyAPI;
 
-import java.io.Serializable;
 
 public class BodyLogin {
     private String cpf;

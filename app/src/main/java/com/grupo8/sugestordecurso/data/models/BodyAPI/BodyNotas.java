@@ -1,7 +1,9 @@
 package com.grupo8.sugestordecurso.data.models.BodyAPI;
 
 
-import java.util.List;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 class Pessoa{
     private int id;
@@ -10,107 +12,73 @@ class Pessoa{
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-}
-
-class Nota{
-    private double nota;
-
-    public double getNota() {
-        return nota;
-    }
-
-    public void setNota(double nota) {
-        this.nota = nota;
+    public void setId(int ID) {
+        Log.i("API Teste", "Cheguei 2");
+        this.id = ID;
     }
 }
 
 class campoPersonalizados{
-    private List<Nota> campopersonalizado_6_compl_proc;
-    private List<Nota> campopersonalizado_7_compl_proc;
-    private List<Nota> campopersonalizado_8_compl_proc;
-    private List<Nota> campopersonalizado_9_compl_proc;
-    private List<Nota> campopersonalizado_10_compl_proc;
-    private List<Nota> campopersonalizado_11_compl_proc;
-    private List<Nota> campopersonalizado_12_compl_proc;
-    private List<Nota> campopersonalizado_13_compl_proc;
-    private List<Nota> campopersonalizado_14_compl_proc;
-    private List<Nota> campopersonalizado_15_compl_proc;
-    private List<Nota> campopersonalizado_16_compl_proc;
-    private List<Nota> campopersonalizado_17_compl_proc;
+    private ArrayList<Double> campopersonalizado_6_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_7_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_8_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_9_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_10_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_11_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_12_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_13_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_14_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_15_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_16_compl_proc = new ArrayList<>();
+    private ArrayList<Double> campopersonalizado_17_compl_proc = new ArrayList<>();
+
 
     public void setCampopersonalizado_6_compl_proc(double notaMatematica) {
-        Nota nota1 = new Nota();
-        nota1.setNota(notaMatematica);
-        this.campopersonalizado_6_compl_proc.add(nota1);
+        this.campopersonalizado_6_compl_proc.add(notaMatematica);
     }
 
     public void setCampopersonalizado_7_compl_proc(double notaPortugues) {
-        Nota nota2 = new Nota();
-        nota2.setNota(notaPortugues);
-        this.campopersonalizado_7_compl_proc.add(nota2);
+        this.campopersonalizado_7_compl_proc.add(notaPortugues);
     }
 
     public void setCampopersonalizado_8_compl_proc(double notaLiteratura) {
-        Nota nota3 = new Nota();
-        nota3.setNota(notaLiteratura);
-        this.campopersonalizado_8_compl_proc.add(nota3);
+        this.campopersonalizado_8_compl_proc.add(notaLiteratura);
     }
 
     public void setCampopersonalizado_9_compl_proc(double notaRedacao) {
-        Nota nota4 = new Nota();
-        nota4.setNota(notaRedacao);
-        this.campopersonalizado_9_compl_proc.add(nota4);
+        this.campopersonalizado_9_compl_proc.add(notaRedacao);
     }
 
     public void setCampopersonalizado_10_compl_proc(double notaQuimica) {
-        Nota nota5 = new Nota();
-        nota5.setNota(notaQuimica);
-        this.campopersonalizado_10_compl_proc.add(nota5);
+        this.campopersonalizado_10_compl_proc.add(notaQuimica);
     }
 
     public void setCampopersonalizado_11_compl_proc(double notaFisica) {
-        Nota nota6 = new Nota();
-        nota6.setNota(notaFisica);
-        this.campopersonalizado_11_compl_proc.add(nota6);
+        this.campopersonalizado_11_compl_proc.add(notaFisica);
     }
 
     public void setCampopersonalizado_12_compl_proc(double notaBiologia) {
-        Nota nota7 = new Nota();
-        nota7.setNota(notaBiologia);
-        this.campopersonalizado_12_compl_proc.add(nota7);
+        this.campopersonalizado_12_compl_proc.add(notaBiologia);
     }
 
     public void setCampopersonalizado_13_compl_proc(double notaGeografia) {
-        Nota nota8 = new Nota();
-        nota8.setNota(notaGeografia);
-        this.campopersonalizado_13_compl_proc.add(nota8);
+        this.campopersonalizado_13_compl_proc.add(notaGeografia);
     }
 
     public void setCampopersonalizado_14_compl_proc(double notaHistoria) {
-        Nota nota9 = new Nota();
-        nota9.setNota(notaHistoria);
-        this.campopersonalizado_14_compl_proc.add(nota9);
+        this.campopersonalizado_14_compl_proc.add(notaHistoria);
     }
 
     public void setCampopersonalizado_15_compl_proc(double notaFilosofia) {
-        Nota nota10 = new Nota();
-        nota10.setNota(notaFilosofia);
-        this.campopersonalizado_15_compl_proc.add(nota10);
+        this.campopersonalizado_15_compl_proc.add(notaFilosofia);
     }
 
     public void setCampopersonalizado_16_compl_proc(double notaSociologia) {
-        Nota nota11 = new Nota();
-        nota11.setNota(notaSociologia);
-        this.campopersonalizado_16_compl_proc.add(nota11);
+        this.campopersonalizado_16_compl_proc.add(notaSociologia);
     }
 
     public void setCampopersonalizado_17_compl_proc(double notaArtes) {
-        Nota nota12 = new Nota();
-        nota12.setNota(notaArtes);
-        this.campopersonalizado_17_compl_proc.add(nota12);
+        this.campopersonalizado_17_compl_proc.add(notaArtes);
     }
 }
 
@@ -118,48 +86,54 @@ class campoPersonalizados{
 public class BodyNotas {
     private int tipo = 104; // canal API para o Fluxo de Automação
     private Pessoa pessoa;
-    private campoPersonalizados camposNotas;
-    private static final int origem = 7;
-    private static final String token = "f2240ed12dca63c0a425f028cd88500e";
+    private campoPersonalizados camposPersonalizados;
+    private int origem = 7;
+    private String token = "f2240ed12dca63c0a425f028cd88500e";
+
+    public BodyNotas(){
+        pessoa = new Pessoa();
+        camposPersonalizados = new campoPersonalizados();
+    }
 
     public void setMatematica(double nota){
-        this.camposNotas.setCampopersonalizado_6_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_6_compl_proc(nota);
     }
     public void setPortugues(double nota){
-        this.camposNotas.setCampopersonalizado_7_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_7_compl_proc(nota);
     }
     public void setLiteratura(double nota){
-        this.camposNotas.setCampopersonalizado_8_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_8_compl_proc(nota);
     }
     public void setRedacao(double nota){
-        this.camposNotas.setCampopersonalizado_9_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_9_compl_proc(nota);
     }
     public void setQuimica(double nota){
-        this.camposNotas.setCampopersonalizado_10_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_10_compl_proc(nota);
     }
     public void setFisica(double nota){
-        this.camposNotas.setCampopersonalizado_11_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_11_compl_proc(nota);
     }
     public void setBiologia(double nota){
-        this.camposNotas.setCampopersonalizado_12_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_12_compl_proc(nota);
     }
     public void setGeografia(double nota){
-        this.camposNotas.setCampopersonalizado_13_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_13_compl_proc(nota);
     }
     public void setHistoria(double nota){
-        this.camposNotas.setCampopersonalizado_14_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_14_compl_proc(nota);
     }
     public void setFilosofia(double nota){
-        this.camposNotas.setCampopersonalizado_15_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_15_compl_proc(nota);
     }
     public void setSociologia(double nota){
-        this.camposNotas.setCampopersonalizado_16_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_16_compl_proc(nota);
     }
     public void setArtes(double nota){
-        this.camposNotas.setCampopersonalizado_17_compl_proc(nota);
+        this.camposPersonalizados.setCampopersonalizado_17_compl_proc(nota);
     }
 
     public void setPessoa(int id) {
+        Log.i("API Teste", "Cheguei 1");
         this.pessoa.setId(id);
     }
 }

@@ -3,6 +3,7 @@ package com.grupo8.sugestordecurso.data.repository;
 import android.util.Log;
 
 
+import com.google.gson.Gson;
 import com.grupo8.sugestordecurso.data.api.APIClient;
 import com.grupo8.sugestordecurso.data.api.APIRubeus;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
@@ -37,10 +38,9 @@ public class RequestRepository {
                 if(response.isSuccessful() && response.body() != null && response.body().isSuccess()){ // accepted 200
                     Log.i("API Teste", "200 OK Cadastro");
                     callback.onSuccess(response.body());
-                    Log.i("API Teste", "Requisição feita com sucesso e retornado o id: " + response.body().getDados() );
                 }
                 else{ // error 400
-                    Log.i("API Teste", "Error:  " + response);
+                    Log.i("API Teste", "Error:  " + response.body());
                 }
             }
 
@@ -80,15 +80,17 @@ public class RequestRepository {
 
     // Requisição para adicionar notas ao usuário
     public void adicionarNotas(BodyNotas notas, final NotasCallback callback){
+        Log.i("API Teste", "Requisição de notas");
         Call<RespostaAddNotas> callNotas = rubeus.adicionarNotas(notas);
         callNotas.enqueue(new Callback<RespostaAddNotas>() {
             @Override
             public void onResponse(Call<RespostaAddNotas> call, Response<RespostaAddNotas> response) {
-                if(response.isSuccessful() && response.body() != null && response.body().isSuccess()) { // accepted 200
+                if(response.isSuccessful()) { // accepted 200
+                    callback.onSuccess(response.body());
                     Log.i("API Teste", "200 OK Notas");
                 }
                 else{ // Error
-
+                    Log.i("API Teste", "Error " + response.body());
                 }
             }
 

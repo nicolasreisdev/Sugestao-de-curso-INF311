@@ -2,7 +2,7 @@ package com.grupo8.sugestordecurso.data.models.RespostasAPI;
 
 public class RespostaCadastro {
     private boolean success;
-    private int id;
+    private int dados;
 
     public boolean isSuccess(){
         return success;
@@ -12,10 +12,10 @@ public class RespostaCadastro {
     }
 
     public int getDados(){
-        return id;
+        return dados;
     }
 
     public void setDados(int dados){
-        this.id = dados;
+        this.dados = dados;
     }
 }

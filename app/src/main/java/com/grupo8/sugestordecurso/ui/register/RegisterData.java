@@ -3,6 +3,7 @@ package com.grupo8.sugestordecurso.ui.register;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -25,7 +26,7 @@ public class RegisterData extends Activity {
         setContentView(R.layout.activity_register_data);
 
         user = (User) getIntent().getSerializableExtra("user");
-
+        Log.i("API Teste", "ID Register Data: " + user.getId());
         //Spinner com as opções pré-determinadas de áreas de preferencia
         Spinner spinner = findViewById(R.id.Pref);
 
@@ -44,6 +45,7 @@ public class RegisterData extends Activity {
 
     public void onClickRegister2(View v){
         //tratamento da api
+        Log.i("API Teste", "Iniciando cadastro dos dados");
         TextInputEditText editTextMatematica = findViewById(R.id.NotaMat);
         TextInputEditText editTextPortugues = findViewById(R.id.NotaPort);
         TextInputEditText editTextLiteratura = findViewById(R.id.NotaLit);
@@ -56,6 +58,7 @@ public class RegisterData extends Activity {
         TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);
         TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
         TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
+        Log.i("API Teste", "Convertendo dados para double");
         double notaMatematica = Double.parseDouble(editTextMatematica.getText().toString());
         double notaPortugues = Double.parseDouble(editTextPortugues.getText().toString());
         double notaLiteratura = Double.parseDouble(editTextLiteratura.getText().toString());
@@ -68,11 +71,15 @@ public class RegisterData extends Activity {
         double notaRedacao = Double.parseDouble(editTextRedacao.getText().toString());
         double notaSociologia = Double.parseDouble(editTextSociologia.getText().toString());
         double notaArtes = Double.parseDouble(editTextArtes.getText().toString());
+        Log.i("API Teste", "Criando BodyNotas");
 
         BodyNotas notas = new BodyNotas();
 
+        Log.i("API Teste", "Passando id");
         // id do usuário
         notas.setPessoa(user.getId());
+
+        Log.i("API Teste", "Passando notas");
         // notas do usuário
         notas.setMatematica(notaMatematica);
         notas.setPortugues(notaPortugues);
@@ -86,6 +93,7 @@ public class RegisterData extends Activity {
         notas.setRedacao(notaRedacao);
         notas.setSociologia(notaSociologia);
         notas.setArtes(notaArtes);
+        Log.i("API Teste", "Iniciando requisição");
         RequestRepository notasRepository = new RequestRepository();
 
         notasRepository.adicionarNotas(notas, new NotasCallback() {
@@ -98,7 +106,7 @@ public class RegisterData extends Activity {
 
             @Override
             public void onError(String errorMessage) {
-
+                Log.i("API Teste", "Error");
             }
         });
 
