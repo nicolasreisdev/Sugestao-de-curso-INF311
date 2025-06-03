@@ -7,7 +7,7 @@ class DadosNotas {
 
 public class RespostaAddNotas {
     private boolean success;
-    private ArrayList<DadosUser> dados;
+    private DadosNotas dados;
 
     public boolean isSuccess() {
         return success;

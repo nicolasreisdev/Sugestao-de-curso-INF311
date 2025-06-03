@@ -12,15 +12,19 @@ import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
+import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.profile.Profile;
+import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 public class RegisterData extends Activity {
-
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_data);
+
+        user = (User) getIntent().getSerializableExtra("user");
 
         //Spinner com as opções pré-determinadas de áreas de preferencia
         Spinner spinner = findViewById(R.id.Pref);
@@ -67,6 +71,9 @@ public class RegisterData extends Activity {
 
         BodyNotas notas = new BodyNotas();
 
+        // id do usuário
+        notas.setPessoa(user.getId());
+        // notas do usuário
         notas.setMatematica(notaMatematica);
         notas.setPortugues(notaPortugues);
         notas.setLiteratura(notaLiteratura);
@@ -83,8 +90,10 @@ public class RegisterData extends Activity {
 
         notasRepository.adicionarNotas(notas, new NotasCallback() {
             @Override
-            public void onSuccess(RespostaAddNotas response) {
-
+            public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
+                Intent it = new Intent(RegisterData.this, UserPage.class);
+                it.putExtra("user", user);
+                startActivity(it);
             }
 
             @Override

@@ -62,7 +62,7 @@ public class RequestRepository {
                 if(response.isSuccessful() && response.body() != null && response.body().isSuccess()){ // accepted 200
                     Log.i("API Teste", "200 OK Login");
                     callback.onSuccess(response.body());
-                    Log.i("API Teste", "Requisição feita com sucesso e retornado os dados: " + response.body().getDadosName());
+                    //Log.i("API Teste", "Requisição feita com sucesso e retornado os dados: " + response.body().getDadosNome());
                 }
                 else{ // error 400
                     Log.i("API Teste", "Error 400");

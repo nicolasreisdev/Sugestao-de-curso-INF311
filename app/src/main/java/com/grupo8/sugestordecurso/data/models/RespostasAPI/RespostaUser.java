@@ -6,9 +6,14 @@ import java.util.ArrayList;
 class DadosUser {
     private int id;
     private String nome;
+    private String nomeSocial;
 
     public int getId() {
         return id;
+    }
+
+    public String getNomeSocial() {
+        return nomeSocial;
     }
 
     public void setId(int id) {
@@ -36,11 +41,11 @@ public class RespostaUser {
         this.success = success;
     }
 
-    public void setDados(ArrayList<DadosUser> dados) {
-        this.dados = dados;
-    }
-
-    public String getDadosName() {
+    public String getDadosNome() {
         return dados.get(0).getNome();
     }
+
+    public String getDadosNomeSocial() { return dados.get(0).getNomeSocial(); }
+
+    public int getDadosID(){ return dados.get(0).getId(); }
 }
