@@ -11,16 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
-import com.grupo8.sugestordecurso.data.models.Contato;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
-import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 
 public class Register extends AppCompatActivity {
 
-    private Contato contato;
+    private BodyCadastro contato;
     private TextInputEditText editTextCPF;
     private TextInputEditText editTextTelefone;
     private TextInputEditText editTextData;
@@ -123,7 +123,7 @@ public class Register extends AppCompatActivity {
     }
 
     public void onClickRegister(View v){
-        contato = new Contato();
+        contato = new BodyCadastro();
         // Recebe os dados
         /* FORMATO DOS DADOS
         {
@@ -149,16 +149,19 @@ public class Register extends AppCompatActivity {
         contato.setTelefonePrincipal(editTextTelefone.getText().toString());
         contato.setEmailPrincipal(editTextEmail.getText().toString());
         contato.setDataNascimento(editTextNascimento.getText().toString());
-        Log.i("API Teste", "CPF: " + contato.getCpf());
         // Cria conexão com APIRubeus
         RequestRepository contatoRepository = new RequestRepository();
         // Envia chamada
         contatoRepository.cadastrarContato(contato, new ContatoCallback() {
             @Override
             public void onSuccess(RespostaCadastro response) {
-                Log.i("API Teste", "Navegando para a tela do usuário");
+                Log.i("API Teste", "Navegando para a tela de cadastro de notas");
+                User user = new User();
+                user.setId(response.getDados());
+
                 //navega para a página do usuário
                 Intent it = new Intent(Register.this, RegisterData.class);
+                it.putExtra("user", user);
                 startActivity(it);
             }
 

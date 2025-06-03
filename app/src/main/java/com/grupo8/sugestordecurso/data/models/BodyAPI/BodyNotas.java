@@ -1,4 +1,4 @@
-package com.grupo8.sugestordecurso.data.models;
+package com.grupo8.sugestordecurso.data.models.BodyAPI;
 
 
 import java.util.List;
@@ -115,7 +115,7 @@ class campoPersonalizados{
 }
 
 
-public class Notas {
+public class BodyNotas {
     private int tipo = 104; // canal API para o Fluxo de Automação
     private Pessoa pessoa;
     private campoPersonalizados camposNotas;

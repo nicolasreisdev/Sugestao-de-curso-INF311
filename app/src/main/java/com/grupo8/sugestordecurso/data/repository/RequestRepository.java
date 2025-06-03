@@ -5,14 +5,14 @@ import android.util.Log;
 
 import com.grupo8.sugestordecurso.data.api.APIClient;
 import com.grupo8.sugestordecurso.data.api.APIRubeus;
-import com.grupo8.sugestordecurso.data.models.Contato;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;
-import com.grupo8.sugestordecurso.data.models.Notas;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;
-import com.grupo8.sugestordecurso.data.models.User;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyLogin;
 import com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;
 
 import retrofit2.Call;
@@ -27,7 +27,7 @@ public class RequestRepository {
     }
 
     // Requisição para cadastro de novo contato
-    public void cadastrarContato(Contato contato, final ContatoCallback callback) {
+    public void cadastrarContato(BodyCadastro contato, final ContatoCallback callback) {
         Log.i("API Teste", "Chamada da requisição");
         Call<RespostaCadastro> callCadastro = rubeus.cadastrarContato(contato);
         callCadastro.enqueue(new Callback<RespostaCadastro>() {
@@ -53,7 +53,7 @@ public class RequestRepository {
     }
 
     // Requisição para buscar usuário já cadastrado
-    public void buscarUser(User user, final UserCallback callback){
+    public void buscarUser(BodyLogin user, final UserCallback callback){
         Call<RespostaUser> callLogin = rubeus.buscarUser(user);
         callLogin.enqueue(new Callback<RespostaUser>() {
             @Override
@@ -79,7 +79,7 @@ public class RequestRepository {
     }
 
     // Requisição para adicionar notas ao usuário
-    public void adicionarNotas(Notas notas, final NotasCallback callback){
+    public void adicionarNotas(BodyNotas notas, final NotasCallback callback){
         Call<RespostaAddNotas> callNotas = rubeus.adicionarNotas(notas);
         callNotas.enqueue(new Callback<RespostaAddNotas>() {
             @Override

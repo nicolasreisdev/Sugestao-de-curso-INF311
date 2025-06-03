@@ -1,8 +1,8 @@
-package com.grupo8.sugestordecurso.data.models;
+package com.grupo8.sugestordecurso.data.models.BodyAPI;
 
 import java.io.Serializable;
 
-public class Contato implements Serializable {
+public class BodyCadastro{
     private String nome;
     private String nomeSocial;
     private String dataNascimento;
