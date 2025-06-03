@@ -158,7 +158,7 @@ public class Register extends AppCompatActivity {
             public void onSuccess(RespostaCadastro response) {
                 Log.i("API Teste", "Navegando para a tela do usuário");
                 //navega para a página do usuário
-                Intent it = new Intent(Register.this, UserPage.class);
+                Intent it = new Intent(Register.this, RegisterData.class);
                 startActivity(it);
             }
 
