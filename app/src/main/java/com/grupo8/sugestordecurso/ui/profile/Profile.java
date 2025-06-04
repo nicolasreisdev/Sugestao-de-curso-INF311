@@ -19,6 +19,8 @@ public class Profile extends Base {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        setupBottomNavigation(R.id.nav_profile);
+
         ImageView imagemPerfil = findViewById(R.id.ImagemPerfil);
         TextView textNome = findViewById(R.id.TextNomeSobrenome);
 
@@ -44,8 +46,6 @@ public class Profile extends Base {
             }
         });
 
-
-        setupBottomNavigation(R.id.nav_profile);
     }
 
 }

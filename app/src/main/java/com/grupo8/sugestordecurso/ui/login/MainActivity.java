@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickLogin(View v){
         TextInputEditText editTextCPF = findViewById(R.id.userCPF);
-        TextInputEditText editTextSenha = findViewById(R.id.userSenha);
         bodyUser.setCPF(editTextCPF.getText().toString());
         Log.i("API Teste", "Passei");
 
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(RespostaUser response) {
                 Log.i("API Teste", "Navegando para a tela do usuário");
                 //navega para a página do usuário
-                User user = new User();
+                User user = User.getInstance();
                 user.setId(response.getDadosID());
                 user.setNome(response.getDadosNome());
                 user.setNomeSocial(response.getDadosNomeSocial());

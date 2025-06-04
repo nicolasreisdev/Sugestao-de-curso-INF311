@@ -3,6 +3,17 @@ package com.grupo8.sugestordecurso.data.models.Utils;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
+    private static User instance;
+
+    private User() {};
+
+    public static synchronized User getInstance() {
+        if (instance == null) {
+            instance = new User();
+        }
+        return instance;
+    }
     private String nome = "Teste";
     private String nomeSocial;
     private int id;

@@ -100,6 +100,7 @@ public class RegisterData extends Activity {
             @Override
             public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
                 Intent it = new Intent(RegisterData.this, UserPage.class);
+                Log.i("Nav","Indo de cadastro para userpage");
                 it.putExtra("user", user);
                 startActivity(it);
             }
@@ -110,10 +111,5 @@ public class RegisterData extends Activity {
             }
         });
 
-
-
-        //navega para a área do usuário
-        Intent it = new Intent(RegisterData.this, Profile.class);
-        startActivity(it);
     }
 }

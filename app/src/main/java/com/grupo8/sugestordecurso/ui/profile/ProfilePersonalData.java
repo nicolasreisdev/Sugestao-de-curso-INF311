@@ -11,7 +11,7 @@ import com.grupo8.sugestordecurso.R;
 
 public class ProfilePersonalData extends Activity {
     //editTexts com os dados do usuário passíveis de serem alterados
-    EditText edtNome, edtEmail, edtTelefone, edtCPF, edtDataN, edtSenha;
+    EditText edtNome, edtEmail, edtTelefone, edtCPF, edtDataN;
     Button buttonSalvar;
 
     @Override
@@ -24,7 +24,6 @@ public class ProfilePersonalData extends Activity {
         edtTelefone = findViewById(R.id.Telefone);
         edtCPF = findViewById(R.id.CPF);
         edtDataN = findViewById(R.id.Nascimento);
-        edtSenha = findViewById(R.id.Senha);
 
         buttonSalvar = findViewById(R.id.BtSalvar);
 
@@ -35,7 +34,6 @@ public class ProfilePersonalData extends Activity {
         edtTelefone.setText(e);
         edtCPF.setText(e);
         edtDataN.setText(e);
-        edtSenha.setText(e);
 
     }
 

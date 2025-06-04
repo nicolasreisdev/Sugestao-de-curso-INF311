@@ -21,24 +21,10 @@
             android:layout_height="wrap_content"
             android:hint="@string/CPF"
             android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CampoSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:hintTextColor="@color/black"
-
-        android:layout_marginTop="8dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userSenha"
-            android:layout_width="match_parent"
-            android:textColorHint="@color/black"
-            android:layout_height="wrap_content"
-            android:hint="@string/Senha"
-            android:inputType="textPassword"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/BtLogin"

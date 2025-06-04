@@ -4,37 +4,50 @@ import android.content.Intent;
 
 import com.grupo8.sugestordecurso.R;
 import android.app.Activity;
+import android.util.Log;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.ui.historico.Historico;
 import com.grupo8.sugestordecurso.ui.profile.Profile;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 public abstract class Base extends Activity {
 
+    protected User user = User.getInstance();
+
     protected void setupBottomNavigation(int selectedItemId) {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
         bottomNav.setSelectedItemId(selectedItemId); // marca o item atual como ativo
+        Log.i("Nav","na Base");
 
         bottomNav.setOnItemSelectedListener(item -> {
             if (item.getItemId() == selectedItemId) {
+                Log.i("Nav","na tela");
                 return true; // já está na tela atual
             }
 
-            Intent intent = null;
+            Intent it = null;
             int id = item.getItemId();
 
             if (id == R.id.nav_home) {
-                intent = new Intent(this, UserPage.class);
+                it = new Intent(this, UserPage.class);
+                Log.i("Nav","Indo para userpage");
             } else if (id == R.id.nav_historico) {
-                intent = new Intent(this, Historico.class);
+                it = new Intent(this, Historico.class);
+                Log.i("Nav","Indo para historico");
             } else if (id == R.id.nav_profile) {
-                intent = new Intent(this, Profile.class);
+                it = new Intent(this, Profile.class);
+                Log.i("Nav","Indo para profile");
             }
 
-            if (intent != null) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+            if (it != null) {
+                Log.i("Nav","startar activity");
+                if (user != null) {
+                    it.putExtra("user", user); // reenviando o objeto user
+                }
+                startActivity(it);
                 overridePendingTransition(0, 0);
                 finish();
                 return true;

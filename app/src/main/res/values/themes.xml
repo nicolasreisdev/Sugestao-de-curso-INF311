@@ -7,6 +7,7 @@
         <item name="colorSecondary">#2a058c</item>
         <item name="colorOnBackground">#139796</item>
         <item name="android:windowBackground">#cde0ff</item>
+        <item name="android:textColorPrimary">#000000</item>
     </style>
 
     <style name="Widget.Custom.RoundedButton" parent="Widget.Material3.Button">

@@ -26,18 +26,22 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNome"
             android:layout_width="match_parent"
+            app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NomeCompleto"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoCPF"
             android:layout_width="match_parent"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
@@ -47,6 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/CPF"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,12 +60,15 @@
             android:id="@+id/CampoTelefone"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
+            app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Telefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Telefone"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,6 +76,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoEmail"
             android:layout_width="match_parent"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
@@ -74,12 +84,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Email"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoData"
             android:layout_width="match_parent"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
@@ -87,21 +100,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/DataN"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="date"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CampoSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Senha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Senha"
-                android:inputType="textPassword"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/BtSalvar"

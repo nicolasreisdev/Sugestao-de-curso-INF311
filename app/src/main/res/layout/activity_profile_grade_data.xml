@@ -26,12 +26,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaMat"
             android:layout_width="match_parent"
+            app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaMat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaMat"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -39,12 +42,15 @@
             android:id="@+id/CampoNotaPort"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
+            app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaPort"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaPort"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,12 +58,15 @@
             android:id="@+id/CampoNotaRed"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
+            app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaRed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaRed"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,12 +75,15 @@
             android:id="@+id/CampoNotaLit"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
+            app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaLit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaLit"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,12 +91,15 @@
             android:id="@+id/CampoNotaQuim"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
+            app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaQuim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaQuim"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,12 +107,15 @@
             android:id="@+id/CampoNotaFis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaFis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaFis"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,12 +123,15 @@
             android:id="@+id/CampoNotaBio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaBio"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,12 +139,15 @@
             android:id="@+id/CampoNotaGeo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaGeo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaGeo"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,12 +155,15 @@
             android:id="@+id/CampoNotaHist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaHist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaHist"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,12 +171,15 @@
             android:id="@+id/CampoNotaFilo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaFilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaFilo"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -157,12 +187,15 @@
             android:id="@+id/CampoNotaSocio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaSocio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaSocio"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,12 +203,15 @@
             android:id="@+id/CampoNotaArte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaArte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/NotaArte"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -18,12 +18,12 @@ public class UserPage extends Base {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_page);
+        Log.i("Nav","Pagina user");
 
         setupBottomNavigation(R.id.nav_home);
         user = (User)getIntent().getSerializableExtra("user");
 
         TextView nome = findViewById(R.id.Name);
-        nome.setText("OI");
         Log.i("API Teste", "Nome: " + user.getNomeSocial());
         nome.setText(user.getNome());
 

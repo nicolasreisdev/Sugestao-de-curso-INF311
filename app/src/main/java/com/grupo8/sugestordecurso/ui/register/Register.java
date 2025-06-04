@@ -156,7 +156,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onSuccess(RespostaCadastro response) {
                 Log.i("API Teste", "Navegando para a tela de cadastro de notas");
-                User user = new User();
+                User user = User.getInstance();
                 user.setId(response.getDados());
                 Log.i("API Teste", "ID: " + user.getId());
                 //navega para a página do usuário
