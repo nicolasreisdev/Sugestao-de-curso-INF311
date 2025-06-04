@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/primary"
+    android:background="@color/background"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_marginTop="80dp"
@@ -12,11 +12,11 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="24dp"
-        android:background="@color/primary"
         >
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNome"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
@@ -32,6 +32,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNomeSocial"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content"
@@ -48,6 +49,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoEmail"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"
@@ -64,6 +66,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoTelefone"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -81,6 +84,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoData"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -97,6 +101,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoCPF"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"

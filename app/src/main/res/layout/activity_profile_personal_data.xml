@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/background"
     android:padding="16dp">
 
     <LinearLayout
@@ -27,6 +27,7 @@
             android:id="@+id/CampoNome"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
+            style="@style/TextInputLayout"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Nome"
@@ -40,12 +41,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoCPF"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/CPF"
+                style="@style/TextInputLayout"
                 android:clickable="false"
                 android:focusable="false"
                 android:layout_width="match_parent"
@@ -58,6 +61,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoTelefone"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -75,6 +79,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoEmail"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"
@@ -91,6 +96,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoData"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/background"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,7 +11,6 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:padding="24dp"
-        android:background="@color/primary"
         >
 
         <TextView
@@ -25,6 +25,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaMat"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
@@ -40,6 +41,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaPort"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -56,6 +58,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaRed"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -73,6 +76,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaLit"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -89,6 +93,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaQuim"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -105,6 +110,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaFis"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -121,6 +127,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaBio"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -137,6 +144,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaGeo"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -153,6 +161,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaHist"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -169,6 +178,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaFilo"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -185,6 +195,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaSocio"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -201,6 +212,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaArte"
+            style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"

@@ -17,7 +17,25 @@
         <item name="android:paddingLeft">24dp</item>
         <item name="android:paddingRight">24dp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="backgroundTint">@color/background</item>
+        <item name="backgroundTint">@color/secondary</item>
+    </style>
+    
+    <style name="TextInputLayout">
+        <item name="hintTextColor">@color/black</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeWidthFocused">3dp</item>
+        <item name="boxStrokeColor">@color/custom_outline_color</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+    </style>
+
+    <style name="CustomNavBar">
+        <item name="android:background">@color/NavBar</item>
+        <item name="itemIconTint">@color/nav_item_color</item>
+        <item name="itemTextColor">@color/nav_item_color</item>
     </style>
 
     <style name="Theme.SugestorDeCurso" parent="Base.Theme.SugestorDeCurso" />
