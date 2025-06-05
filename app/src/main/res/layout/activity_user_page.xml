@@ -6,20 +6,133 @@
     android:background="@color/background"
     android:layout_width="match_parent">
 
-    <LinearLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".CursosActivity">
 
-    <TextView
-        android:id="@+id/Name"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textViewTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sugestões de Cursos"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"/>
+
+        <FrameLayout
+            android:layout_marginTop="100dp"
+            android:id="@+id/frameLayoutChartContainer"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/textViewTitulo"
+            android:layout_centerHorizontal="true">
+
+            <com.grupo8.sugestordecurso.data.models.Utils.HalfPieChartView
+                android:id="@+id/halfPieChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutLegenda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/frameLayoutChartContainer"
+            android:layout_marginTop="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <View
+                    android:id="@+id/colorCurso1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="#FF6384" /> <TextView
+                android:id="@+id/textViewCurso1Nome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Curso A:"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textViewCurso1Prob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <View
+                    android:id="@+id/colorCurso2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="#36A2EB" /> <TextView
+                android:id="@+id/textViewCurso2Nome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Curso B:"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textViewCurso2Prob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <View
+                    android:id="@+id/colorCurso3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="#FFCE56" /> <TextView
+                android:id="@+id/textViewCurso3Nome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Curso C:"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textViewCurso3Prob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
