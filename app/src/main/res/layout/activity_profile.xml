@@ -74,7 +74,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/circle_background"
+                    android:src="@drawable/icon_nota"
                     android:layout_marginEnd="12dp"
                     app:tint="#000" />
 
@@ -116,7 +116,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/circle_background"
+                    android:src="@drawable/icon_perfil"
                     android:layout_marginEnd="12dp"
                     app:tint="#000" />
 
@@ -156,5 +156,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemBackground="@drawable/bottom_nav_item_selector"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

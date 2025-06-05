@@ -36,7 +36,10 @@
         <item name="android:background">@color/NavBar</item>
         <item name="itemIconTint">@color/nav_item_color</item>
         <item name="itemTextColor">@color/nav_item_color</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemBackground">@drawable/bottom_nav_item_selector</item>
     </style>
+
 
     <style name="Theme.SugestorDeCurso" parent="Base.Theme.SugestorDeCurso" />
 </resources>

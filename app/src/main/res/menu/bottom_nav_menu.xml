@@ -1,14 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_historico"
-        android:icon="@drawable/circle_background"
+        android:icon="@drawable/icon_historico"
+        android:iconTint="@color/nav_item_color"
         android:title="Histórico" />
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/circle_background"
+        android:icon="@drawable/icon_home"
+        android:iconTint="@color/nav_item_color"
         android:title="Início" />
     <item
         android:id="@+id/nav_profile"
-        android:icon="@drawable/circle_background"
+        android:icon="@drawable/icon_perfil"
+        android:iconTint="@color/nav_item_color"
         android:title="Perfil" />
 </menu>
