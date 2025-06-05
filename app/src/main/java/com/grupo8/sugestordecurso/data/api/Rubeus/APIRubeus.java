@@ -1,4 +1,4 @@
-package com.grupo8.sugestordecurso.data.api;
+package com.grupo8.sugestordecurso.data.api.Rubeus;
 
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;

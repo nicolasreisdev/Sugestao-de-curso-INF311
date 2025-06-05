@@ -3,9 +3,8 @@ package com.grupo8.sugestordecurso.data.repository;
 import android.util.Log;
 
 
-import com.google.gson.Gson;
-import com.grupo8.sugestordecurso.data.api.APIClient;
-import com.grupo8.sugestordecurso.data.api.APIRubeus;
+import com.grupo8.sugestordecurso.data.api.Rubeus.APIClient;
+import com.grupo8.sugestordecurso.data.api.Rubeus.APIRubeus;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;

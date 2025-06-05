@@ -1,4 +1,4 @@
-package com.grupo8.sugestordecurso.data.api;
+package com.grupo8.sugestordecurso.data.api.Rubeus;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
