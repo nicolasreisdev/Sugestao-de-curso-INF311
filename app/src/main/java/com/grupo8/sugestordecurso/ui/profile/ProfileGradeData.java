@@ -38,7 +38,7 @@ public class ProfileGradeData extends Activity {
         edtArtes = findViewById(R.id.NotaArte);
 
         //colocar os dados do aluno retirados da api da rubeus
-        String e = "etc";
+        String e = "90";
         edtMat.setText(e);
         edtPort.setText(e);
         edtLit.setText(e);

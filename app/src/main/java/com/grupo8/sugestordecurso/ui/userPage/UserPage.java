@@ -79,6 +79,14 @@ public class UserPage extends Base {
         atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
 
         //pega dados de tendência do mercado na área escolhida pelo usuário
+        String nomeCurso1T = "Engenharia de Software";
+        float probCurso1T = 0.50f; // 50%
+
+        String nomeCurso2T = "Ciência de Dados";
+        float probCurso2T = 0.30f; // 30%
+
+        String nomeCurso3T = "Design UX/UI";
+        float probCurso3T = 0.20f; // 20%
 
         //atualiza o grafico com esses dados
         //atualizarInformacoesCursosT(nomeCurso1T, probCurso1T, nomeCurso2T, probCurso2T, nomeCurso3T, probCurso3T);

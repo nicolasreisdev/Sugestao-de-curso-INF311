@@ -28,12 +28,16 @@ public class ProfilePersonalData extends Activity {
         buttonSalvar = findViewById(R.id.BtSalvar);
 
         //colocar os dados do aluno retirados da api da rubeus
-        String e = "ble";
-        edtNome.setText(e);
-        edtEmail.setText(e);
-        edtTelefone.setText(e);
-        edtCPF.setText(e);
-        edtDataN.setText(e);
+        String nome = "Pedro Silva";
+        String email = "pedro@email.com";
+        String telefone = "+55 38 94444-4444";
+        String cpf = "211.227.986-60";
+        String data = "21/07/2000";
+        edtNome.setText(nome);
+        edtEmail.setText(email);
+        edtTelefone.setText(telefone);
+        edtCPF.setText(cpf);
+        edtDataN.setText(data);
 
     }
 

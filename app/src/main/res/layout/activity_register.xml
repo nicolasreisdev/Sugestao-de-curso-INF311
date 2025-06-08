@@ -4,7 +4,6 @@
     android:background="@color/background"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_marginTop="80dp"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +12,14 @@
         android:gravity="center"
         android:padding="24dp"
         >
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNome"

@@ -139,7 +139,7 @@
                 android:id="@+id/textViewTituloT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sugestões de Cursos Baseados na Tendência de Mercado"
+                android:text="Tendência do Mercado"
                 android:textSize="24sp"
                 android:textColor="@color/black"
                 android:layout_below="@id/linearLayoutLegenda"
@@ -148,27 +148,27 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="24dp"/>
 
-            <FrameLayout
-                android:layout_marginTop="50dp"
-                android:id="@+id/frameLayoutChartContainerT"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_below="@id/textViewTituloT"
-                android:layout_centerHorizontal="true">
+<!--            <FrameLayout-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:id="@+id/frameLayoutChartContainerT"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_below="@id/textViewTituloT"-->
+<!--                android:layout_centerHorizontal="true">-->
 
-                <com.grupo8.sugestordecurso.data.models.Utils.HalfPieChartView
-                    android:id="@+id/halfPieChartT"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+<!--                <com.grupo8.sugestordecurso.data.models.Utils.HalfPieChartView-->
+<!--                    android:id="@+id/halfPieChartT"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent" />-->
 
-            </FrameLayout>
+<!--            </FrameLayout>-->
 
             <LinearLayout
                 android:id="@+id/linearLayoutLegendaT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_below="@id/frameLayoutChartContainerT"
+                android:layout_below="@id/textViewTituloT"
                 android:layout_marginTop="24dp">
 
                 <LinearLayout
