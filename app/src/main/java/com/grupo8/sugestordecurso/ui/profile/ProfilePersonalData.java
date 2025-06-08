@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.data.models.Utils.User;
 
 public class ProfilePersonalData extends Activity {
     //editTexts com os dados do usuário passíveis de serem alterados
@@ -27,17 +28,23 @@ public class ProfilePersonalData extends Activity {
 
         buttonSalvar = findViewById(R.id.BtSalvar);
 
+
+
+
         //colocar os dados do aluno retirados da api da rubeus
+        /*
         String nome = "Pedro Silva";
         String email = "pedro@email.com";
         String telefone = "+55 38 94444-4444";
         String cpf = "211.227.986-60";
         String data = "21/07/2000";
-        edtNome.setText(nome);
-        edtEmail.setText(email);
-        edtTelefone.setText(telefone);
-        edtCPF.setText(cpf);
-        edtDataN.setText(data);
+        */
+        User user = User.getInstance();
+        edtNome.setText(user.getNome());
+        edtEmail.setText(user.getEmail());
+        edtTelefone.setText(user.getTelefone());
+        edtCPF.setText(user.getCpf());
+        edtDataN.setText(user.getDataNascimento());
 
     }
 

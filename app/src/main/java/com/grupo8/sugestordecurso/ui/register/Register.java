@@ -158,6 +158,12 @@ public class Register extends AppCompatActivity {
                 Log.i("API Teste", "Navegando para a tela de cadastro de notas");
                 User user = User.getInstance();
                 user.setId(response.getDados());
+                user.setNome(contato.getNome());
+                user.setNomeSocial(contato.getNomeSocial());
+                user.setEmail(contato.getEmailPrincipal());
+                user.setTelefone(contato.getTelefonePrincipal());
+                user.setCpf(contato.getCpf());
+                user.setDataNascimento(contato.getDataNascimento());
                 Log.i("API Teste", "ID: " + user.getId());
                 //navega para a página do usuário
                 Intent it = new Intent(Register.this, RegisterData.class);

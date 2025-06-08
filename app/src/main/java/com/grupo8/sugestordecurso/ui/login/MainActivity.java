@@ -44,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 user.setId(response.getDadosID());
                 user.setNome(response.getDadosNome());
                 user.setNomeSocial(response.getDadosNomeSocial());
+                user.setCpf(response.getDadosCPF());
+                user.setDataNascimento(response.getDadosNascimento());
+                user.setEmail(response.getDadosEmail());
+                user.setTelefone(response.getDadosTelefone());
                 Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
                 Intent it = new Intent(MainActivity.this, UserPage.class);
                 it.putExtra("user", user);

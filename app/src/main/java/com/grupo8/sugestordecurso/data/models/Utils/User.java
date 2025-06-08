@@ -14,9 +14,45 @@ public class User implements Serializable {
         }
         return instance;
     }
-    private String nome = "Teste";
+    private String nome;
     private String nomeSocial;
+    private String email;
+    private String telefone;
+    private String cpf;
+    private String dataNascimento;
     private int id;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
     public String getNome() {
         return nome;
