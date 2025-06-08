@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.ui.base.Base;
 
 public class Profile extends Base {
-
     LinearLayout menuNotas, menuDados;
 
     @Override
@@ -23,6 +23,10 @@ public class Profile extends Base {
 
         ImageView imagemPerfil = findViewById(R.id.ImagemPerfil);
         TextView textNome = findViewById(R.id.TextNomeSobrenome);
+
+        String nome = User.getInstance().getNomeSocial();
+
+        textNome.setText(nome);
 
         menuNotas = findViewById(R.id.MenuNotas);
         menuDados = findViewById(R.id.MenuDadosPessoais);

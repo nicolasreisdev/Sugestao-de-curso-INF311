@@ -33,7 +33,7 @@ public class UserPage extends Base {
         user = (User)getIntent().getSerializableExtra("user");
 
         halfPieChart = findViewById(R.id.halfPieChart);
-        halfPieChartTend = findViewById(R.id.halfPieChartT);
+        //halfPieChartTend = findViewById(R.id.halfPieChartT);
 
         // settar as prbabilidades de cada curso retornado pelo modelo e as cores usadas
         textViewCurso1Nome = findViewById(R.id.textViewCurso1Nome);
