@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.Utils.HalfPieChartView;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
+import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.base.Base;
 
 public class UserPage extends Base {
@@ -71,6 +72,10 @@ public class UserPage extends Base {
         float probCurso3 = 0.20f; // 20%
 
         // atualiza a UI com os dados
+        /*RequestRepository sugestaoRepository = new RequestRepository();
+
+        sugestaoRepository.obterSugestoes();*/
+
         atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
 
         //pega dados de tendência do mercado na área escolhida pelo usuário
