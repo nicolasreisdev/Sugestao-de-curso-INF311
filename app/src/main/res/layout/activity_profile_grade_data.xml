@@ -15,6 +15,7 @@
 
         <TextView
             android:id="@+id/infos"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Atualizar Dados de Notas"
