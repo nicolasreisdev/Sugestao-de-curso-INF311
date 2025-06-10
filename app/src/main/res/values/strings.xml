@@ -34,5 +34,10 @@
     <string name="AnaliseHistorico">Analise seu histórico de sugestões de curso</string>
     <string name="AtualizarNotas">Atualizar Dados de Notas</string>
     <string name="NomeSocial">Nome Social</string>
+    <string name="descricao_imagem_usuario">Imagem do Usuario</string>
+    <string name="titulo_aluno">Aluno de xxxxx xxxx xxxxxxxxxxx</string>
+    <string name="icone_notas">Icone_notas</string>
+    <string name="icone_dados">Icone_dados</string>
+    <string name="sugestoes_de_cursos">Sugestões de Cursos</string>
 
 </resources>

@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <ScrollView
         android:layout_width="match_parent"
         android:background="@color/background"
         android:layout_height="match_parent">
@@ -28,6 +27,7 @@
                     android:layout_height="64dp"
                     android:id="@+id/ImagemPerfil"
                     android:background="@drawable/circle_background"
+                    android:contentDescription="@string/descricao_imagem_usuario"
                     android:scaleType="centerCrop"
                     android:layout_marginEnd="12dp" />
 
@@ -48,7 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/TextDescricao"
-                        android:text="Aluno de xxxxx xxxx xxxxxxxxxxx"
+                        android:text="@string/titulo_aluno"
                         android:textSize="14sp"
                         android:textColor="#666" />
                 </LinearLayout>
@@ -74,6 +74,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="@string/icone_notas"
                     android:src="@drawable/icon_nota"
                     android:layout_marginEnd="12dp"
                     app:tint="#000" />
@@ -116,6 +117,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="@string/icone_dados"
                     android:src="@drawable/icon_perfil"
                     android:layout_marginEnd="12dp"
                     app:tint="#000" />
