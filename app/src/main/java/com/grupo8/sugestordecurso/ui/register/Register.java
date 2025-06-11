@@ -76,8 +76,6 @@ public class Register extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
-        //cria uma mascara para o input de telefone ser no formato +55 (xx) xxxxx-xxxx
-
         //cria mascara para o input do usuario de data ser no formato YYYY-MM-DD
         editTextData.addTextChangedListener(new TextWatcher() {
             boolean isUpdating;

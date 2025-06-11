@@ -2,6 +2,8 @@ package com.grupo8.sugestordecurso.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 
@@ -19,16 +21,61 @@ import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 public class MainActivity extends AppCompatActivity {
     private BodyLogin bodyUser = new BodyLogin();
+    private TextInputEditText editTextCPF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        editTextCPF = findViewById(R.id.userCPF);
+
+        //cria uma mascara dinamicamente para que o input do usuario tenha formato xxx.xxx.xxx-xx
+        editTextCPF.addTextChangedListener(new TextWatcher() {
+            boolean isUpdating;
+            String oldText = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String str = s.toString().replaceAll("[^\\d]", "");
+
+                if (isUpdating) {
+                    oldText = str;
+                    isUpdating = false;
+                    return;
+                }
+
+                StringBuilder formatted = new StringBuilder();
+
+                int len = str.length();
+
+                if (len > 0) {
+                    for (int i = 0; i < len && i < 11; i++) {
+                        char c = str.charAt(i);
+                        if (i == 3 || i == 6) {
+                            formatted.append('.');
+                        } else if (i == 9) {
+                            formatted.append('-');
+                        }
+                        formatted.append(c);
+                    }
+                }
+
+                isUpdating = true;
+                editTextCPF.setText(formatted.toString());
+                editTextCPF.setSelection(formatted.length());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
     }
 
     public void onClickLogin(View v){
-        TextInputEditText editTextCPF = findViewById(R.id.userCPF);
         bodyUser.setCPF(editTextCPF.getText().toString());
         Log.i("API Teste", "Passei");
 

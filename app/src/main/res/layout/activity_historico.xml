@@ -27,8 +27,10 @@
         <!-- Área com scroll abaixo do título e acima da nav -->
     <ScrollView
         android:id="@+id/scrollArea"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
         android:layout_marginTop="70dp">
 
         <LinearLayout
