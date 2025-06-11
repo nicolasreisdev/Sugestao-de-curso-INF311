@@ -22,7 +22,7 @@
             android:textSize="24sp"
             android:paddingBottom="24dp"
             android:textStyle="bold"
-            android:text="Atualizar Dados"/>
+            android:text="@string/atualizar_dados"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNome"

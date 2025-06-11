@@ -18,7 +18,7 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atualizar Dados de Notas"
+            android:text="@string/atualizar_dados_de_notas"
             android:layout_marginBottom="30dp"
             android:textStyle="bold"
             android:textSize="24sp"

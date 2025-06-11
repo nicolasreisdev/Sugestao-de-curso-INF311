@@ -39,5 +39,8 @@
     <string name="icone_notas">Icone_notas</string>
     <string name="icone_dados">Icone_dados</string>
     <string name="sugestoes_de_cursos">Sugestões de Cursos</string>
+    <string name="historico_de_sugestoes">Histórico de Sugestões</string>
+    <string name="atualizar_dados_de_notas">Atualizar Dados de Notas</string>
+    <string name="atualizar_dados">Atualizar Dados</string>
 
 </resources>

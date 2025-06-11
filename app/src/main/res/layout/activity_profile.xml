@@ -72,8 +72,8 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:contentDescription="@string/icone_notas"
                     android:src="@drawable/icon_nota"
                     android:layout_marginEnd="12dp"
@@ -115,8 +115,8 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:contentDescription="@string/icone_dados"
                     android:src="@drawable/icon_perfil"
                     android:layout_marginEnd="12dp"
@@ -155,6 +155,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         style="@style/CustomNavBar"
+        app:itemActiveIndicatorStyle="@null"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

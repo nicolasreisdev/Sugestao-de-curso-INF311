@@ -307,6 +307,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        app:itemActiveIndicatorStyle="@null"
         app:menu="@menu/bottom_nav_menu"
         app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="@color/nav_item_color"

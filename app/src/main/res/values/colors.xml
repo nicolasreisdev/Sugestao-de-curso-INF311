@@ -2,8 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#e1eded</color>
+    <color name="background">#edf0f5</color>
     <color name="primary">#bff9ff</color>
     <color name="secondary">#139796</color>
-    <color name="NavBar">#b2dbd2</color>
+    <color name="NavBar">#e4f5f1</color>
 </resources>
