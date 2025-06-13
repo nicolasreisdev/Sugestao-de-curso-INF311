@@ -105,7 +105,7 @@ public class UserPage extends Base {
         textViewCurso3Prob.setText(String.format("%.0f%%", p3 * 100));
 
         // Cores para a legenda (devem corresponder às cores no HalfPieChartView ou MPAndroidChart)
-        int[] cores = {Color.parseColor("#FF6384"), Color.parseColor("#36A2EB"), Color.parseColor("#FFCE56")};
+        int[] cores = {Color.parseColor("#eb3455"), Color.parseColor("#eb34b1"), Color.parseColor("#e30733")};
         colorCurso1.setBackgroundColor(cores[0]);
         colorCurso2.setBackgroundColor(cores[1]);
         colorCurso3.setBackgroundColor(cores[2]);
@@ -146,6 +146,14 @@ public class UserPage extends Base {
         }
 
 
+    }
+
+    public void onClickAlterarPref(View v){
+        //atualiza a área de preferencia do usuario
+
+        //faz novo requisito pro modelo de ia para mudar a predição
+
+        //atualiza o grafico
     }
 
 }

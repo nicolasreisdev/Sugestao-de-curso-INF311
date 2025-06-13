@@ -84,15 +84,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickLogin(View v){
         bodyUser.setCPF(editTextCPF.getText().toString());
         Log.i("API Teste", "Passei");
-        showLoadingScreen("Logando...");
-        // Define o atraso desejado em milissegundos (ex: 1500ms = 1.5 segundos)
+        showLoadingScreen("Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
+        //define um tempo de atraso
         final long DELAY_BEFORE_API_CALL = 3000;
 
-        // Agenda a chamada da API para depois do atraso
+        //agenda a chamada da API para depois do atraso
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Este bloco de código será executado após o atraso
                 // Cria conexão com APIRubeus
                 RequestRepository contatoRepository = new RequestRepository();
                 // Envia chamada
@@ -111,20 +110,18 @@ public class MainActivity extends AppCompatActivity {
                         user.setTelefone(response.getDadosTelefone());
                         Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
 
-                        dismissLoadingScreen(); // Dispensa a tela de carregamento
+                        dismissLoadingScreen(); //dispensa a tela de carregamento
                         Intent it = new Intent(MainActivity.this, UserPage.class);
                         it.putExtra("user", user);
                         startActivity(it);
-                        // Opcional: finish() se você não quiser voltar para a tela de login
-                        // finish();
+                        finish();
                     }
 
                     @Override
                     public void onError(String errorMessage) {
                         Log.e("API Test", "Error: " + errorMessage); // Use Log.e para erros
                         dismissLoadingScreen(); // Dispensa a tela de carregamento em caso de erro
-                        // Opcional: Mostrar uma mensagem de erro ao usuário
-                        Toast.makeText(MainActivity.this, "Erro ao logar: " + errorMessage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
                     }
                 });
             }
