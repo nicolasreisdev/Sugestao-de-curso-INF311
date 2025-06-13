@@ -2,10 +2,13 @@ package com.grupo8.sugestordecurso.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,10 +19,13 @@ import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyLogin;
 import com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
+import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
 import com.grupo8.sugestordecurso.ui.register.Register;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 public class MainActivity extends AppCompatActivity {
+
+    private LoadScreen loadingDialog;
     private BodyLogin bodyUser = new BodyLogin();
     private TextInputEditText editTextCPF;
 
@@ -78,40 +84,74 @@ public class MainActivity extends AppCompatActivity {
     public void onClickLogin(View v){
         bodyUser.setCPF(editTextCPF.getText().toString());
         Log.i("API Teste", "Passei");
+        showLoadingScreen("Logando...");
+        // Define o atraso desejado em milissegundos (ex: 1500ms = 1.5 segundos)
+        final long DELAY_BEFORE_API_CALL = 3000;
 
-        // Cria conexão com APIRubeus
-        RequestRepository contatoRepository = new RequestRepository();
-        // Envia chamada
-        contatoRepository.buscarUser(bodyUser, new UserCallback() {
+        // Agenda a chamada da API para depois do atraso
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
-            public void onSuccess(RespostaUser response) {
-                Log.i("API Teste", "Navegando para a tela do usuário");
-                //navega para a página do usuário
-                User user = User.getInstance();
-                user.setId(response.getDadosID());
-                user.setNome(response.getDadosNome());
-                user.setNomeSocial(response.getDadosNomeSocial());
-                user.setCpf(response.getDadosCPF());
-                user.setDataNascimento(response.getDadosNascimento());
-                user.setEmail(response.getDadosEmail());
-                user.setTelefone(response.getDadosTelefone());
-                Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
-                Intent it = new Intent(MainActivity.this, UserPage.class);
-                it.putExtra("user", user);
-                startActivity(it);
-            }
+            public void run() {
+                // Este bloco de código será executado após o atraso
+                // Cria conexão com APIRubeus
+                RequestRepository contatoRepository = new RequestRepository();
+                // Envia chamada
+                contatoRepository.buscarUser(bodyUser, new UserCallback() {
+                    @Override
+                    public void onSuccess(RespostaUser response) {
+                        Log.i("API Teste", "Navegando para a tela do usuário");
+                        // Navega para a página do usuário
+                        User user = User.getInstance();
+                        user.setId(response.getDadosID());
+                        user.setNome(response.getDadosNome());
+                        user.setNomeSocial(response.getDadosNomeSocial());
+                        user.setCpf(response.getDadosCPF());
+                        user.setDataNascimento(response.getDadosNascimento());
+                        user.setEmail(response.getDadosEmail());
+                        user.setTelefone(response.getDadosTelefone());
+                        Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
 
-            @Override
-            public void onError(String errorMessage) {
-                Log.i("API Test", "Error");
+                        dismissLoadingScreen(); // Dispensa a tela de carregamento
+                        Intent it = new Intent(MainActivity.this, UserPage.class);
+                        it.putExtra("user", user);
+                        startActivity(it);
+                        // Opcional: finish() se você não quiser voltar para a tela de login
+                        // finish();
+                    }
+
+                    @Override
+                    public void onError(String errorMessage) {
+                        Log.e("API Test", "Error: " + errorMessage); // Use Log.e para erros
+                        dismissLoadingScreen(); // Dispensa a tela de carregamento em caso de erro
+                        // Opcional: Mostrar uma mensagem de erro ao usuário
+                        Toast.makeText(MainActivity.this, "Erro ao logar: " + errorMessage, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
-        });
+        }, DELAY_BEFORE_API_CALL);
 
     }
 
     public void goRegister(View v){
         Intent itRegister = new Intent(this, Register.class);
         startActivity(itRegister);
+    }
+
+    private void showLoadingScreen(String message) {
+        if (loadingDialog == null) {
+            loadingDialog = LoadScreen.newInstance(message);
+        }
+        // Verifica se o dialog já está sendo exibido para evitar IllegalStateException
+        if (!loadingDialog.isAdded()) {
+            loadingDialog.show(getSupportFragmentManager(), "loading_dialog");
+        }
+    }
+
+    private void dismissLoadingScreen() {
+        if (loadingDialog != null && loadingDialog.isAdded()) {
+            loadingDialog.dismiss();
+            loadingDialog = null; // Opcional: reinicia a instância para o próximo uso
+        }
     }
 
 

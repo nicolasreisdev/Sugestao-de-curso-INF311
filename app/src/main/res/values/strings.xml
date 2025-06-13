@@ -42,5 +42,7 @@
     <string name="historico_de_sugestoes">Histórico de Sugestões</string>
     <string name="atualizar_dados_de_notas">Atualizar Dados de Notas</string>
     <string name="atualizar_dados">Atualizar Dados</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
