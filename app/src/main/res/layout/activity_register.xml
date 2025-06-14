@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:layout_height="match_parent">
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:gravity="center"
         android:padding="24dp"
         >
+<!--        <ImageView-->
+<!--            android:id="@+id/logoImage"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:layout_marginBottom="24dp"-->
+<!--            android:src="@drawable/logo"-->
+<!--            android:contentDescription="@string/app_name"/>-->
 
-        <ImageView
-            android:id="@+id/logoImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/app_name"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewPerfil"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon_perfil"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="40dp"
+            android:clickable="true"
+            android:focusable="true" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNome"
