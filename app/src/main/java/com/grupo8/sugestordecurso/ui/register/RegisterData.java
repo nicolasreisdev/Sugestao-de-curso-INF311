@@ -64,6 +64,8 @@ public class RegisterData extends AppCompatActivity {
         TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);
         TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
         TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
+        Spinner spinner = findViewById(R.id.Pref);
+        String areaPreferencia = spinner.getSelectedItem().toString();
         Log.i("API Teste", "Convertendo dados para double");
         double notaMatematica = Double.parseDouble(editTextMatematica.getText().toString());
         double notaPortugues = Double.parseDouble(editTextPortugues.getText().toString());
@@ -105,6 +107,7 @@ public class RegisterData extends AppCompatActivity {
                 notas.setRedacao(notaRedacao);
                 notas.setSociologia(notaSociologia);
                 notas.setArtes(notaArtes);
+                notas.setArea(areaPreferencia);
                 Log.i("API Teste", "Iniciando requisição");
                 RequestRepository notasRepository = new RequestRepository();
 

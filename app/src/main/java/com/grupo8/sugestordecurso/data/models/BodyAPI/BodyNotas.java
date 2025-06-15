@@ -31,7 +31,15 @@ class campoPersonalizados{
     private ArrayList<Double> campopersonalizado_15_compl_proc = new ArrayList<>();
     private ArrayList<Double> campopersonalizado_16_compl_proc = new ArrayList<>();
     private ArrayList<Double> campopersonalizado_17_compl_proc = new ArrayList<>();
+    private String campopersonalizado_18_compl_proc;
 
+    public String getCampopersonalizado_18_compl_proc() {
+        return campopersonalizado_18_compl_proc;
+    }
+
+    public void setCampopersonalizado_18_compl_proc(String campopersonalizado_18_compl_proc) {
+        this.campopersonalizado_18_compl_proc = campopersonalizado_18_compl_proc;
+    }
 
     public void setCampopersonalizado_6_compl_proc(double notaMatematica) {
         this.campopersonalizado_6_compl_proc.add(notaMatematica);
@@ -130,6 +138,10 @@ public class BodyNotas {
     }
     public void setArtes(double nota){
         this.camposPersonalizados.setCampopersonalizado_17_compl_proc(nota);
+    }
+
+    public void setArea(String area){
+        this.camposPersonalizados.setCampopersonalizado_18_compl_proc(area);
     }
 
     public void setPessoa(int id) {
