@@ -3,7 +3,7 @@ package com.grupo8.sugestordecurso.data.api.Rubeus;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class APIClient {
+public class APIClientRubeus {
     private static final String BASE_URL = "https://crmufvgrupo8.apprubeus.com.br/";
     private static Retrofit retrofit = null;
 

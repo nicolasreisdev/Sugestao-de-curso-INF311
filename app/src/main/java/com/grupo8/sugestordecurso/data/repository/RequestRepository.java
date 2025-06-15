@@ -3,8 +3,9 @@ package com.grupo8.sugestordecurso.data.repository;
 import android.util.Log;
 
 
+import com.grupo8.sugestordecurso.data.api.ModeloSugestor.APIClientSugestor;
 import com.grupo8.sugestordecurso.data.api.ModeloSugestor.APISugestor;
-import com.grupo8.sugestordecurso.data.api.Rubeus.APIClient;
+import com.grupo8.sugestordecurso.data.api.Rubeus.APIClientRubeus;
 import com.grupo8.sugestordecurso.data.api.Rubeus.APIRubeus;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodySugestor;
@@ -30,8 +31,8 @@ public class RequestRepository {
     private APISugestor modelo;
 
     public RequestRepository() {
-        this.rubeus = APIClient.getClient().create(APIRubeus.class);
-        this.modelo = APIClient.getClient().create(APISugestor.class);
+        this.rubeus = APIClientRubeus.getClient().create(APIRubeus.class);
+        this.modelo = APIClientSugestor.getClient().create(APISugestor.class);
     }
 
     // Requisição para cadastro de novo contato

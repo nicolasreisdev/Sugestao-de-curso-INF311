@@ -7,7 +7,7 @@ public class RespostaSugestor {
     private String curso;
 
     @SerializedName("probabilidade_aptidao")
-    private double probabilidadeAptidao;
+    private float probabilidadeAptidao;
 
     private String area;
 
@@ -19,11 +19,11 @@ public class RespostaSugestor {
         this.curso = curso;
     }
 
-    public double getProbabilidadeAptidao() {
+    public float getProbabilidadeAptidao() {
         return probabilidadeAptidao;
     }
 
-    public void setProbabilidadeAptidao(double probabilidadeAptidao) {
+    public void setProbabilidadeAptidao(float probabilidadeAptidao) {
         this.probabilidadeAptidao = probabilidadeAptidao;
     }
 
