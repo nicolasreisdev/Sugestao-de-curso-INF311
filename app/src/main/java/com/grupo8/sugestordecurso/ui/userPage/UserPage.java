@@ -66,55 +66,7 @@ public class UserPage extends Base {
         textViewCurso3ProbT = findViewById(R.id.textViewCurso3ProbT);
         colorCurso3T = findViewById(R.id.colorCurso3T);
 
-        //dados de cursos recomendados retirados do modelo
-//        String nomeCurso1 = "Engenharia de Software";
-//        float probCurso1 = 0.50f; // 50%
-//
-//        String nomeCurso2 = "Ciência de Dados";
-//        float probCurso2 = 0.30f; // 30%
-//
-//        String nomeCurso3 = "Design UX/UI";
-//        float probCurso3 = 0.20f; // 20%
-
-
-        BodySugestor notas = new BodySugestor();
-        notas.setNotaMatematica(90);
-        notas.setNotaPortugues(90);
-        notas.setNotaLiteratura(90);
-        notas.setNotaRedacao(90);
-        notas.setNotaQuimica(90);
-        notas.setNotaFisica(90);
-        notas.setNotaBiologia(90);
-        notas.setNotaFilosofia(90);
-        notas.setNotaSociologia(90);
-        notas.setNotaGeografia(90);
-        notas.setNotaHistoria(90);
-        notas.setNotaArtes(90);
-        notas.setAreaPreferencia("Saúde");
-        // atualiza a UI com os dados
-        RequestRepository sugestaoRepository = new RequestRepository();
-
-        sugestaoRepository.obterSugestoes(notas, new SugestoesCallback() {
-            @Override
-            public void onSuccess(ArrayList<RespostaSugestor> response) {
-                Log.i("API Teste", "Predição feita com sucesso.");
-                String nomeCurso1 = response.get(0).getCurso();
-                float probCurso1 = response.get(0).getProbabilidadeAptidao();
-
-                String nomeCurso2 = response.get(1).getCurso();
-                float probCurso2 = response.get(1).getProbabilidadeAptidao();
-
-                String nomeCurso3 = response.get(1).getCurso();
-                float probCurso3 = response.get(1).getProbabilidadeAptidao();
-                atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
-            }
-
-            @Override
-            public void onError(String errorMessage) {
-                Log.i("API Teste", "Erro na predição");
-            }
-        });
-
+        requisitaModelo("Saúde");
 
         //pega dados de tendência do mercado na área escolhida pelo usuário
         String nomeCurso1T = "Engenharia de Software";
@@ -192,6 +144,47 @@ public class UserPage extends Base {
         //faz novo requisito pro modelo de ia para mudar a predição
 
         //atualiza o grafico
+    }
+
+    public void requisitaModelo(String area){
+        BodySugestor notas = new BodySugestor();
+        notas.setNotaMatematica(90);
+        notas.setNotaPortugues(90);
+        notas.setNotaLiteratura(90);
+        notas.setNotaRedacao(90);
+        notas.setNotaQuimica(90);
+        notas.setNotaFisica(90);
+        notas.setNotaBiologia(90);
+        notas.setNotaFilosofia(90);
+        notas.setNotaSociologia(90);
+        notas.setNotaGeografia(90);
+        notas.setNotaHistoria(90);
+        notas.setNotaArtes(90);
+        notas.setAreaPreferencia(area);
+        // atualiza a UI com os dados
+        RequestRepository sugestaoRepository = new RequestRepository();
+
+        sugestaoRepository.obterSugestoes(notas, new SugestoesCallback() {
+            @Override
+            public void onSuccess(ArrayList<RespostaSugestor> response) {
+                Log.i("API Teste", "Predição feita com sucesso.");
+                String nomeCurso1 = response.get(0).getCurso();
+                float probCurso1 = response.get(0).getProbabilidadeAptidao();
+
+                String nomeCurso2 = response.get(1).getCurso();
+                float probCurso2 = response.get(1).getProbabilidadeAptidao();
+
+                String nomeCurso3 = response.get(1).getCurso();
+                float probCurso3 = response.get(1).getProbabilidadeAptidao();
+                atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                Log.i("API Teste", "Erro na predição");
+            }
+        });
+
     }
 
 }
