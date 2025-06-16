@@ -36,7 +36,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNome"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
@@ -52,7 +52,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNomeSocial"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoEmail"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"
@@ -86,7 +86,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoTelefone"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -104,7 +104,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoData"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -121,7 +121,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoCPF"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_marginTop="15dp"

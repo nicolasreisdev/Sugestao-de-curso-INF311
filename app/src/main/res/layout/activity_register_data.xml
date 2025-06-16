@@ -25,7 +25,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaMat"
             android:layout_width="match_parent"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NotaMat"
@@ -41,7 +41,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaPort"
             android:layout_width="match_parent"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
@@ -59,7 +59,7 @@
             android:id="@+id/CampoNotaRed"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
@@ -77,7 +77,7 @@
             android:id="@+id/CampoNotaLit"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
@@ -92,7 +92,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaQuim"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             app:hintTextColor="@color/black"
@@ -109,7 +109,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaFis"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaBio"
             android:layout_width="match_parent"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp">
@@ -143,7 +143,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaGeo"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaHist"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -177,7 +177,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaFilo"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -194,7 +194,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaSocio"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -211,7 +211,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoNotaArte"
-            style="@style/TextInputLayout"
+            style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
             app:hintTextColor="@color/black"
             android:layout_height="wrap_content"
@@ -226,13 +226,28 @@
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Spinner
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/Pref"
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/secondary"
-            android:spinnerMode="dropdown" />
+            android:layout_marginTop="15dp"
+            android:hint="@string/area_de_preferencia"
+            app:boxStrokeColor="@color/custom_outline_color"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="3dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusBottomEnd="16dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/autocomplete"
+                android:theme="@style/NoActiveIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/BtCadastro"

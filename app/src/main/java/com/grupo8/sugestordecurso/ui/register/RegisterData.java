@@ -7,7 +7,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -36,19 +38,20 @@ public class RegisterData extends AppCompatActivity {
         user = (User) getIntent().getSerializableExtra("user");
         Log.i("API Teste", "ID Register Data: " + user.getId());
         //Spinner com as opções pré-determinadas de áreas de preferencia
-        Spinner spinner = findViewById(R.id.Pref);
+        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
 
         //define as possíveis áreas de preferencia do aluno
-        String[] prefs = {"Área de preferência","Exatas","Saúde","Humanas","Linguagens","Biológicas","Artes","Tecnologia","Comunicação"};
+        String[] prefs = {"Exatas","Saúde","Humanas","Linguagens","Biológicas","Artes","Tecnologia","Comunicação"};
 
         //cria e define o spinner
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,prefs);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                R.layout.list_item, // Layout personalizado
+                prefs
+        );
 
-        spinner.setAdapter(adapter);
+        autoCompleteTextView.setAdapter(adapter);
 
-        //para pegar a opção selecionada pelo spinner
-        //String select = spinner.getSelectedItem().tostring();
     }
 
     public void onClickRegister2(View v){
@@ -66,7 +69,7 @@ public class RegisterData extends AppCompatActivity {
         TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);
         TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
         TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
-        Spinner spinner = findViewById(R.id.Pref);
+        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
 
         String NotaMat = editTextMatematica.getText().toString();
         String NotaPort = editTextPortugues.getText().toString();
@@ -80,18 +83,18 @@ public class RegisterData extends AppCompatActivity {
         String NotaRed = editTextRedacao.getText().toString();
         String NotaSocio = editTextSociologia.getText().toString();
         String NotaArt = editTextArtes.getText().toString();
+        String areaPreferencia = autoCompleteTextView.getText().toString();
 
         //garante que todos os campos foram preenchidos, incluindo o spinner
         if(NotaMat.trim().isEmpty() || NotaPort.trim().isEmpty() || NotaLit.trim().isEmpty()
         || NotaFis.trim().isEmpty() || NotaBio.trim().isEmpty() || NotaFilo.trim().isEmpty()
         || NotaGeo.trim().isEmpty() || NotaHist.trim().isEmpty() || NotaQuim.trim().isEmpty()
         || NotaRed.trim().isEmpty() ||NotaSocio.trim().isEmpty() || NotaArt.trim().isEmpty()
-        || spinner.getSelectedItemPosition() == 0){
+        || areaPreferencia.isEmpty()){
             Toast.makeText(this,"Por favor, preencha todos os campos",Toast.LENGTH_LONG).show();
             return;
         }
 
-        String areaPreferencia = spinner.getSelectedItem().toString();
         Log.i("API Teste", "Convertendo dados para double");
         double notaMatematica = Double.parseDouble(NotaMat);
         double notaPortugues = Double.parseDouble(NotaPort);

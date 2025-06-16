@@ -21,7 +21,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/CampoCPF"
         android:layout_width="match_parent"
-        style="@style/TextInputLayout"
+        style="@style/MyCustomTextInputLayout"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/userCPF"
