@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -66,20 +67,44 @@ public class RegisterData extends AppCompatActivity {
         TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
         TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
         Spinner spinner = findViewById(R.id.Pref);
+
+        String NotaMat = editTextMatematica.getText().toString();
+        String NotaPort = editTextPortugues.getText().toString();
+        String NotaLit = editTextLiteratura.getText().toString();
+        String NotaBio = editTextBiologia.getText().toString();
+        String NotaFis = editTextFisica.getText().toString();
+        String NotaFilo = editTextFilosofia.getText().toString();
+        String NotaGeo = editTextGeografia.getText().toString();
+        String NotaHist = editTextHistoria.getText().toString();
+        String NotaQuim = editTextQuimica.getText().toString();
+        String NotaRed = editTextRedacao.getText().toString();
+        String NotaSocio = editTextSociologia.getText().toString();
+        String NotaArt = editTextArtes.getText().toString();
+
+        //garante que todos os campos foram preenchidos, incluindo o spinner
+        if(NotaMat.trim().isEmpty() || NotaPort.trim().isEmpty() || NotaLit.trim().isEmpty()
+        || NotaFis.trim().isEmpty() || NotaBio.trim().isEmpty() || NotaFilo.trim().isEmpty()
+        || NotaGeo.trim().isEmpty() || NotaHist.trim().isEmpty() || NotaQuim.trim().isEmpty()
+        || NotaRed.trim().isEmpty() ||NotaSocio.trim().isEmpty() || NotaArt.trim().isEmpty()
+        || spinner.getSelectedItemPosition() == 0){
+            Toast.makeText(this,"Por favor, preencha todos os campos",Toast.LENGTH_LONG).show();
+            return;
+        }
+
         String areaPreferencia = spinner.getSelectedItem().toString();
         Log.i("API Teste", "Convertendo dados para double");
-        double notaMatematica = Double.parseDouble(editTextMatematica.getText().toString());
-        double notaPortugues = Double.parseDouble(editTextPortugues.getText().toString());
-        double notaLiteratura = Double.parseDouble(editTextLiteratura.getText().toString());
-        double notaBiologia = Double.parseDouble(editTextBiologia.getText().toString());
-        double notaFisica = Double.parseDouble(editTextFisica.getText().toString());
-        double notaFilosofia = Double.parseDouble(editTextFilosofia.getText().toString());
-        double notaGeografia = Double.parseDouble(editTextGeografia.getText().toString());
-        double notaHistoria = Double.parseDouble(editTextHistoria.getText().toString());
-        double notaQuimica = Double.parseDouble(editTextQuimica.getText().toString());
-        double notaRedacao = Double.parseDouble(editTextRedacao.getText().toString());
-        double notaSociologia = Double.parseDouble(editTextSociologia.getText().toString());
-        double notaArtes = Double.parseDouble(editTextArtes.getText().toString());
+        double notaMatematica = Double.parseDouble(NotaMat);
+        double notaPortugues = Double.parseDouble(NotaPort);
+        double notaLiteratura = Double.parseDouble(NotaLit);
+        double notaBiologia = Double.parseDouble(NotaBio);
+        double notaFisica = Double.parseDouble(NotaFis);
+        double notaFilosofia = Double.parseDouble(NotaFilo);
+        double notaGeografia = Double.parseDouble(NotaGeo);
+        double notaHistoria = Double.parseDouble(NotaHist);
+        double notaQuimica = Double.parseDouble(NotaQuim);
+        double notaRedacao = Double.parseDouble(NotaRed);
+        double notaSociologia = Double.parseDouble(NotaSocio);
+        double notaArtes = Double.parseDouble(NotaArt);
         Log.i("API Teste", "Criando BodyNotas");
 
         BodyNotas notas = new BodyNotas();

@@ -76,7 +76,7 @@ public class UserPage extends Base {
         colorCurso3T = findViewById(R.id.colorCurso3T);
 
         //faz requisição para o modelo e atualiza grafico com as predições
-        requisitaModelo("Saúde");
+        //requisitaModelo("Saúde");
 
         //pega dados de tendência do mercado na área escolhida pelo usuário
         String nomeCurso1T = "Engenharia de Software";
@@ -104,7 +104,7 @@ public class UserPage extends Base {
         textViewCurso2Prob.setText(String.format("%.0f%%", p2 * 100));
         textViewCurso3Prob.setText(String.format("%.0f%%", p3 * 100));
 
-        // Cores para a legenda (devem corresponder às cores no HalfPieChartView ou MPAndroidChart)
+        // Cores para a legenda
         int[] cores = {Color.parseColor("#eb3455"), Color.parseColor("#eb34b1"), Color.parseColor("#e30733")};
         colorCurso1.setBackgroundColor(cores[0]);
         colorCurso2.setBackgroundColor(cores[1]);
@@ -113,9 +113,6 @@ public class UserPage extends Base {
         // Atualizar o gráfico (View Customizada)
         if (halfPieChart != null) {
             halfPieChart.setProbabilities(p1, p2, p3);
-            // Se você definiu cores na sua view customizada, elas serão usadas.
-            // Se quiser passar as cores da activity para a view:
-            // halfPieChart.setColors(new int[]{cores[0], cores[1], cores[2]}); // Você precisaria criar este método em HalfPieChartView
         }
 
 
