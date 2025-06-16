@@ -382,6 +382,24 @@ public class Register extends AppCompatActivity {
 
 
     public void onClickRegister(View v){
+        TextInputEditText editTextNome = findViewById(R.id.Nome);
+        TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
+        TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
+        TextInputEditText editTextEmail = findViewById(R.id.Email);
+        TextInputEditText editTextCPF = findViewById(R.id.CPF);
+
+        String Nome = editTextNome.getText().toString();
+        String NomeSocial = editTextNomeSocial.getText().toString();
+        String Cpf = editTextCPF.getText().toString();
+        String Telefone = editTextTelefone.getText().toString();
+        String Email = editTextEmail.getText().toString();
+        String Data = editTextNascimento.getText().toString();
+
+        if(Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()){
+            Toast.makeText(this,"Por favor, preencha todos os dados",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
         contato = new BodyCadastro();
         // Recebe os dados
@@ -397,18 +415,13 @@ public class Register extends AppCompatActivity {
             "token": "f2240ed12dca63c0a425f028cd88500e"
         }
         */
-        TextInputEditText editTextNome = findViewById(R.id.Nome);
-        TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
-        TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
-        TextInputEditText editTextEmail = findViewById(R.id.Email);
-        TextInputEditText editTextCPF = findViewById(R.id.CPF);
 
-        contato.setNome(editTextNome.getText().toString());
-        contato.setNomeSocial(editTextNomeSocial.getText().toString());
-        contato.setCpf(editTextCPF.getText().toString());
-        contato.setTelefonePrincipal(editTextTelefone.getText().toString());
-        contato.setEmailPrincipal(editTextEmail.getText().toString());
-        contato.setDataNascimento(editTextNascimento.getText().toString());
+        contato.setNome(Nome);
+        contato.setNomeSocial(NomeSocial);
+        contato.setCpf(Cpf);
+        contato.setTelefonePrincipal(Telefone);
+        contato.setEmailPrincipal(Email);
+        contato.setDataNascimento(Data);
 
         // Cria conexão com APIRubeus
         RequestRepository contatoRepository = new RequestRepository();
