@@ -25,12 +25,13 @@ import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 public class RegisterData extends AppCompatActivity {
     User user;
-    private LoadScreen loadingDialog;
+    private LoadScreen LoadScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_data);
 
+        LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
         user = (User) getIntent().getSerializableExtra("user");
         Log.i("API Teste", "ID Register Data: " + user.getId());
         //Spinner com as opções pré-determinadas de áreas de preferencia
@@ -82,9 +83,9 @@ public class RegisterData extends AppCompatActivity {
         Log.i("API Teste", "Criando BodyNotas");
 
         BodyNotas notas = new BodyNotas();
-        showLoadingScreen("Cadastrando...");
+        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando...");
 
-        final long DELAY_BEFORE_API_CALL = 3000;
+        final long DELAY_BEFORE_API_CALL = 1500;
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
@@ -117,7 +118,7 @@ public class RegisterData extends AppCompatActivity {
                         Intent it = new Intent(RegisterData.this, UserPage.class);
                         Log.i("Nav", "Indo de cadastro para userpage");
                         it.putExtra("user", user);
-                        dismissLoadingScreen();
+                        LoadScreen.dismissLoading();
                         startActivity(it);
                     }
 
@@ -130,20 +131,5 @@ public class RegisterData extends AppCompatActivity {
             }, DELAY_BEFORE_API_CALL);
     }
 
-    private void showLoadingScreen(String message) {
-        if (loadingDialog == null) {
-            loadingDialog = LoadScreen.newInstance(message);
-        }
-        // Verifica se o dialog já está sendo exibido para evitar IllegalStateException
-        if (!loadingDialog.isAdded()) {
-            loadingDialog.show(getSupportFragmentManager(), "loading_dialog");
-        }
-    }
 
-    private void dismissLoadingScreen() {
-        if (loadingDialog != null && loadingDialog.isAdded()) {
-            loadingDialog.dismiss();
-            loadingDialog = null; // Opcional: reinicia a instância para o próximo uso
-        }
-    }
 }

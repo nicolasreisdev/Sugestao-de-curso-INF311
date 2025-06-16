@@ -1,11 +1,16 @@
 package com.grupo8.sugestordecurso.ui.userPage;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodySugestor;
@@ -15,6 +20,7 @@ import com.grupo8.sugestordecurso.data.models.Utils.HalfPieChartView;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.base.Base;
+import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
 
 import java.util.ArrayList;
 
@@ -27,12 +33,15 @@ public class UserPage extends Base {
     private TextView textViewCurso3Nome, textViewCurso3Prob, textViewCurso3NomeT, textViewCurso3ProbT;
     private View colorCurso1, colorCurso2, colorCurso3;
     private View colorCurso1T, colorCurso2T, colorCurso3T;
+    private LoadScreen LoadScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_page);
         Log.i("Nav","Pagina user");
+
+        LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
 
         setupBottomNavigation(R.id.nav_home);
         user = (User)getIntent().getSerializableExtra("user");
@@ -66,6 +75,7 @@ public class UserPage extends Base {
         textViewCurso3ProbT = findViewById(R.id.textViewCurso3ProbT);
         colorCurso3T = findViewById(R.id.colorCurso3T);
 
+        //faz requisição para o modelo e atualiza grafico com as predições
         requisitaModelo("Saúde");
 
         //pega dados de tendência do mercado na área escolhida pelo usuário
@@ -140,10 +150,31 @@ public class UserPage extends Base {
 
     public void onClickAlterarPref(View v){
         //atualiza a área de preferencia do usuario
+        String[] areas = {"Exatas","Saúde","Humanas","Linguagens","Biológicas","Artes","Tecnologia","Comunicação"};
+        final String[] areaEscolhida = new String[1];
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Esolha Nova Área") //define uma aba com escolhas pro usuario
+                .setItems(areas, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        areaEscolhida[0] = areas[which]; //define a nova area por ele escolhida
 
-        //faz novo requisito pro modelo de ia para mudar a predição
+                        //chama tela de carregamento enquanto processa requisição do modelo
+                        LoadScreen.showLoading(getSupportFragmentManager(),"Atualizando...");
+                        final long DELAY_BEFORE_API_CALL = 1500;
 
-        //atualiza o grafico
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                requisitaModelo(areaEscolhida[0]);
+                                LoadScreen.dismissLoading();
+                            }
+                        }, DELAY_BEFORE_API_CALL);
+                    }
+                });
+        builder.create().show();
+
+
     }
 
     public void requisitaModelo(String area){

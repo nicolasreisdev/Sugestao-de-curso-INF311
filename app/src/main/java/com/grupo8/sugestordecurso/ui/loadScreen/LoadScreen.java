@@ -2,6 +2,7 @@ package com.grupo8.sugestordecurso.ui.loadScreen;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 //tela de carregamento
 public class LoadScreen extends DialogFragment {
@@ -74,6 +76,31 @@ public class LoadScreen extends DialogFragment {
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //fundo da janela do diálogo transparente
+        }
+    }
+    //metodo para chamar a tela de carregamento
+    public void showLoading(FragmentManager fragmentManager, String message) {
+        Log.i("Load", "Starting to load");
+        //garante que o argumento da mensagem esteja atualizado antes de mostrar
+        Bundle args = getArguments();
+        if (args == null) {
+            args = new Bundle();
+        }
+        args.putString(ARG_MESSAGE, message);
+        setArguments(args);
+
+        //verifica se o dialog já está sendo exibido para evitar IllegalStateException
+        if (!isAdded()) {
+            //exibe a tela de carregamento
+            show(fragmentManager, "loading_dialog");
+        }
+    }
+
+    //metodo para finalizar a tela de carregamento
+    public void dismissLoading() {
+        Log.i("Load","Dismissing");
+        if (isAdded()) { //verifica se o fragment está anexado ao gerenciador
+            dismiss();
         }
     }
 

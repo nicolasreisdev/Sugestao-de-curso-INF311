@@ -33,6 +33,7 @@ import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
+import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,10 +58,13 @@ public class Register extends AppCompatActivity {
     private ActivityResultLauncher<Intent> pickImageLauncher;
     private ActivityResultLauncher<Uri> takePictureLauncher;
     private ActivityResultLauncher<String[]> requestPermissionLauncher;
+    private LoadScreen LoadScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        LoadScreen = new LoadScreen(); //cria tela de carregamento para ser chamada quando necessario
 
         editTextCPF = findViewById(R.id.CPF);
         editTextTelefone = findViewById(R.id.Telefone);
@@ -378,6 +382,7 @@ public class Register extends AppCompatActivity {
 
 
     public void onClickRegister(View v){
+        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
         contato = new BodyCadastro();
         // Recebe os dados
         /* FORMATO DOS DADOS
@@ -427,6 +432,7 @@ public class Register extends AppCompatActivity {
                 user.setCpf(contato.getCpf());
                 user.setDataNascimento(contato.getDataNascimento());
                 Log.i("API Teste", "ID: " + user.getId());
+                LoadScreen.dismissLoading(); //fecha tela de carregamento
                 //navega para a página do usuário
                 Intent it = new Intent(Register.this, RegisterData.class);
                 it.putExtra("user", user);

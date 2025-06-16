@@ -6,13 +6,15 @@ import com.grupo8.sugestordecurso.R;
 import android.app.Activity;
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.ui.historico.Historico;
 import com.grupo8.sugestordecurso.ui.profile.Profile;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
-public abstract class Base extends Activity {
+public abstract class Base extends AppCompatActivity {
 
     protected User user = User.getInstance();
 

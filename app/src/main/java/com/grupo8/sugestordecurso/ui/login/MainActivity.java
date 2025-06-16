@@ -25,15 +25,16 @@ import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LoadScreen loadingDialog;
     private BodyLogin bodyUser = new BodyLogin();
     private TextInputEditText editTextCPF;
+    private LoadScreen LoadScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
         editTextCPF = findViewById(R.id.userCPF);
 
         //cria uma mascara dinamicamente para que o input do usuario tenha formato xxx.xxx.xxx-xx
@@ -82,11 +83,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View v){
+        Log.i("Load","Iniciando Login");
         bodyUser.setCPF(editTextCPF.getText().toString());
         Log.i("API Teste", "Passei");
-        showLoadingScreen("Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
+        LoadScreen.showLoading(getSupportFragmentManager(),"Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
         //define um tempo de atraso
-        final long DELAY_BEFORE_API_CALL = 3000;
+        final long DELAY_BEFORE_API_CALL = 1500;
 
         //agenda a chamada da API para depois do atraso
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         user.setTelefone(response.getDadosTelefone());
                         Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
 
-                        dismissLoadingScreen(); //dispensa a tela de carregamento
+                        LoadScreen.dismissLoading(); //dispensa a tela de carregamento
                         Intent it = new Intent(MainActivity.this, UserPage.class);
                         it.putExtra("user", user);
                         startActivity(it);
@@ -120,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(String errorMessage) {
                         Log.e("API Test", "Error: " + errorMessage); // Use Log.e para erros
-                        dismissLoadingScreen(); // Dispensa a tela de carregamento em caso de erro
+                        LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
                         Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
                     }
                 });
@@ -134,22 +136,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(itRegister);
     }
 
-    private void showLoadingScreen(String message) {
-        if (loadingDialog == null) {
-            loadingDialog = LoadScreen.newInstance(message);
-        }
-        // Verifica se o dialog já está sendo exibido para evitar IllegalStateException
-        if (!loadingDialog.isAdded()) {
-            loadingDialog.show(getSupportFragmentManager(), "loading_dialog");
-        }
-    }
 
-    private void dismissLoadingScreen() {
-        if (loadingDialog != null && loadingDialog.isAdded()) {
-            loadingDialog.dismiss();
-            loadingDialog = null; // Opcional: reinicia a instância para o próximo uso
-        }
-    }
 
 
 
