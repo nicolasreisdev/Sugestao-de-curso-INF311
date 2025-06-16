@@ -7,13 +7,16 @@ import com.grupo8.sugestordecurso.data.api.ModeloSugestor.APIClientSugestor;
 import com.grupo8.sugestordecurso.data.api.ModeloSugestor.APISugestor;
 import com.grupo8.sugestordecurso.data.api.Rubeus.APIClientRubeus;
 import com.grupo8.sugestordecurso.data.api.Rubeus.APIRubeus;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyBuscarNotas;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodySugestor;
+import com.grupo8.sugestordecurso.data.models.Interfaces.BuscarNotasCallback;
 import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
 import com.grupo8.sugestordecurso.data.models.Interfaces.SugestoesCallback;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaBuscarNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaSugestor;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;
@@ -106,6 +109,28 @@ public class RequestRepository {
         });
 
     }
+
+    public void buscarNotas(BodyBuscarNotas recuperarNotas, final BuscarNotasCallback callback){
+        Log.i("API Teste", "Requisição para recuperar notas do usuário");
+        Call<RespostaBuscarNotas> callBuscarNotas = rubeus.buscarNotas(recuperarNotas);
+        callBuscarNotas.enqueue(new Callback<RespostaBuscarNotas>(){
+            @Override
+            public void onResponse(Call<RespostaBuscarNotas> call, Response<RespostaBuscarNotas> response) {
+                if (response.isSuccessful()) { // accepted 200
+                    callback.onSuccess(response.body());
+                    Log.i("API Teste", "200 OK Buscar Notas");
+                } else { // Error
+                    Log.i("API Teste", "Error " + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RespostaBuscarNotas> call, Throwable t){
+                Log.i("API Teste", t.toString());
+            }
+        });
+    }
+
 
     public void obterSugestoes(BodySugestor notas, final SugestoesCallback callback) {
         Log.i("API Teste", "Requisição de sugestões");

@@ -1,9 +1,11 @@
 package com.grupo8.sugestordecurso.data.api.Rubeus;
 
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyBuscarNotas;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaBuscarNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyLogin;
 
@@ -28,5 +30,8 @@ public interface APIRubeus {
     // Adiciona notas ao usuário
     @POST("api/Evento/cadastro")
     Call<RespostaAddNotas> adicionarNotas(@Body BodyNotas notas);
+
+    @POST("api/Contato/listarOportunidades")
+    Call<RespostaBuscarNotas> buscarNotas(@Body BodyBuscarNotas recuperarNotas);
 
 }

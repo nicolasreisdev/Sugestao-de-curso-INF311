@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyBuscarNotas;
+import com.grupo8.sugestordecurso.data.models.Interfaces.BuscarNotasCallback;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaBuscarNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyLogin;
 import com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         LoadScreen.showLoading(getSupportFragmentManager(),"Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
         //define um tempo de atraso
         final long DELAY_BEFORE_API_CALL = 1500;
-
+        User user = User.getInstance();
         //agenda a chamada da API para depois do atraso
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
@@ -100,9 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 contatoRepository.buscarUser(bodyUser, new UserCallback() {
                     @Override
                     public void onSuccess(RespostaUser response) {
-                        Log.i("API Teste", "Navegando para a tela do usuário");
                         // Navega para a página do usuário
-                        User user = User.getInstance();
                         user.setId(response.getDadosID());
                         user.setNome(response.getDadosNome());
                         user.setNomeSocial(response.getDadosNomeSocial());
@@ -112,11 +113,43 @@ public class MainActivity extends AppCompatActivity {
                         user.setTelefone(response.getDadosTelefone());
                         Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
 
-                        LoadScreen.dismissLoading(); //dispensa a tela de carregamento
-                        Intent it = new Intent(MainActivity.this, UserPage.class);
-                        it.putExtra("user", user);
-                        startActivity(it);
-                        finish();
+                        // ---------------------------------------------------------------------------------
+                        // Requisição de notas do usuário
+                        Log.i("API Teste", "Iniciando requisição para recuperar as notas do usuário.");
+                        BodyBuscarNotas buscarNotas = new BodyBuscarNotas();
+                        buscarNotas.setId(user.getId());
+                        contatoRepository.buscarNotas(buscarNotas, new BuscarNotasCallback() {
+                            @Override
+                            public void onSuccess(RespostaBuscarNotas response) {
+                                Log.i("API Teste", "Notas recuperadas, navegação para tela do usuário");
+                                user.setNotaMatematica(response.getNotaMatematica());
+                                user.setNotaPortugues(response.getNotaPortugues());
+                                user.setNotaLiteratura(response.getNotaLiteratura());
+                                user.setNotaRedacao(response.getNotaRedacao());
+                                user.setNotaQuimica(response.getNotaQuimica());
+                                user.setNotaFisica(response.getNotaFisica());
+                                user.setNotaBiologia(response.getNotaBiologia());
+                                user.setNotaGeografia(response.getNotaGeografia());
+                                user.setNotaHistoria(response.getNotaHistoria());
+                                user.setNotaFilosofia(response.getNotaFilosofia());
+                                user.setNotaSociologia(response.getNotaSociologia());
+                                user.setNotaArtes(response.getNotaArtes());
+                                user.setAreaPreferencia(response.getAreaPreferencia());
+
+                                LoadScreen.dismissLoading(); //dispensa a tela de carregamento
+                                Intent it = new Intent(MainActivity.this, UserPage.class);
+                                it.putExtra("user", user);
+                                startActivity(it);
+                                finish();
+                            }
+
+                            @Override
+                            public void onError(String errorMessage) {
+                                Log.e("API Test", "Error: " + errorMessage);
+                                LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
+                                Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
 
                     @Override
@@ -128,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         }, DELAY_BEFORE_API_CALL);
+
 
     }
 

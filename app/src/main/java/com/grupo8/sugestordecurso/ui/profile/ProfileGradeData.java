@@ -33,20 +33,18 @@ public class ProfileGradeData extends Activity {
 
         //colocar os dados do aluno retirados da api da rubeus
         User user = User.getInstance();
-        String e = "90";
-        edtMat.setText(e);
-        edtPort.setText(e);
-        edtLit.setText(e);
-        edtRed.setText(e);
-        edtQuim.setText(e);
-        edtFis.setText(e);
-        edtBio.setText(e);
-        edtGeo.setText(e);
-        edtHist.setText(e);
-        edtFilo.setText(e);
-        edtSocio.setText(e);
-        edtArtes.setText(e);
-
+        edtMat.setText(user.getNotaMatematica() + "");
+        edtPort.setText(user.getNotaPortugues() + "");
+        edtLit.setText(user.getNotaLiteratura() + "");
+        edtRed.setText(user.getNotaRedacao() + "");
+        edtQuim.setText(user.getNotaQuimica() + "");
+        edtFis.setText(user.getNotaFisica() + "");
+        edtBio.setText(user.getNotaBiologia() + "");
+        edtGeo.setText(user.getNotaGeografia() + "");
+        edtHist.setText(user.getNotaHistoria() + "");
+        edtFilo.setText(user.getNotaFilosofia() + "");
+        edtSocio.setText(user.getNotaSociologia() + "");
+        edtArtes.setText(user.getNotaArtes() + "");
     }
 
     public void onClickUpdateGrade(View v){
