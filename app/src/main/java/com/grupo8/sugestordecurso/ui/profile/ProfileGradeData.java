@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.data.models.Utils.User;
 
 public class ProfileGradeData extends Activity {
     //editTexts com os dados do usuário passíveis de serem alterados
@@ -31,6 +32,7 @@ public class ProfileGradeData extends Activity {
         edtArtes = findViewById(R.id.NotaArte);
 
         //colocar os dados do aluno retirados da api da rubeus
+        User user = User.getInstance();
         String e = "90";
         edtMat.setText(e);
         edtPort.setText(e);

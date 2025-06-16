@@ -383,20 +383,8 @@ public class Register extends AppCompatActivity {
 
     public void onClickRegister(View v){
         LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
+
         contato = new BodyCadastro();
-        // Recebe os dados
-        /* FORMATO DOS DADOS
-        {
-            "nome": "TesteAPI",
-            "nomeSocial": "Teste",
-            "dataNascimento": "2024-12-31",
-            "emailPrincipal": "grupo8@gmail.com",
-            "telefonePrincipal": "38999999999",
-            "cpf": "333.333.333-33",
-            "origem": 7,
-            "token": "f2240ed12dca63c0a425f028cd88500e"
-        }
-        */
         TextInputEditText editTextNome = findViewById(R.id.Nome);
         TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
         TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
