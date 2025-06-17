@@ -1,65 +1,65 @@
 package com.grupo8.sugestordecurso.data.models.BodyAPI;
 
 public class BodySugestor {
-    private int notaMatematica;
-    private int notaPortugues;
-    private int notaLiteratura;
-    private int notaRedacao;
-    private int notaQuimica;
-    private int notaFisica;
-    private int notaBiologia;
-    private int notaGeografia;
-    private int notaHistoria;
-    private int notaFilosofia;
-    private int notaSociologia;
-    private int notaArtes;
+    private double notaMatematica;
+    private double notaPortugues;
+    private double notaLiteratura;
+    private double notaRedacao;
+    private double notaQuimica;
+    private double notaFisica;
+    private double notaBiologia;
+    private double notaGeografia;
+    private double notaHistoria;
+    private double notaFilosofia;
+    private double notaSociologia;
+    private double notaArtes;
     private String areaPreferencia;
 
-    public void setNotaMatematica(int notaMatematica) {
+    public void setNotaMatematica(double notaMatematica) {
         this.notaMatematica = notaMatematica;
     }
 
-    public void setNotaPortugues(int notaPortugues) {
+    public void setNotaPortugues(double notaPortugues) {
         this.notaPortugues = notaPortugues;
     }
 
-    public void setNotaLiteratura(int notaLiteratura) {
+    public void setNotaLiteratura(double notaLiteratura) {
         this.notaLiteratura = notaLiteratura;
     }
 
-    public void setNotaRedacao(int notaRedacao) {
+    public void setNotaRedacao(double notaRedacao) {
         this.notaRedacao = notaRedacao;
     }
 
-    public void setNotaQuimica(int notaQuimica) {
+    public void setNotaQuimica(double notaQuimica) {
         this.notaQuimica = notaQuimica;
     }
 
-    public void setNotaFisica(int notaFisica) {
+    public void setNotaFisica(double notaFisica) {
         this.notaFisica = notaFisica;
     }
 
-    public void setNotaBiologia(int notaBiologia) {
+    public void setNotaBiologia(double notaBiologia) {
         this.notaBiologia = notaBiologia;
     }
 
-    public void setNotaGeografia(int notaGeografia) {
+    public void setNotaGeografia(double notaGeografia) {
         this.notaGeografia = notaGeografia;
     }
 
-    public void setNotaHistoria(int notaHistoria) {
+    public void setNotaHistoria(double notaHistoria) {
         this.notaHistoria = notaHistoria;
     }
 
-    public void setNotaFilosofia(int notaFilosofia) {
+    public void setNotaFilosofia(double notaFilosofia) {
         this.notaFilosofia = notaFilosofia;
     }
 
-    public void setNotaSociologia(int notaSociologia) {
+    public void setNotaSociologia(double notaSociologia) {
         this.notaSociologia = notaSociologia;
     }
 
-    public void setNotaArtes(int notaArtes) {
+    public void setNotaArtes(double notaArtes) {
         this.notaArtes = notaArtes;
     }
 

@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.grupo8.sugestordecurso.data.models.Utils.User;
+
+import org.json.JSONObject;
+
 public final class BancoDados {
     protected SQLiteDatabase db;
     private final String NOME_BANCO = "predicoes";
@@ -18,6 +22,18 @@ public final class BancoDados {
         Context ctx = MyApp.getAppContext();
         // Abre o banco de dados já existente ou então cria um banco novo
         db = ctx.openOrCreateDatabase(NOME_BANCO, Context.MODE_PRIVATE, null);
+        // Chama a função que cria as tabelas do banco se não existirem
+        String createTable = "CREATE TABLE historico_predicoes (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER, " +
+                "area_preferencia TEXT, " +
+                "matematica REAL, portugues REAL, literatura REAL, redacao REAL, " +
+                "quimica REAL, fisica REAL, biologia REAL, " +
+                "filosofia REAL, sociologia REAL, geografia REAL, historia REAL, artes REAL, " +
+                "curso1 TEXT, prob1 REAL, " +
+                "curso2 TEXT, prob2 REAL, " +
+                "curso3 TEXT, prob3 REAL, " +
+                "timestamp INTEGER)";
 
         /*
 
@@ -37,7 +53,52 @@ public final class BancoDados {
 
 
         */
-        }
+    }
+
+    public void salvarPredicao(User user,
+                               String curso1, float prob1,
+                               String curso2, float prob2,
+                               String curso3, float prob3) {
+
+        ContentValues values = new ContentValues();
+
+        // Dados do usuário
+        values.put("id_usuario", user.getId());
+        values.put("area_preferencia", user.getAreaPreferencia());
+
+        // Notas
+        values.put("matematica", user.getNotaMatematica());
+        values.put("portugues", user.getNotaPortugues());
+        values.put("literatura", user.getNotaLiteratura());
+        values.put("redacao", user.getNotaRedacao());
+        values.put("quimica", user.getNotaQuimica());
+        values.put("fisica", user.getNotaFisica());
+        values.put("biologia", user.getNotaBiologia());
+        values.put("filosofia", user.getNotaFilosofia());
+        values.put("sociologia", user.getNotaSociologia());
+        values.put("geografia", user.getNotaGeografia());
+        values.put("historia", user.getNotaHistoria());
+        values.put("artes", user.getNotaArtes());
+
+        // Cursos recomendados
+        values.put("curso1", curso1);
+        values.put("prob1", prob1);
+        values.put("curso2", curso2);
+        values.put("prob2", prob2);
+        values.put("curso3", curso3);
+        values.put("prob3", prob3);
+
+        // Timestamp
+        values.put("timestamp", System.currentTimeMillis());
+
+        db.insert("historico_predicoes", null, values);
+        db.close();
+    }
+
+
+    public Cursor listarPredicoes() {
+        return buscar("predicoes_curso", null, "", "data_hora DESC");
+    }
 
     public long inserir(String tabela, ContentValues valores) {
         long id = db.insert(tabela, null, valores);

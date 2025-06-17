@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.data.database.BancoDados;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodySugestor;
 import com.grupo8.sugestordecurso.data.models.Interfaces.SugestoesCallback;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaSugestor;
@@ -176,19 +177,22 @@ public class UserPage extends Base {
 
     public void requisitaModelo(String area){
         BodySugestor notas = new BodySugestor();
-        notas.setNotaMatematica(90);
-        notas.setNotaPortugues(90);
-        notas.setNotaLiteratura(90);
-        notas.setNotaRedacao(90);
-        notas.setNotaQuimica(90);
-        notas.setNotaFisica(90);
-        notas.setNotaBiologia(90);
-        notas.setNotaFilosofia(90);
-        notas.setNotaSociologia(90);
-        notas.setNotaGeografia(90);
-        notas.setNotaHistoria(90);
-        notas.setNotaArtes(90);
-        notas.setAreaPreferencia(area);
+
+        User user = User.getInstance();
+
+        notas.setNotaMatematica(user.getNotaMatematica());
+        notas.setNotaPortugues(user.getNotaPortugues());
+        notas.setNotaLiteratura(user.getNotaLiteratura());
+        notas.setNotaRedacao(user.getNotaRedacao());
+        notas.setNotaQuimica(user.getNotaQuimica());
+        notas.setNotaFisica(user.getNotaFisica());
+        notas.setNotaBiologia(user.getNotaBiologia());
+        notas.setNotaFilosofia(user.getNotaFilosofia());
+        notas.setNotaSociologia(user.getNotaSociologia());
+        notas.setNotaGeografia(user.getNotaGeografia());
+        notas.setNotaHistoria(user.getNotaHistoria());
+        notas.setNotaArtes(user.getNotaArtes());
+        notas.setAreaPreferencia(user.getAreaPreferencia());
         // atualiza a UI com os dados
         RequestRepository sugestaoRepository = new RequestRepository();
 
@@ -205,6 +209,13 @@ public class UserPage extends Base {
                 String nomeCurso3 = response.get(1).getCurso();
                 float probCurso3 = response.get(1).getProbabilidadeAptidao();
                 atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
+                BancoDados.getInstance().salvarPredicao(
+                        user.getInstance(),
+                        nomeCurso1, probCurso1,
+                        nomeCurso2, probCurso2,
+                        nomeCurso3, probCurso3
+                );
+
             }
 
             @Override
