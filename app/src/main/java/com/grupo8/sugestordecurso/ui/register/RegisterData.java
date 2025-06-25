@@ -14,12 +14,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
+import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
@@ -29,10 +32,27 @@ import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 public class RegisterData extends AppCompatActivity {
     User user;
     private LoadScreen LoadScreen;
+    private CheckConexion verificadorConexao; //verificador de conexao
+    private boolean isConectado = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_data);
+
+        verificadorConexao = new CheckConexion(getApplicationContext());
+
+        // Observa as mudanças no estado da conexão
+        verificadorConexao.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean conectado) {
+                isConectado = conectado;
+                if (!conectado) {
+                    // Exibe uma mensagem de erro persistente se não houver conexão
+                    View view = findViewById(android.R.id.content); // View raiz da sua activity
+                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
 
         LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
         user = (User) getIntent().getSerializableExtra("user");
@@ -55,109 +75,114 @@ public class RegisterData extends AppCompatActivity {
     }
 
     public void onClickRegister2(View v){
-        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando...");
-        //tratamento da api
-        Log.i("API Teste", "Iniciando cadastro dos dados");
-        TextInputEditText editTextMatematica = findViewById(R.id.NotaMat);
-        TextInputEditText editTextPortugues = findViewById(R.id.NotaPort);
-        TextInputEditText editTextLiteratura = findViewById(R.id.NotaLit);
-        TextInputEditText editTextBiologia = findViewById(R.id.NotaBio);
-        TextInputEditText editTextFisica = findViewById(R.id.NotaFis);
-        TextInputEditText editTextFilosofia = findViewById(R.id.NotaFilo);
-        TextInputEditText editTextGeografia = findViewById(R.id.NotaGeo);
-        TextInputEditText editTextHistoria = findViewById(R.id.NotaHist);
-        TextInputEditText editTextQuimica = findViewById(R.id.NotaQuim);
-        TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);
-        TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
-        TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
-        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
+        if(isConectado) {
+            LoadScreen.showLoading(getSupportFragmentManager(), "Cadastrando...");
+            //tratamento da api
+            Log.i("API Teste", "Iniciando cadastro dos dados");
+            TextInputEditText editTextMatematica = findViewById(R.id.NotaMat);
+            TextInputEditText editTextPortugues = findViewById(R.id.NotaPort);
+            TextInputEditText editTextLiteratura = findViewById(R.id.NotaLit);
+            TextInputEditText editTextBiologia = findViewById(R.id.NotaBio);
+            TextInputEditText editTextFisica = findViewById(R.id.NotaFis);
+            TextInputEditText editTextFilosofia = findViewById(R.id.NotaFilo);
+            TextInputEditText editTextGeografia = findViewById(R.id.NotaGeo);
+            TextInputEditText editTextHistoria = findViewById(R.id.NotaHist);
+            TextInputEditText editTextQuimica = findViewById(R.id.NotaQuim);
+            TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);
+            TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
+            TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
+            AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
 
-        String NotaMat = editTextMatematica.getText().toString();
-        String NotaPort = editTextPortugues.getText().toString();
-        String NotaLit = editTextLiteratura.getText().toString();
-        String NotaBio = editTextBiologia.getText().toString();
-        String NotaFis = editTextFisica.getText().toString();
-        String NotaFilo = editTextFilosofia.getText().toString();
-        String NotaGeo = editTextGeografia.getText().toString();
-        String NotaHist = editTextHistoria.getText().toString();
-        String NotaQuim = editTextQuimica.getText().toString();
-        String NotaRed = editTextRedacao.getText().toString();
-        String NotaSocio = editTextSociologia.getText().toString();
-        String NotaArt = editTextArtes.getText().toString();
-        String areaPreferencia = autoCompleteTextView.getText().toString();
+            String NotaMat = editTextMatematica.getText().toString();
+            String NotaPort = editTextPortugues.getText().toString();
+            String NotaLit = editTextLiteratura.getText().toString();
+            String NotaBio = editTextBiologia.getText().toString();
+            String NotaFis = editTextFisica.getText().toString();
+            String NotaFilo = editTextFilosofia.getText().toString();
+            String NotaGeo = editTextGeografia.getText().toString();
+            String NotaHist = editTextHistoria.getText().toString();
+            String NotaQuim = editTextQuimica.getText().toString();
+            String NotaRed = editTextRedacao.getText().toString();
+            String NotaSocio = editTextSociologia.getText().toString();
+            String NotaArt = editTextArtes.getText().toString();
+            String areaPreferencia = autoCompleteTextView.getText().toString();
 
-        //garante que todos os campos foram preenchidos, incluindo o spinner
-        if(NotaMat.trim().isEmpty() || NotaPort.trim().isEmpty() || NotaLit.trim().isEmpty()
-        || NotaFis.trim().isEmpty() || NotaBio.trim().isEmpty() || NotaFilo.trim().isEmpty()
-        || NotaGeo.trim().isEmpty() || NotaHist.trim().isEmpty() || NotaQuim.trim().isEmpty()
-        || NotaRed.trim().isEmpty() ||NotaSocio.trim().isEmpty() || NotaArt.trim().isEmpty()
-        || areaPreferencia.isEmpty()){
-            Toast.makeText(this,"Por favor, preencha todos os campos",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        Log.i("API Teste", "Convertendo dados para double");
-        double notaMatematica = Double.parseDouble(NotaMat);
-        double notaPortugues = Double.parseDouble(NotaPort);
-        double notaLiteratura = Double.parseDouble(NotaLit);
-        double notaBiologia = Double.parseDouble(NotaBio);
-        double notaFisica = Double.parseDouble(NotaFis);
-        double notaFilosofia = Double.parseDouble(NotaFilo);
-        double notaGeografia = Double.parseDouble(NotaGeo);
-        double notaHistoria = Double.parseDouble(NotaHist);
-        double notaQuimica = Double.parseDouble(NotaQuim);
-        double notaRedacao = Double.parseDouble(NotaRed);
-        double notaSociologia = Double.parseDouble(NotaSocio);
-        double notaArtes = Double.parseDouble(NotaArt);
-        Log.i("API Teste", "Criando BodyNotas");
-
-        BodyNotas notas = new BodyNotas();
-
-        final long DELAY_BEFORE_API_CALL = 1000;
-
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("API Teste", "Passando id");
-                // id do usuário
-                notas.setPessoa(user.getId());
-
-                Log.i("API Teste", "Passando notas");
-                // notas do usuário
-                notas.setMatematica(notaMatematica);
-                notas.setPortugues(notaPortugues);
-                notas.setLiteratura(notaLiteratura);
-                notas.setBiologia(notaBiologia);
-                notas.setFisica(notaFisica);
-                notas.setFilosofia(notaFilosofia);
-                notas.setGeografia(notaGeografia);
-                notas.setHistoria(notaHistoria);
-                notas.setQuimica(notaQuimica);
-                notas.setRedacao(notaRedacao);
-                notas.setSociologia(notaSociologia);
-                notas.setArtes(notaArtes);
-                notas.setArea(areaPreferencia);
-                Log.i("API Teste", "Iniciando requisição");
-                RequestRepository notasRepository = new RequestRepository();
-
-                notasRepository.adicionarNotas(notas, new NotasCallback() {
-                    @Override
-                    public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
-                        Intent it = new Intent(RegisterData.this, UserPage.class);
-                        Log.i("Nav", "Indo de cadastro para userpage");
-                        it.putExtra("user", user);
-                        LoadScreen.dismissLoading();
-                        startActivity(it);
-                    }
-
-                    @Override
-                    public void onError(String errorMessage) {
-                        LoadScreen.dismissLoading();
-                        Log.i("API Teste", "Error");
-                    }
-                });
+            //garante que todos os campos foram preenchidos, incluindo o spinner
+            if (NotaMat.trim().isEmpty() || NotaPort.trim().isEmpty() || NotaLit.trim().isEmpty()
+                    || NotaFis.trim().isEmpty() || NotaBio.trim().isEmpty() || NotaFilo.trim().isEmpty()
+                    || NotaGeo.trim().isEmpty() || NotaHist.trim().isEmpty() || NotaQuim.trim().isEmpty()
+                    || NotaRed.trim().isEmpty() || NotaSocio.trim().isEmpty() || NotaArt.trim().isEmpty()
+                    || areaPreferencia.isEmpty()) {
+                Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_LONG).show();
+                return;
             }
+
+            Log.i("API Teste", "Convertendo dados para double");
+            double notaMatematica = Double.parseDouble(NotaMat);
+            double notaPortugues = Double.parseDouble(NotaPort);
+            double notaLiteratura = Double.parseDouble(NotaLit);
+            double notaBiologia = Double.parseDouble(NotaBio);
+            double notaFisica = Double.parseDouble(NotaFis);
+            double notaFilosofia = Double.parseDouble(NotaFilo);
+            double notaGeografia = Double.parseDouble(NotaGeo);
+            double notaHistoria = Double.parseDouble(NotaHist);
+            double notaQuimica = Double.parseDouble(NotaQuim);
+            double notaRedacao = Double.parseDouble(NotaRed);
+            double notaSociologia = Double.parseDouble(NotaSocio);
+            double notaArtes = Double.parseDouble(NotaArt);
+            Log.i("API Teste", "Criando BodyNotas");
+
+            BodyNotas notas = new BodyNotas();
+
+            final long DELAY_BEFORE_API_CALL = 1000;
+
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Log.i("API Teste", "Passando id");
+                    // id do usuário
+                    notas.setPessoa(user.getId());
+
+                    Log.i("API Teste", "Passando notas");
+                    // notas do usuário
+                    notas.setMatematica(notaMatematica);
+                    notas.setPortugues(notaPortugues);
+                    notas.setLiteratura(notaLiteratura);
+                    notas.setBiologia(notaBiologia);
+                    notas.setFisica(notaFisica);
+                    notas.setFilosofia(notaFilosofia);
+                    notas.setGeografia(notaGeografia);
+                    notas.setHistoria(notaHistoria);
+                    notas.setQuimica(notaQuimica);
+                    notas.setRedacao(notaRedacao);
+                    notas.setSociologia(notaSociologia);
+                    notas.setArtes(notaArtes);
+                    notas.setArea(areaPreferencia);
+                    Log.i("API Teste", "Iniciando requisição");
+                    RequestRepository notasRepository = new RequestRepository();
+
+                    notasRepository.adicionarNotas(notas, new NotasCallback() {
+                        @Override
+                        public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
+                            Intent it = new Intent(RegisterData.this, UserPage.class);
+                            Log.i("Nav", "Indo de cadastro para userpage");
+                            it.putExtra("user", user);
+                            LoadScreen.dismissLoading();
+                            startActivity(it);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            LoadScreen.dismissLoading();
+                            Log.i("API Teste", "Error");
+                        }
+                    });
+                }
             }, DELAY_BEFORE_API_CALL);
+        } else{
+            View view = findViewById(android.R.id.content); // View raiz da sua activity
+            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+        }
     }
 
 
