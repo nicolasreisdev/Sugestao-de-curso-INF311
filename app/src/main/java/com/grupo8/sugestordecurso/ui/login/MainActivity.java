@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("API Teste", "Passei");
         LoadScreen.showLoading(getSupportFragmentManager(),"Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
         //define um tempo de atraso
-        final long DELAY_BEFORE_API_CALL = 1500;
+        final long DELAY_BEFORE_API_CALL = 1000;
         User user = User.getInstance();
         //agenda a chamada da API para depois do atraso
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {

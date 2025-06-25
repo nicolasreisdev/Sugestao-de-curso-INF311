@@ -22,7 +22,7 @@ import com.grupo8.sugestordecurso.ui.register.RegisterData;
 
 public class ProfilePersonalData extends Activity {
     //editTexts com os dados do usuário passíveis de serem alterados
-    EditText edtNome, edtEmail, edtTelefone, edtCPF, edtDataN;
+    EditText edtNome, edtNomeSocial, edtEmail, edtTelefone, edtCPF, edtDataN;
     Button buttonSalvar;
     LoadScreen LoadScreen;
 
@@ -32,6 +32,7 @@ public class ProfilePersonalData extends Activity {
         setContentView(R.layout.activity_profile_personal_data);
 
         edtNome = findViewById(R.id.Nome);
+        edtNomeSocial = findViewById(R.id.NomeSocial);
         edtEmail = findViewById(R.id.Email);
         edtTelefone = findViewById(R.id.Telefone);
         edtCPF = findViewById(R.id.CPF);
@@ -55,7 +56,7 @@ public class ProfilePersonalData extends Activity {
         BodyCadastro contato = new BodyCadastro();
 
         TextInputEditText editTextNome = findViewById(R.id.Nome);
-        TextInputEditText editTextNomeSocial = findViewById(R.id.Nascimento);
+        TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
         TextInputEditText editTextEmail = findViewById(R.id.Email);
         TextInputEditText editTextTelefone = findViewById(R.id.Telefone);
 

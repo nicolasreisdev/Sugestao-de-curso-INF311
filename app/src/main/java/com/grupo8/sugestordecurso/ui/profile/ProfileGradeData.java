@@ -6,17 +6,22 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
+import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
 
-public class ProfileGradeData extends Activity {
+public class ProfileGradeData extends AppCompatActivity {
     //editTexts com os dados do usuário passíveis de serem alterados
     EditText edtMat, edtPort, edtRed, edtLit, edtQuim, edtFis, edtBio, edtGeo, edtHist, edtFilo, edtSocio, edtArtes;
-
+    LoadScreen LoadScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_grade_data);
+
+        LoadScreen = new LoadScreen();
 
         edtMat = findViewById(R.id.NotaMat);
         edtPort = findViewById(R.id.NotaPort);

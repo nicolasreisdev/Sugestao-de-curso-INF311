@@ -454,7 +454,8 @@ public class Register extends AppCompatActivity {
 
             @Override
             public void onError(String errorMessage) {
-
+                LoadScreen.dismissLoading();
+                Toast.makeText(this,"Erro ao cadastrar usuário",Toast.LENGTH_SHORT).show();
             }
         });
 

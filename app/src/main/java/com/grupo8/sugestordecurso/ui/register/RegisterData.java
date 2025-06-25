@@ -55,6 +55,7 @@ public class RegisterData extends AppCompatActivity {
     }
 
     public void onClickRegister2(View v){
+        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando...");
         //tratamento da api
         Log.i("API Teste", "Iniciando cadastro dos dados");
         TextInputEditText editTextMatematica = findViewById(R.id.NotaMat);
@@ -111,9 +112,8 @@ public class RegisterData extends AppCompatActivity {
         Log.i("API Teste", "Criando BodyNotas");
 
         BodyNotas notas = new BodyNotas();
-        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando...");
 
-        final long DELAY_BEFORE_API_CALL = 1500;
+        final long DELAY_BEFORE_API_CALL = 1000;
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
@@ -152,6 +152,7 @@ public class RegisterData extends AppCompatActivity {
 
                     @Override
                     public void onError(String errorMessage) {
+                        LoadScreen.dismissLoading();
                         Log.i("API Teste", "Error");
                     }
                 });

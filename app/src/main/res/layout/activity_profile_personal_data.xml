@@ -41,6 +41,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CampoNomeSocial"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            app:hintTextColor="@color/black"
+            style="@style/MyCustomTextInputLayout"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/NomeSocial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/NomeSocial"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/CampoCPF"
             style="@style/MyCustomTextInputLayout"
             android:layout_width="match_parent"
@@ -56,8 +73,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/CPF"
                 android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:inputType="phone"/>
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -104,6 +120,8 @@
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Nascimento"
+                android:clickable="false"
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/DataN"
