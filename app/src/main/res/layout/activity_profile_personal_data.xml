@@ -1,148 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:padding="16dp">
+    tools:context=".ui.profile.ProfilePersonalData">
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:padding="24dp"
-        >
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:textColor="@color/black"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:paddingBottom="24dp"
-            android:textStyle="bold"
-            android:text="@string/atualizar_dados"/>
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CampoNome"
-            android:layout_width="match_parent"
-            app:hintTextColor="@color/black"
-            style="@style/MyCustomTextInputLayout"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Nome"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/NomeCompleto"
-                android:textColorHint="@color/black"
+                android:paddingBottom="24dp"
+                android:text="@string/atualizar_dados"
                 android:textColor="@color/black"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CampoNomeSocial"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            app:hintTextColor="@color/black"
-            style="@style/MyCustomTextInputLayout"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/NomeSocial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/NomeSocial"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CampoCPF"
-            style="@style/MyCustomTextInputLayout"
-            android:layout_width="match_parent"
-            app:hintTextColor="@color/black"
-            android:layout_marginTop="15dp"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/CPF"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/CampoNome"
                 style="@style/MyCustomTextInputLayout"
-                android:clickable="false"
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/CPF"
-                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/NomeCompleto"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/CampoNomeSocial"
+                style="@style/MyCustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/NomeSocial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/NomeSocial"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/CampoCPF"
+                style="@style/MyCustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/CPF"
+                    style="@style/MyCustomTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:hint="@string/CPF"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/CampoTelefone"
+                style="@style/MyCustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Telefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Telefone"
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/CampoEmail"
+                style="@style/MyCustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/CampoData"
+                style="@style/MyCustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Nascimento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:hint="@string/DataN"
+                    android:inputType="date"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/BtSalvar"
+                style="@style/Widget.Custom.RoundedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:onClick="onClickUpdateData"
+                android:text="@string/BotaoSalvar"
                 android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CampoTelefone"
-            style="@style/MyCustomTextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
-            app:hintTextColor="@color/black"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Telefone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Telefone"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:inputType="phone"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
+    </ScrollView>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CampoEmail"
-            style="@style/MyCustomTextInputLayout"
-            android:layout_width="match_parent"
-            app:hintTextColor="@color/black"
-            android:layout_marginTop="15dp"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Email"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
+    <ImageButton
+        android:id="@+id/btn_voltar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/descricao_voltar"
+        android:src="@drawable/seta_voltar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CampoData"
-            style="@style/MyCustomTextInputLayout"
-            android:layout_width="match_parent"
-            app:hintTextColor="@color/black"
-            android:layout_marginTop="15dp"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Nascimento"
-                android:clickable="false"
-                android:focusable="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/DataN"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:inputType="date"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/BtSalvar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/BotaoSalvar"
-            android:textColor="@color/black"
-            android:onClick="onClickUpdateData"
-            style="@style/Widget.Custom.RoundedButton"/>
-
-
-
-    </LinearLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,15 @@ public class ProfileGradeData extends AppCompatActivity {
 
         LoadScreen = new LoadScreen();
         verificadorConexao = new CheckConexion(getApplicationContext());
+
+        ImageButton btnVoltar = findViewById(R.id.btn_voltar);
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Ação para voltar: Simula o botão "voltar" do sistema
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
 
         // Observa as mudanças no estado da conexão
         verificadorConexao.observe(this, new Observer<Boolean>() {
