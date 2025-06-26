@@ -1,0 +1,1920 @@
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Sugestor de Curso</string>\r\n    <string name=\"CPF\">CPF</string>\r\n    <string name=\"Senha\">Senha</string>\r\n    <string name=\"BotaoLogin\">Continuar</string>\r\n    <string name=\"BotaoCadastro\">Cadastrar</string>\r\n    <string name=\"Cadastro\">Não possui cadastro?</string>\r\n    <string name=\"BotaoCadastroTelaMain\">Cadastre-se</string>\r\n    <string name=\"NomeCompleto\">Nome Completo</string>\r\n    <string name=\"Telefone\">Telefone</string>\r\n    <string name=\"Email\">E-mail</string>\r\n    <string name=\"DataN\">Data de Nascimento (YYYY-MM-DD)</string>\r\n    <string name=\"ExplicaInfos\">Preencha as seguintes informações em relação a suas notas para realizarmos sua predição</string>\r\n    <string name=\"NotaMat\">Matemática</string>\r\n    <string name=\"NotaPort\">Português</string>\r\n    <string name=\"NotaRed\">Redação</string>\r\n    <string name=\"NotaLit\">Literatura</string>\r\n    <string name=\"NotaQuim\">Química</string>\r\n    <string name=\"NotaBio\">Biologia</string>\r\n    <string name=\"NotaFis\">Física</string>\r\n    <string name=\"NotaGeo\">Geografia</string>\r\n    <string name=\"NotaHist\">História</string>\r\n    <string name=\"NotaSocio\">Sociologia</string>\r\n    <string name=\"NotaFilo\">Filosofia</string>\r\n    <string name=\"NotaArte\">Artes</string>\r\n    <string name=\"Notas\">Notas</string>\r\n    <string name=\"Historico\">Histórico de sugestões</string>\r\n    <string name=\"Dados\">Dados pessoais</string>\r\n    <string name=\"Configuracoes\">Configurações</string>\r\n    <string name=\"BotaoSalvar\">Salvar</string>\r\n    <string name=\"AlterarDadosPessoais\">Alterar dados pessoais</string>\r\n    <string name=\"AlterarNotas\">Alterar notas</string>\r\n    <string name=\"ConfigGeraisDoApp\">Configurações gerais do aplicativo</string>\r\n    <string name=\"AnaliseHistorico\">Analise seu histórico de sugestões de curso</string>\r\n    <string name=\"AtualizarNotas\">Atualizar Dados de Notas</string>\r\n    <string name=\"NomeSocial\">Nome Social</string>\r\n    <string name=\"descricao_imagem_usuario\">Imagem do Usuario</string>\r\n    <string name=\"titulo_aluno\">Aluno de xxxxx xxxx xxxxxxxxxxx</string>\r\n    <string name=\"icone_notas\">Icone_notas</string>\r\n    <string name=\"icone_dados\">Icone_dados</string>\r\n    <string name=\"sugestoes_de_cursos\">Sugestões de Cursos</string>\r\n    <string name=\"historico_de_sugestoes\">Histórico de Sugestões</string>\r\n    <string name=\"atualizar_dados_de_notas\">Atualizar Dados de Notas</string>\r\n    <string name=\"atualizar_dados\">Atualizar Dados</string>\r\n    <!-- TODO: Remove or change this placeholder text -->\r\n    <string name=\"hello_blank_fragment\">Hello blank fragment</string>\r\n    <string name=\"area_de_preferencia\">Área de Preferência</string>\r\n\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/res/values/strings.xml	(date 1750966997884)
+@@ -45,5 +45,6 @@
+     <!-- TODO: Remove or change this placeholder text -->
+     <string name="hello_blank_fragment">Hello blank fragment</string>
+     <string name="area_de_preferencia">Área de Preferência</string>
++    <string name="descricao_voltar">Voltar para a tela anterior</string>
+ 
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_profile_personal_data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    android:padding=\"16dp\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n        android:orientation=\"vertical\"\r\n        android:layout_marginTop=\"10dp\"\r\n        android:gravity=\"center\"\r\n        android:padding=\"24dp\"\r\n        >\r\n\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:textColor=\"@color/black\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:textSize=\"24sp\"\r\n            android:paddingBottom=\"24dp\"\r\n            android:textStyle=\"bold\"\r\n            android:text=\"@string/atualizar_dados\"/>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNome\"\r\n            android:layout_width=\"match_parent\"\r\n            app:hintTextColor=\"@color/black\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/Nome\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NomeCompleto\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"text\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoCPF\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/CPF\"\r\n                style=\"@style/MyCustomTextInputLayout\"\r\n                android:clickable=\"false\"\r\n                android:focusable=\"false\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/CPF\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"phone\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoTelefone\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_marginTop=\"15dp\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/Telefone\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/Telefone\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"phone\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoEmail\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/Email\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/Email\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"textEmailAddress\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoData\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/Nascimento\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/DataN\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"date\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            android:id=\"@+id/BtSalvar\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"24dp\"\r\n            android:text=\"@string/BotaoSalvar\"\r\n            android:textColor=\"@color/black\"\r\n            android:onClick=\"onClickUpdateData\"\r\n            style=\"@style/Widget.Custom.RoundedButton\"/>\r\n\r\n\r\n\r\n    </LinearLayout>\r\n\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_profile_personal_data.xml b/app/src/main/res/layout/activity_profile_personal_data.xml
+--- a/app/src/main/res/layout/activity_profile_personal_data.xml	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/res/layout/activity_profile_personal_data.xml	(date 1750966997884)
+@@ -1,130 +1,176 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@color/background"
+-    android:padding="16dp">
++    tools:context=".ui.profile.ProfilePersonalData">
++
++
++    <ScrollView
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:padding="16dp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
+ 
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        xmlns:app="http://schemas.android.com/apk/res-auto"
+-        android:orientation="vertical"
+-        android:layout_marginTop="10dp"
+-        android:gravity="center"
+-        android:padding="24dp"
+-        >
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="10dp"
++            android:gravity="center"
++            android:orientation="vertical"
++            android:padding="24dp">
+ 
+-        <TextView
+-            android:layout_width="wrap_content"
+-            android:textColor="@color/black"
+-            android:layout_height="wrap_content"
+-            android:textSize="24sp"
+-            android:paddingBottom="24dp"
+-            android:textStyle="bold"
+-            android:text="@string/atualizar_dados"/>
++            <TextView
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:paddingBottom="24dp"
++                android:text="@string/atualizar_dados"
++                android:textColor="@color/black"
++                android:textSize="24sp"
++                android:textStyle="bold" />
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNome"
+-            android:layout_width="match_parent"
+-            app:hintTextColor="@color/black"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/Nome"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NomeCompleto"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="text"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNome"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/Nome"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NomeCompleto"
++                    android:inputType="text"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNomeSocial"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NomeSocial"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NomeSocial"
++                    android:inputType="text"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoCPF"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/CPF"
+-                style="@style/MyCustomTextInputLayout"
+-                android:clickable="false"
+-                android:focusable="false"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/CPF"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="phone"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoCPF"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/CPF"
++                    style="@style/MyCustomTextInputLayout"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:clickable="false"
++                    android:focusable="false"
++                    android:hint="@string/CPF"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoTelefone"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_marginTop="15dp"
+-            app:hintTextColor="@color/black"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/Telefone"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/Telefone"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="phone"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoTelefone"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/Telefone"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/Telefone"
++                    android:inputType="phone"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoEmail"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/Email"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/Email"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="textEmailAddress"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoEmail"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/Email"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/Email"
++                    android:inputType="textEmailAddress"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoData"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/Nascimento"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/DataN"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="date"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoData"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/Nascimento"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:clickable="false"
++                    android:focusable="false"
++                    android:hint="@string/DataN"
++                    android:inputType="date"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+ 
+-        <com.google.android.material.button.MaterialButton
+-            android:id="@+id/BtSalvar"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:layout_marginTop="24dp"
+-            android:text="@string/BotaoSalvar"
+-            android:textColor="@color/black"
+-            android:onClick="onClickUpdateData"
+-            style="@style/Widget.Custom.RoundedButton"/>
+-
+-
++            <com.google.android.material.button.MaterialButton
++                android:id="@+id/BtSalvar"
++                style="@style/Widget.Custom.RoundedButton"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="24dp"
++                android:onClick="onClickUpdateData"
++                android:text="@string/BotaoSalvar"
++                android:textColor="@color/black" />
+ 
+-    </LinearLayout>
++        </LinearLayout>
+ 
+-</ScrollView>
+\ No newline at end of file
++    </ScrollView>
++
++    <ImageButton
++        android:id="@+id/btn_voltar"
++        android:layout_width="48dp"
++        android:layout_height="48dp"
++        android:layout_marginStart="3dp"
++        android:layout_marginTop="3dp"
++        android:background="?attr/selectableItemBackgroundBorderless"
++        android:contentDescription="@string/descricao_voltar"
++        android:src="@drawable/seta_voltar"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/grupo8/sugestordecurso/ui/register/RegisterData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo8.sugestordecurso.ui.register;\r\n\r\nimport android.app.Activity;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.os.Looper;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.AutoCompleteTextView;\r\nimport android.widget.Spinner;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.google.android.material.textfield.TextInputEditText;\r\nimport com.grupo8.sugestordecurso.R;\r\nimport com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;\r\nimport com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;\r\nimport com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;\r\nimport com.grupo8.sugestordecurso.data.models.Utils.User;\r\nimport com.grupo8.sugestordecurso.data.repository.RequestRepository;\r\nimport com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;\r\nimport com.grupo8.sugestordecurso.ui.profile.Profile;\r\nimport com.grupo8.sugestordecurso.ui.userPage.UserPage;\r\n\r\npublic class RegisterData extends AppCompatActivity {\r\n    User user;\r\n    private LoadScreen LoadScreen;\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_register_data);\r\n\r\n        LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente\r\n        user = (User) getIntent().getSerializableExtra(\"user\");\r\n        Log.i(\"API Teste\", \"ID Register Data: \" + user.getId());\r\n        //Spinner com as opções pré-determinadas de áreas de preferencia\r\n        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);\r\n\r\n        //define as possíveis áreas de preferencia do aluno\r\n        String[] prefs = {\"Exatas\",\"Saúde\",\"Humanas\",\"Linguagens\",\"Biológicas\",\"Artes\",\"Tecnologia\",\"Comunicação\"};\r\n\r\n        //cria e define o spinner\r\n        ArrayAdapter<String> adapter = new ArrayAdapter<>(\r\n                this,\r\n                R.layout.list_item, // Layout personalizado\r\n                prefs\r\n        );\r\n\r\n        autoCompleteTextView.setAdapter(adapter);\r\n\r\n    }\r\n\r\n    public void onClickRegister2(View v){\r\n        //tratamento da api\r\n        Log.i(\"API Teste\", \"Iniciando cadastro dos dados\");\r\n        TextInputEditText editTextMatematica = findViewById(R.id.NotaMat);\r\n        TextInputEditText editTextPortugues = findViewById(R.id.NotaPort);\r\n        TextInputEditText editTextLiteratura = findViewById(R.id.NotaLit);\r\n        TextInputEditText editTextBiologia = findViewById(R.id.NotaBio);\r\n        TextInputEditText editTextFisica = findViewById(R.id.NotaFis);\r\n        TextInputEditText editTextFilosofia = findViewById(R.id.NotaFilo);\r\n        TextInputEditText editTextGeografia = findViewById(R.id.NotaGeo);\r\n        TextInputEditText editTextHistoria = findViewById(R.id.NotaHist);\r\n        TextInputEditText editTextQuimica = findViewById(R.id.NotaQuim);\r\n        TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);\r\n        TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);\r\n        TextInputEditText editTextArtes = findViewById(R.id.NotaArte);\r\n        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);\r\n\r\n        String NotaMat = editTextMatematica.getText().toString();\r\n        String NotaPort = editTextPortugues.getText().toString();\r\n        String NotaLit = editTextLiteratura.getText().toString();\r\n        String NotaBio = editTextBiologia.getText().toString();\r\n        String NotaFis = editTextFisica.getText().toString();\r\n        String NotaFilo = editTextFilosofia.getText().toString();\r\n        String NotaGeo = editTextGeografia.getText().toString();\r\n        String NotaHist = editTextHistoria.getText().toString();\r\n        String NotaQuim = editTextQuimica.getText().toString();\r\n        String NotaRed = editTextRedacao.getText().toString();\r\n        String NotaSocio = editTextSociologia.getText().toString();\r\n        String NotaArt = editTextArtes.getText().toString();\r\n        String areaPreferencia = autoCompleteTextView.getText().toString();\r\n\r\n        //garante que todos os campos foram preenchidos, incluindo o spinner\r\n        if(NotaMat.trim().isEmpty() || NotaPort.trim().isEmpty() || NotaLit.trim().isEmpty()\r\n        || NotaFis.trim().isEmpty() || NotaBio.trim().isEmpty() || NotaFilo.trim().isEmpty()\r\n        || NotaGeo.trim().isEmpty() || NotaHist.trim().isEmpty() || NotaQuim.trim().isEmpty()\r\n        || NotaRed.trim().isEmpty() ||NotaSocio.trim().isEmpty() || NotaArt.trim().isEmpty()\r\n        || areaPreferencia.isEmpty()){\r\n            Toast.makeText(this,\"Por favor, preencha todos os campos\",Toast.LENGTH_LONG).show();\r\n            return;\r\n        }\r\n\r\n        Log.i(\"API Teste\", \"Convertendo dados para double\");\r\n        double notaMatematica = Double.parseDouble(NotaMat);\r\n        double notaPortugues = Double.parseDouble(NotaPort);\r\n        double notaLiteratura = Double.parseDouble(NotaLit);\r\n        double notaBiologia = Double.parseDouble(NotaBio);\r\n        double notaFisica = Double.parseDouble(NotaFis);\r\n        double notaFilosofia = Double.parseDouble(NotaFilo);\r\n        double notaGeografia = Double.parseDouble(NotaGeo);\r\n        double notaHistoria = Double.parseDouble(NotaHist);\r\n        double notaQuimica = Double.parseDouble(NotaQuim);\r\n        double notaRedacao = Double.parseDouble(NotaRed);\r\n        double notaSociologia = Double.parseDouble(NotaSocio);\r\n        double notaArtes = Double.parseDouble(NotaArt);\r\n        Log.i(\"API Teste\", \"Criando BodyNotas\");\r\n\r\n        BodyNotas notas = new BodyNotas();\r\n        LoadScreen.showLoading(getSupportFragmentManager(),\"Cadastrando...\");\r\n\r\n        final long DELAY_BEFORE_API_CALL = 1500;\r\n\r\n        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                Log.i(\"API Teste\", \"Passando id\");\r\n                // id do usuário\r\n                notas.setPessoa(user.getId());\r\n\r\n                Log.i(\"API Teste\", \"Passando notas\");\r\n                // notas do usuário\r\n                notas.setMatematica(notaMatematica);\r\n                notas.setPortugues(notaPortugues);\r\n                notas.setLiteratura(notaLiteratura);\r\n                notas.setBiologia(notaBiologia);\r\n                notas.setFisica(notaFisica);\r\n                notas.setFilosofia(notaFilosofia);\r\n                notas.setGeografia(notaGeografia);\r\n                notas.setHistoria(notaHistoria);\r\n                notas.setQuimica(notaQuimica);\r\n                notas.setRedacao(notaRedacao);\r\n                notas.setSociologia(notaSociologia);\r\n                notas.setArtes(notaArtes);\r\n                notas.setArea(areaPreferencia);\r\n                Log.i(\"API Teste\", \"Iniciando requisição\");\r\n                RequestRepository notasRepository = new RequestRepository();\r\n\r\n                notasRepository.adicionarNotas(notas, new NotasCallback() {\r\n                    @Override\r\n                    public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso\r\n                        Intent it = new Intent(RegisterData.this, UserPage.class);\r\n                        Log.i(\"Nav\", \"Indo de cadastro para userpage\");\r\n                        it.putExtra(\"user\", user);\r\n                        LoadScreen.dismissLoading();\r\n                        startActivity(it);\r\n                    }\r\n\r\n                    @Override\r\n                    public void onError(String errorMessage) {\r\n                        Log.i(\"API Teste\", \"Error\");\r\n                    }\r\n                });\r\n            }\r\n            }, DELAY_BEFORE_API_CALL);\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo8/sugestordecurso/ui/register/RegisterData.java b/app/src/main/java/com/grupo8/sugestordecurso/ui/register/RegisterData.java
+--- a/app/src/main/java/com/grupo8/sugestordecurso/ui/register/RegisterData.java	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/java/com/grupo8/sugestordecurso/ui/register/RegisterData.java	(date 1750966997876)
+@@ -14,12 +14,15 @@
+ import android.widget.Toast;
+ 
+ import androidx.appcompat.app.AppCompatActivity;
++import androidx.lifecycle.Observer;
+ 
++import com.google.android.material.snackbar.Snackbar;
+ import com.google.android.material.textfield.TextInputEditText;
+ import com.grupo8.sugestordecurso.R;
+ import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;
+ import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
+ import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
++import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
+ import com.grupo8.sugestordecurso.data.models.Utils.User;
+ import com.grupo8.sugestordecurso.data.repository.RequestRepository;
+ import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
+@@ -29,11 +32,28 @@
+ public class RegisterData extends AppCompatActivity {
+     User user;
+     private LoadScreen LoadScreen;
++    private CheckConexion verificadorConexao; //verificador de conexao
++    private boolean isConectado = false;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_register_data);
+ 
++        verificadorConexao = new CheckConexion(getApplicationContext());
++
++        // Observa as mudanças no estado da conexão
++        verificadorConexao.observe(this, new Observer<Boolean>() {
++            @Override
++            public void onChanged(Boolean conectado) {
++                isConectado = conectado;
++                if (!conectado) {
++                    // Exibe uma mensagem de erro persistente se não houver conexão
++                    View view = findViewById(android.R.id.content); // View raiz da sua activity
++                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++                }
++            }
++        });
++
+         LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
+         user = (User) getIntent().getSerializableExtra("user");
+         Log.i("API Teste", "ID Register Data: " + user.getId());
+@@ -55,108 +75,114 @@
+     }
+ 
+     public void onClickRegister2(View v){
+-        //tratamento da api
+-        Log.i("API Teste", "Iniciando cadastro dos dados");
+-        TextInputEditText editTextMatematica = findViewById(R.id.NotaMat);
+-        TextInputEditText editTextPortugues = findViewById(R.id.NotaPort);
+-        TextInputEditText editTextLiteratura = findViewById(R.id.NotaLit);
+-        TextInputEditText editTextBiologia = findViewById(R.id.NotaBio);
+-        TextInputEditText editTextFisica = findViewById(R.id.NotaFis);
+-        TextInputEditText editTextFilosofia = findViewById(R.id.NotaFilo);
+-        TextInputEditText editTextGeografia = findViewById(R.id.NotaGeo);
+-        TextInputEditText editTextHistoria = findViewById(R.id.NotaHist);
+-        TextInputEditText editTextQuimica = findViewById(R.id.NotaQuim);
+-        TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);
+-        TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
+-        TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
+-        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
++        if(isConectado) {
++            LoadScreen.showLoading(getSupportFragmentManager(), "Cadastrando...");
++            //tratamento da api
++            Log.i("API Teste", "Iniciando cadastro dos dados");
++            TextInputEditText editTextMatematica = findViewById(R.id.NotaMat);
++            TextInputEditText editTextPortugues = findViewById(R.id.NotaPort);
++            TextInputEditText editTextLiteratura = findViewById(R.id.NotaLit);
++            TextInputEditText editTextBiologia = findViewById(R.id.NotaBio);
++            TextInputEditText editTextFisica = findViewById(R.id.NotaFis);
++            TextInputEditText editTextFilosofia = findViewById(R.id.NotaFilo);
++            TextInputEditText editTextGeografia = findViewById(R.id.NotaGeo);
++            TextInputEditText editTextHistoria = findViewById(R.id.NotaHist);
++            TextInputEditText editTextQuimica = findViewById(R.id.NotaQuim);
++            TextInputEditText editTextRedacao = findViewById(R.id.NotaRed);
++            TextInputEditText editTextSociologia = findViewById(R.id.NotaSocio);
++            TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
++            AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
+ 
+-        String NotaMat = editTextMatematica.getText().toString();
+-        String NotaPort = editTextPortugues.getText().toString();
+-        String NotaLit = editTextLiteratura.getText().toString();
+-        String NotaBio = editTextBiologia.getText().toString();
+-        String NotaFis = editTextFisica.getText().toString();
+-        String NotaFilo = editTextFilosofia.getText().toString();
+-        String NotaGeo = editTextGeografia.getText().toString();
+-        String NotaHist = editTextHistoria.getText().toString();
+-        String NotaQuim = editTextQuimica.getText().toString();
+-        String NotaRed = editTextRedacao.getText().toString();
+-        String NotaSocio = editTextSociologia.getText().toString();
+-        String NotaArt = editTextArtes.getText().toString();
+-        String areaPreferencia = autoCompleteTextView.getText().toString();
++            String NotaMat = editTextMatematica.getText().toString();
++            String NotaPort = editTextPortugues.getText().toString();
++            String NotaLit = editTextLiteratura.getText().toString();
++            String NotaBio = editTextBiologia.getText().toString();
++            String NotaFis = editTextFisica.getText().toString();
++            String NotaFilo = editTextFilosofia.getText().toString();
++            String NotaGeo = editTextGeografia.getText().toString();
++            String NotaHist = editTextHistoria.getText().toString();
++            String NotaQuim = editTextQuimica.getText().toString();
++            String NotaRed = editTextRedacao.getText().toString();
++            String NotaSocio = editTextSociologia.getText().toString();
++            String NotaArt = editTextArtes.getText().toString();
++            String areaPreferencia = autoCompleteTextView.getText().toString();
+ 
+-        //garante que todos os campos foram preenchidos, incluindo o spinner
+-        if(NotaMat.trim().isEmpty() || NotaPort.trim().isEmpty() || NotaLit.trim().isEmpty()
+-        || NotaFis.trim().isEmpty() || NotaBio.trim().isEmpty() || NotaFilo.trim().isEmpty()
+-        || NotaGeo.trim().isEmpty() || NotaHist.trim().isEmpty() || NotaQuim.trim().isEmpty()
+-        || NotaRed.trim().isEmpty() ||NotaSocio.trim().isEmpty() || NotaArt.trim().isEmpty()
+-        || areaPreferencia.isEmpty()){
+-            Toast.makeText(this,"Por favor, preencha todos os campos",Toast.LENGTH_LONG).show();
+-            return;
+-        }
++            //garante que todos os campos foram preenchidos, incluindo o spinner
++            if (NotaMat.trim().isEmpty() || NotaPort.trim().isEmpty() || NotaLit.trim().isEmpty()
++                    || NotaFis.trim().isEmpty() || NotaBio.trim().isEmpty() || NotaFilo.trim().isEmpty()
++                    || NotaGeo.trim().isEmpty() || NotaHist.trim().isEmpty() || NotaQuim.trim().isEmpty()
++                    || NotaRed.trim().isEmpty() || NotaSocio.trim().isEmpty() || NotaArt.trim().isEmpty()
++                    || areaPreferencia.isEmpty()) {
++                Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_LONG).show();
++                return;
++            }
+ 
+-        Log.i("API Teste", "Convertendo dados para double");
+-        double notaMatematica = Double.parseDouble(NotaMat);
+-        double notaPortugues = Double.parseDouble(NotaPort);
+-        double notaLiteratura = Double.parseDouble(NotaLit);
+-        double notaBiologia = Double.parseDouble(NotaBio);
+-        double notaFisica = Double.parseDouble(NotaFis);
+-        double notaFilosofia = Double.parseDouble(NotaFilo);
+-        double notaGeografia = Double.parseDouble(NotaGeo);
+-        double notaHistoria = Double.parseDouble(NotaHist);
+-        double notaQuimica = Double.parseDouble(NotaQuim);
+-        double notaRedacao = Double.parseDouble(NotaRed);
+-        double notaSociologia = Double.parseDouble(NotaSocio);
+-        double notaArtes = Double.parseDouble(NotaArt);
+-        Log.i("API Teste", "Criando BodyNotas");
++            Log.i("API Teste", "Convertendo dados para double");
++            double notaMatematica = Double.parseDouble(NotaMat);
++            double notaPortugues = Double.parseDouble(NotaPort);
++            double notaLiteratura = Double.parseDouble(NotaLit);
++            double notaBiologia = Double.parseDouble(NotaBio);
++            double notaFisica = Double.parseDouble(NotaFis);
++            double notaFilosofia = Double.parseDouble(NotaFilo);
++            double notaGeografia = Double.parseDouble(NotaGeo);
++            double notaHistoria = Double.parseDouble(NotaHist);
++            double notaQuimica = Double.parseDouble(NotaQuim);
++            double notaRedacao = Double.parseDouble(NotaRed);
++            double notaSociologia = Double.parseDouble(NotaSocio);
++            double notaArtes = Double.parseDouble(NotaArt);
++            Log.i("API Teste", "Criando BodyNotas");
+ 
+-        BodyNotas notas = new BodyNotas();
+-        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando...");
++            BodyNotas notas = new BodyNotas();
+ 
+-        final long DELAY_BEFORE_API_CALL = 1500;
++            final long DELAY_BEFORE_API_CALL = 1000;
+ 
+-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+-            @Override
+-            public void run() {
+-                Log.i("API Teste", "Passando id");
+-                // id do usuário
+-                notas.setPessoa(user.getId());
++            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
++                @Override
++                public void run() {
++                    Log.i("API Teste", "Passando id");
++                    // id do usuário
++                    notas.setPessoa(user.getId());
+ 
+-                Log.i("API Teste", "Passando notas");
+-                // notas do usuário
+-                notas.setMatematica(notaMatematica);
+-                notas.setPortugues(notaPortugues);
+-                notas.setLiteratura(notaLiteratura);
+-                notas.setBiologia(notaBiologia);
+-                notas.setFisica(notaFisica);
+-                notas.setFilosofia(notaFilosofia);
+-                notas.setGeografia(notaGeografia);
+-                notas.setHistoria(notaHistoria);
+-                notas.setQuimica(notaQuimica);
+-                notas.setRedacao(notaRedacao);
+-                notas.setSociologia(notaSociologia);
+-                notas.setArtes(notaArtes);
+-                notas.setArea(areaPreferencia);
+-                Log.i("API Teste", "Iniciando requisição");
+-                RequestRepository notasRepository = new RequestRepository();
++                    Log.i("API Teste", "Passando notas");
++                    // notas do usuário
++                    notas.setMatematica(notaMatematica);
++                    notas.setPortugues(notaPortugues);
++                    notas.setLiteratura(notaLiteratura);
++                    notas.setBiologia(notaBiologia);
++                    notas.setFisica(notaFisica);
++                    notas.setFilosofia(notaFilosofia);
++                    notas.setGeografia(notaGeografia);
++                    notas.setHistoria(notaHistoria);
++                    notas.setQuimica(notaQuimica);
++                    notas.setRedacao(notaRedacao);
++                    notas.setSociologia(notaSociologia);
++                    notas.setArtes(notaArtes);
++                    notas.setArea(areaPreferencia);
++                    Log.i("API Teste", "Iniciando requisição");
++                    RequestRepository notasRepository = new RequestRepository();
+ 
+-                notasRepository.adicionarNotas(notas, new NotasCallback() {
+-                    @Override
+-                    public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
+-                        Intent it = new Intent(RegisterData.this, UserPage.class);
+-                        Log.i("Nav", "Indo de cadastro para userpage");
+-                        it.putExtra("user", user);
+-                        LoadScreen.dismissLoading();
+-                        startActivity(it);
+-                    }
++                    notasRepository.adicionarNotas(notas, new NotasCallback() {
++                        @Override
++                        public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
++                            Intent it = new Intent(RegisterData.this, UserPage.class);
++                            Log.i("Nav", "Indo de cadastro para userpage");
++                            it.putExtra("user", user);
++                            LoadScreen.dismissLoading();
++                            startActivity(it);
++                        }
+ 
+-                    @Override
+-                    public void onError(String errorMessage) {
+-                        Log.i("API Teste", "Error");
+-                    }
+-                });
+-            }
++                        @Override
++                        public void onError(String errorMessage) {
++                            LoadScreen.dismissLoading();
++                            Log.i("API Teste", "Error");
++                        }
++                    });
++                }
+             }, DELAY_BEFORE_API_CALL);
++        } else{
++            View view = findViewById(android.R.id.content); // View raiz da sua activity
++            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++        }
+     }
+ 
+ 
+Index: app/src/main/java/com/grupo8/sugestordecurso/data/models/Utils/CheckConexion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo8/sugestordecurso/data/models/Utils/CheckConexion.java b/app/src/main/java/com/grupo8/sugestordecurso/data/models/Utils/CheckConexion.java
+new file mode 100644
+--- /dev/null	(date 1750966997867)
++++ b/app/src/main/java/com/grupo8/sugestordecurso/data/models/Utils/CheckConexion.java	(date 1750966997867)
+@@ -0,0 +1,78 @@
++package com.grupo8.sugestordecurso.data.models.Utils;
++
++import android.content.Context;
++import android.net.ConnectivityManager;
++import android.net.Network;
++import android.net.NetworkCapabilities;
++import android.net.NetworkRequest;
++import android.os.Build;
++
++import androidx.annotation.NonNull;
++import androidx.lifecycle.LiveData;
++
++//classe para verificar conexao de rede (necessaria pro uso do app)
++public class CheckConexion extends LiveData<Boolean> {
++
++    private final ConnectivityManager connectivityManager;
++    private ConnectivityManager.NetworkCallback networkCallback;
++
++    public CheckConexion(Context context) {
++        this.connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
++    }
++
++    private void verificarConexaoAtiva() {
++        Network network = null;
++        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
++            network = connectivityManager.getActiveNetwork();
++        }
++        if (network == null) {
++            postValue(false);
++            return;
++        }
++
++        NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(network);
++        boolean temConexao = capabilities != null &&
++                (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
++                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
++                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
++        postValue(temConexao);
++    }
++
++    private ConnectivityManager.NetworkCallback criarNetworkCallback() {
++        return new ConnectivityManager.NetworkCallback() {
++            @Override
++            public void onAvailable(@NonNull Network network) {
++                // A rede está disponível
++                postValue(true);
++            }
++
++            @Override
++            public void onLost(@NonNull Network network) {
++                // A rede foi perdida
++                postValue(false);
++            }
++        };
++    }
++
++    @Override
++    protected void onActive() {
++        super.onActive();
++        // Verifica o estado inicial da conexão
++        verificarConexaoAtiva();
++
++        networkCallback = criarNetworkCallback();
++        NetworkRequest networkRequest = new NetworkRequest.Builder()
++                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
++                .build();
++        connectivityManager.registerNetworkCallback(networkRequest, networkCallback);
++    }
++
++    @Override
++    protected void onInactive() {
++        super.onInactive();
++        if (networkCallback != null) {
++            connectivityManager.unregisterNetworkCallback(networkCallback);
++            networkCallback = null;
++        }
++    }
++}
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <uses-feature\r\n        android:name=\"android.hardware.camera\"\r\n        android:required=\"false\" />\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" android:maxSdkVersion=\"32\" />\r\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" android:maxSdkVersion=\"28\" />\r\n    <uses-permission android:name=\"android.permission.READ_MEDIA_IMAGES\" />\r\n\r\n    <uses-permission android:name=\"android.permission.CAMERA\" />\r\n    <application\r\n        android:usesCleartextTraffic=\"true\"\r\n        android:name=\".data.database.MyApp\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.SugestorDeCurso\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".ui.historico.Historico\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ui.base.Base\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ui.profile.ProfileGradeData\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ui.profile.ProfilePersonalData\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ui.register.RegisterData\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ui.profile.Profile\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ui.userPage.UserPage\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ui.register.Register\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".ui.login.MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <provider\r\n            android:name=\"androidx.core.content.FileProvider\"\r\n            android:authorities=\"${applicationId}.fileprovider\"\r\n            android:exported=\"false\"\r\n            android:grantUriPermissions=\"true\">\r\n            <meta-data\r\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\r\n                android:resource=\"@xml/file_paths\" />\r\n        </provider>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/AndroidManifest.xml	(date 1750966997867)
+@@ -7,6 +7,7 @@
+         android:required="false" />
+ 
+     <uses-permission android:name="android.permission.INTERNET" />
++    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+Index: app/src/main/res/drawable/seta_voltar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/seta_voltar.xml b/app/src/main/res/drawable/seta_voltar.xml
+new file mode 100644
+--- /dev/null	(date 1750966997884)
++++ b/app/src/main/res/drawable/seta_voltar.xml	(date 1750966997884)
+@@ -0,0 +1,5 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:autoMirrored="true" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
++      
++    <path android:fillColor="@android:color/white" android:pathData="M20,11H7.83l5.59,-5.59L12,4l-8,8 8,8 1.41,-1.41L7.83,13H20v-2z"/>
++    
++</vector>
+Index: app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfileGradeData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo8.sugestordecurso.ui.profile;\r\n\r\nimport android.app.Activity;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.EditText;\r\nimport android.widget.Toast;\r\n\r\nimport com.grupo8.sugestordecurso.R;\r\nimport com.grupo8.sugestordecurso.data.models.Utils.User;\r\n\r\npublic class ProfileGradeData extends Activity {\r\n    //editTexts com os dados do usuário passíveis de serem alterados\r\n    EditText edtMat, edtPort, edtRed, edtLit, edtQuim, edtFis, edtBio, edtGeo, edtHist, edtFilo, edtSocio, edtArtes;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_profile_grade_data);\r\n\r\n        edtMat = findViewById(R.id.NotaMat);\r\n        edtPort = findViewById(R.id.NotaPort);\r\n        edtRed = findViewById(R.id.NotaRed);\r\n        edtLit = findViewById(R.id.NotaLit);\r\n        edtQuim = findViewById(R.id.NotaQuim);\r\n        edtFis = findViewById(R.id.NotaFis);\r\n        edtBio = findViewById(R.id.NotaBio);\r\n        edtGeo = findViewById(R.id.NotaGeo);\r\n        edtHist = findViewById(R.id.NotaHist);\r\n        edtFilo = findViewById(R.id.NotaFilo);\r\n        edtSocio = findViewById(R.id.NotaSocio);\r\n        edtArtes = findViewById(R.id.NotaArte);\r\n\r\n        //colocar os dados do aluno retirados da api da rubeus\r\n        User user = User.getInstance();\r\n        edtMat.setText(user.getNotaMatematica() + \"\");\r\n        edtPort.setText(user.getNotaPortugues() + \"\");\r\n        edtLit.setText(user.getNotaLiteratura() + \"\");\r\n        edtRed.setText(user.getNotaRedacao() + \"\");\r\n        edtQuim.setText(user.getNotaQuimica() + \"\");\r\n        edtFis.setText(user.getNotaFisica() + \"\");\r\n        edtBio.setText(user.getNotaBiologia() + \"\");\r\n        edtGeo.setText(user.getNotaGeografia() + \"\");\r\n        edtHist.setText(user.getNotaHistoria() + \"\");\r\n        edtFilo.setText(user.getNotaFilosofia() + \"\");\r\n        edtSocio.setText(user.getNotaSociologia() + \"\");\r\n        edtArtes.setText(user.getNotaArtes() + \"\");\r\n    }\r\n\r\n    public void onClickUpdateGrade(View v){\r\n        String notaMat = edtMat.getText().toString();\r\n\r\n        //Atualização dos dados via api\r\n\r\n        Toast.makeText(ProfileGradeData.this, \"Notas atualizadas com sucesso!\", Toast.LENGTH_SHORT).show();\r\n\r\n        //volta para tela anterior\r\n        finish();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfileGradeData.java b/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfileGradeData.java
+--- a/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfileGradeData.java	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfileGradeData.java	(date 1750966997875)
+@@ -4,20 +4,54 @@
+ import android.os.Bundle;
+ import android.view.View;
+ import android.widget.EditText;
++import android.widget.ImageButton;
+ import android.widget.Toast;
+ 
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.lifecycle.Observer;
++
++import com.google.android.material.snackbar.Snackbar;
+ import com.grupo8.sugestordecurso.R;
++import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
+ import com.grupo8.sugestordecurso.data.models.Utils.User;
++import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
+ 
+-public class ProfileGradeData extends Activity {
++public class ProfileGradeData extends AppCompatActivity {
+     //editTexts com os dados do usuário passíveis de serem alterados
+     EditText edtMat, edtPort, edtRed, edtLit, edtQuim, edtFis, edtBio, edtGeo, edtHist, edtFilo, edtSocio, edtArtes;
+-
++    LoadScreen LoadScreen;
++    private CheckConexion verificadorConexao; //verificador de conexao
++    private boolean isConectado = false;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_profile_grade_data);
+ 
++        LoadScreen = new LoadScreen();
++        verificadorConexao = new CheckConexion(getApplicationContext());
++
++        ImageButton btnVoltar = findViewById(R.id.btn_voltar);
++        btnVoltar.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                // Ação para voltar: Simula o botão "voltar" do sistema
++                getOnBackPressedDispatcher().onBackPressed();
++            }
++        });
++
++        // Observa as mudanças no estado da conexão
++        verificadorConexao.observe(this, new Observer<Boolean>() {
++            @Override
++            public void onChanged(Boolean conectado) {
++                isConectado = conectado;
++                if (!conectado) {
++                    // Exibe uma mensagem de erro persistente se não houver conexão
++                    View view = findViewById(android.R.id.content); // View raiz da sua activity
++                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++                }
++            }
++        });
++
+         edtMat = findViewById(R.id.NotaMat);
+         edtPort = findViewById(R.id.NotaPort);
+         edtRed = findViewById(R.id.NotaRed);
+@@ -48,13 +82,20 @@
+     }
+ 
+     public void onClickUpdateGrade(View v){
+-        String notaMat = edtMat.getText().toString();
++        if(isConectado) {
++            LoadScreen.showLoading(getSupportFragmentManager(), "Salvando");
++            String notaMat = edtMat.getText().toString();
+ 
+-        //Atualização dos dados via api
++            //Atualização dos dados via api
+ 
+-        Toast.makeText(ProfileGradeData.this, "Notas atualizadas com sucesso!", Toast.LENGTH_SHORT).show();
++            LoadScreen.dismissLoading();
++            Toast.makeText(ProfileGradeData.this, "Notas atualizadas com sucesso!", Toast.LENGTH_SHORT).show();
+ 
+-        //volta para tela anterior
+-        finish();
++            //volta para tela anterior
++            finish();
++        } else{
++            View view = findViewById(android.R.id.content); // View raiz da sua activity
++            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++        }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_profile_grade_data.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    android:layout_height=\"match_parent\">\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n        android:orientation=\"vertical\"\r\n        android:layout_marginTop=\"10dp\"\r\n        android:gravity=\"center\"\r\n        android:padding=\"24dp\"\r\n        >\r\n\r\n        <TextView\r\n            android:id=\"@+id/infos\"\r\n            android:textColor=\"@color/black\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@string/atualizar_dados_de_notas\"\r\n            android:layout_marginBottom=\"30dp\"\r\n            android:textStyle=\"bold\"\r\n            android:textSize=\"24sp\"\r\n            />\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaMat\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaMat\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaMat\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaPort\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_marginTop=\"15dp\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaPort\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaPort\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaRed\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_marginTop=\"15dp\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaRed\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaRed\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaLit\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_marginTop=\"15dp\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaLit\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaLit\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaQuim\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_marginTop=\"15dp\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_height=\"wrap_content\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaQuim\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaQuim\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaFis\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaFis\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaFis\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaBio\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaBio\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaBio\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaGeo\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaGeo\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaGeo\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaHist\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaHist\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaHist\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaFilo\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaFilo\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaFilo\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaSocio\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaSocio\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaSocio\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/CampoNotaArte\"\r\n            style=\"@style/MyCustomTextInputLayout\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            app:hintTextColor=\"@color/black\"\r\n            android:layout_marginTop=\"15dp\">\r\n            <com.google.android.material.textfield.TextInputEditText\r\n                android:id=\"@+id/NotaArte\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:hint=\"@string/NotaArte\"\r\n                android:textColorHint=\"@color/black\"\r\n                android:textColor=\"@color/black\"\r\n                android:inputType=\"numberDecimal\"/>\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            android:id=\"@+id/BtSalvar\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"24dp\"\r\n            android:text=\"@string/BotaoSalvar\"\r\n            android:textColor=\"@color/black\"\r\n            android:onClick=\"onClickUpdateGrade\"\r\n            style=\"@style/Widget.Custom.RoundedButton\"/>\r\n\r\n\r\n\r\n    </LinearLayout>\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_profile_grade_data.xml b/app/src/main/res/layout/activity_profile_grade_data.xml
+--- a/app/src/main/res/layout/activity_profile_grade_data.xml	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/res/layout/activity_profile_grade_data.xml	(date 1750966997884)
+@@ -1,244 +1,278 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
++    android:layout_height="match_parent"
+     android:background="@color/background"
+-    android:layout_height="match_parent">
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        xmlns:app="http://schemas.android.com/apk/res-auto"
+-        android:orientation="vertical"
+-        android:layout_marginTop="10dp"
+-        android:gravity="center"
+-        android:padding="24dp"
+-        >
++    tools:context=".ui.profile.ProfileGradeData">
++
++    <ScrollView
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:padding="16dp"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:gravity="center"
++            android:layout_marginTop="10dp"
++            android:orientation="vertical"
++            android:padding="24dp">
+ 
+-        <TextView
+-            android:id="@+id/infos"
+-            android:textColor="@color/black"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="@string/atualizar_dados_de_notas"
+-            android:layout_marginBottom="30dp"
+-            android:textStyle="bold"
+-            android:textSize="24sp"
+-            />
++            <TextView
++                android:id="@+id/infos"
++                android:layout_width="wrap_content"
++                android:paddingBottom="24dp"
++                android:layout_height="wrap_content"
++                android:text="@string/atualizar_dados_de_notas"
++                android:textColor="@color/black"
++                android:textSize="24sp"
++                android:textStyle="bold" />
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaMat"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            app:hintTextColor="@color/black"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaMat"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaMat"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaMat"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaMat"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaMat"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaPort"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_marginTop="15dp"
+-            app:hintTextColor="@color/black"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaPort"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaPort"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaPort"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaPort"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaPort"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaRed"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_marginTop="15dp"
+-            app:hintTextColor="@color/black"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaRed"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaRed"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaRed"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaRed"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaRed"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaLit"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_marginTop="15dp"
+-            app:hintTextColor="@color/black"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaLit"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaLit"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaLit"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaLit"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaLit"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaQuim"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_marginTop="15dp"
+-            app:hintTextColor="@color/black"
+-            android:layout_height="wrap_content">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaQuim"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaQuim"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaQuim"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaQuim"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaQuim"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaFis"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaFis"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaFis"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaFis"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaFis"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaFis"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaBio"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaBio"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaBio"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaBio"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaBio"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaBio"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaGeo"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaGeo"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaGeo"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaGeo"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaGeo"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaGeo"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaHist"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaHist"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaHist"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaHist"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaHist"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaHist"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaFilo"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaFilo"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaFilo"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaFilo"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaFilo"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaFilo"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaSocio"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaSocio"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaSocio"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaSocio"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaSocio"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaSocio"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.textfield.TextInputLayout
+-            android:id="@+id/CampoNotaArte"
+-            style="@style/MyCustomTextInputLayout"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            app:hintTextColor="@color/black"
+-            android:layout_marginTop="15dp">
+-            <com.google.android.material.textfield.TextInputEditText
+-                android:id="@+id/NotaArte"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:hint="@string/NotaArte"
+-                android:textColorHint="@color/black"
+-                android:textColor="@color/black"
+-                android:inputType="numberDecimal"/>
+-        </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/CampoNotaArte"
++                style="@style/MyCustomTextInputLayout"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="15dp"
++                app:hintTextColor="@color/black">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/NotaArte"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:hint="@string/NotaArte"
++                    android:inputType="numberDecimal"
++                    android:textColor="@color/black"
++                    android:textColorHint="@color/black" />
++            </com.google.android.material.textfield.TextInputLayout>
+ 
+-        <com.google.android.material.button.MaterialButton
+-            android:id="@+id/BtSalvar"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:layout_marginTop="24dp"
+-            android:text="@string/BotaoSalvar"
+-            android:textColor="@color/black"
+-            android:onClick="onClickUpdateGrade"
+-            style="@style/Widget.Custom.RoundedButton"/>
+-
+-
++            <com.google.android.material.button.MaterialButton
++                android:id="@+id/BtSalvar"
++                style="@style/Widget.Custom.RoundedButton"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="24dp"
++                android:onClick="onClickUpdateGrade"
++                android:text="@string/BotaoSalvar"
++                android:textColor="@color/black" />
+ 
+-    </LinearLayout>
+-</ScrollView>
+\ No newline at end of file
++        </LinearLayout>
++    </ScrollView>
++
++    <ImageButton
++        android:id="@+id/btn_voltar"
++        android:layout_width="48dp"
++        android:layout_height="48dp"
++        android:layout_marginStart="3dp"
++        android:layout_marginTop="3dp"
++        android:background="?attr/selectableItemBackgroundBorderless"
++        android:contentDescription="@string/descricao_voltar"
++        android:src="@drawable/seta_voltar"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfilePersonalData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo8.sugestordecurso.ui.profile;\r\n\r\nimport android.app.Activity;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.material.textfield.TextInputEditText;\r\nimport com.grupo8.sugestordecurso.R;\r\nimport com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;\r\nimport com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;\r\nimport com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;\r\nimport com.grupo8.sugestordecurso.data.models.Utils.User;\r\nimport com.grupo8.sugestordecurso.data.repository.RequestRepository;\r\nimport com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;\r\nimport com.grupo8.sugestordecurso.ui.register.Register;\r\nimport com.grupo8.sugestordecurso.ui.register.RegisterData;\r\n\r\npublic class ProfilePersonalData extends Activity {\r\n    //editTexts com os dados do usuário passíveis de serem alterados\r\n    EditText edtNome, edtEmail, edtTelefone, edtCPF, edtDataN;\r\n    Button buttonSalvar;\r\n    LoadScreen LoadScreen;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_profile_personal_data);\r\n\r\n        edtNome = findViewById(R.id.Nome);\r\n        edtEmail = findViewById(R.id.Email);\r\n        edtTelefone = findViewById(R.id.Telefone);\r\n        edtCPF = findViewById(R.id.CPF);\r\n        edtDataN = findViewById(R.id.Nascimento);\r\n\r\n        buttonSalvar = findViewById(R.id.BtSalvar);\r\n\r\n        User user = User.getInstance();\r\n        edtNome.setText(user.getNome());\r\n        edtEmail.setText(user.getEmail());\r\n        edtTelefone.setText(user.getTelefone());\r\n        edtCPF.setText(user.getCpf());\r\n        edtDataN.setText(user.getDataNascimento());\r\n\r\n    }\r\n\r\n    public void onClickUpdateData(View v){\r\n        String nome = edtNome.getText().toString();\r\n\r\n        //Atualização dos dados via api\r\n        BodyCadastro contato = new BodyCadastro();\r\n\r\n        TextInputEditText editTextNome = findViewById(R.id.Nome);\r\n        TextInputEditText editTextNomeSocial = findViewById(R.id.Nascimento);\r\n        TextInputEditText editTextEmail = findViewById(R.id.Email);\r\n        TextInputEditText editTextTelefone = findViewById(R.id.Telefone);\r\n\r\n        contato.setNome(editTextNome.getText().toString());\r\n        contato.setNomeSocial(editTextNomeSocial.getText().toString());\r\n        contato.setTelefonePrincipal(editTextTelefone.getText().toString());\r\n        contato.setEmailPrincipal(editTextEmail.getText().toString());\r\n\r\n        // Cria conexão com APIRubeus\r\n        RequestRepository contatoRepository = new RequestRepository();\r\n        // Envia chamada\r\n        contatoRepository.cadastrarContato(contato, new ContatoCallback() {\r\n            @Override\r\n            public void onSuccess(RespostaCadastro response) {\r\n                Log.i(\"API Teste\", \"Dados atualizados\");\r\n                User user = User.getInstance();\r\n                user.setId(response.getDados());\r\n                user.setNome(contato.getNome());\r\n                user.setNomeSocial(contato.getNomeSocial());\r\n                user.setEmail(contato.getEmailPrincipal());\r\n                user.setTelefone(contato.getTelefonePrincipal());\r\n                user.setCpf(contato.getCpf());\r\n                user.setDataNascimento(contato.getDataNascimento());\r\n                Log.i(\"API Teste\", \"ID: \" + user.getId());\r\n                LoadScreen = new LoadScreen();\r\n                LoadScreen.dismissLoading(); //fecha tela de carregamento\r\n                //navega para a página do usuário\r\n                Intent it = new Intent(ProfilePersonalData.this, RegisterData.class);\r\n                it.putExtra(\"user\", user);\r\n                startActivity(it);\r\n            }\r\n\r\n            @Override\r\n            public void onError(String errorMessage) {\r\n\r\n            }\r\n        });\r\n\r\n        Toast.makeText(ProfilePersonalData.this, \"Dados atualizados com sucesso!\", Toast.LENGTH_SHORT).show();\r\n\r\n        //volta para tela anterior\r\n        finish();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfilePersonalData.java b/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfilePersonalData.java
+--- a/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfilePersonalData.java	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/java/com/grupo8/sugestordecurso/ui/profile/ProfilePersonalData.java	(date 1750966997876)
+@@ -7,31 +7,67 @@
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.EditText;
++import android.widget.ImageButton;
+ import android.widget.Toast;
+ 
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.lifecycle.Observer;
++
++import com.google.android.material.snackbar.Snackbar;
+ import com.google.android.material.textfield.TextInputEditText;
+ import com.grupo8.sugestordecurso.R;
+ import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
+ import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
+ import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
++import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
+ import com.grupo8.sugestordecurso.data.models.Utils.User;
+ import com.grupo8.sugestordecurso.data.repository.RequestRepository;
+ import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
+ import com.grupo8.sugestordecurso.ui.register.Register;
+ import com.grupo8.sugestordecurso.ui.register.RegisterData;
++import com.grupo8.sugestordecurso.ui.userPage.UserPage;
+ 
+-public class ProfilePersonalData extends Activity {
++public class ProfilePersonalData extends AppCompatActivity {
+     //editTexts com os dados do usuário passíveis de serem alterados
+-    EditText edtNome, edtEmail, edtTelefone, edtCPF, edtDataN;
++    EditText edtNome, edtNomeSocial, edtEmail, edtTelefone, edtCPF, edtDataN;
+     Button buttonSalvar;
+     LoadScreen LoadScreen;
++    private CheckConexion verificadorConexao; //verificador de conexao
++    private boolean isConectado = false;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_profile_personal_data);
+ 
++        LoadScreen = new LoadScreen();
++
++        verificadorConexao = new CheckConexion(getApplicationContext());
++
++        ImageButton btnVoltar = findViewById(R.id.btn_voltar);
++        btnVoltar.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                // Ação para voltar: Simula o botão "voltar" do sistema
++                getOnBackPressedDispatcher().onBackPressed();
++            }
++        });
++
++        // Observa as mudanças no estado da conexão
++        verificadorConexao.observe(this, new Observer<Boolean>() {
++            @Override
++            public void onChanged(Boolean conectado) {
++                isConectado = conectado;
++                if (!conectado) {
++                    // Exibe uma mensagem de erro persistente se não houver conexão
++                    View view = findViewById(android.R.id.content); // View raiz da sua activity
++                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++                }
++            }
++        });
++
+         edtNome = findViewById(R.id.Nome);
++        edtNomeSocial = findViewById(R.id.NomeSocial);
+         edtEmail = findViewById(R.id.Email);
+         edtTelefone = findViewById(R.id.Telefone);
+         edtCPF = findViewById(R.id.CPF);
+@@ -41,6 +77,7 @@
+ 
+         User user = User.getInstance();
+         edtNome.setText(user.getNome());
++        edtNomeSocial.setText(user.getNomeSocial());
+         edtEmail.setText(user.getEmail());
+         edtTelefone.setText(user.getTelefone());
+         edtCPF.setText(user.getCpf());
+@@ -49,54 +86,52 @@
+     }
+ 
+     public void onClickUpdateData(View v){
+-        String nome = edtNome.getText().toString();
+-
+-        //Atualização dos dados via api
+-        BodyCadastro contato = new BodyCadastro();
++        if(isConectado) {
++            LoadScreen.showLoading(getSupportFragmentManager(), "Salvando");
++            //Atualização dos dados via api
++            BodyCadastro contato = new BodyCadastro();
+ 
+-        TextInputEditText editTextNome = findViewById(R.id.Nome);
+-        TextInputEditText editTextNomeSocial = findViewById(R.id.Nascimento);
+-        TextInputEditText editTextEmail = findViewById(R.id.Email);
+-        TextInputEditText editTextTelefone = findViewById(R.id.Telefone);
++            TextInputEditText editTextNome = findViewById(R.id.Nome);
++            TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
++            TextInputEditText editTextEmail = findViewById(R.id.Email);
++            TextInputEditText editTextTelefone = findViewById(R.id.Telefone);
+ 
+-        contato.setNome(editTextNome.getText().toString());
+-        contato.setNomeSocial(editTextNomeSocial.getText().toString());
+-        contato.setTelefonePrincipal(editTextTelefone.getText().toString());
+-        contato.setEmailPrincipal(editTextEmail.getText().toString());
++            contato.setNome(editTextNome.getText().toString());
++            contato.setNomeSocial(editTextNomeSocial.getText().toString());
++            contato.setTelefonePrincipal(editTextTelefone.getText().toString());
++            contato.setEmailPrincipal(editTextEmail.getText().toString());
+ 
+-        // Cria conexão com APIRubeus
+-        RequestRepository contatoRepository = new RequestRepository();
+-        // Envia chamada
+-        contatoRepository.cadastrarContato(contato, new ContatoCallback() {
+-            @Override
+-            public void onSuccess(RespostaCadastro response) {
+-                Log.i("API Teste", "Dados atualizados");
+-                User user = User.getInstance();
+-                user.setId(response.getDados());
+-                user.setNome(contato.getNome());
+-                user.setNomeSocial(contato.getNomeSocial());
+-                user.setEmail(contato.getEmailPrincipal());
+-                user.setTelefone(contato.getTelefonePrincipal());
+-                user.setCpf(contato.getCpf());
+-                user.setDataNascimento(contato.getDataNascimento());
+-                Log.i("API Teste", "ID: " + user.getId());
+-                LoadScreen = new LoadScreen();
+-                LoadScreen.dismissLoading(); //fecha tela de carregamento
+-                //navega para a página do usuário
+-                Intent it = new Intent(ProfilePersonalData.this, RegisterData.class);
+-                it.putExtra("user", user);
+-                startActivity(it);
+-            }
++            // Cria conexão com APIRubeus
++            RequestRepository contatoRepository = new RequestRepository();
++            // Envia chamada
++            contatoRepository.cadastrarContato(contato, new ContatoCallback() {
++                @Override
++                public void onSuccess(RespostaCadastro response) {
++                    Log.i("API Teste", "Dados atualizados");
++                    User user = User.getInstance();
++                    user.setId(response.getDados());
++                    user.setNome(contato.getNome());
++                    user.setNomeSocial(contato.getNomeSocial());
++                    user.setEmail(contato.getEmailPrincipal());
++                    user.setTelefone(contato.getTelefonePrincipal());
++                    user.setCpf(contato.getCpf());
++                    user.setDataNascimento(contato.getDataNascimento());
++                    Log.i("API Teste", "ID: " + user.getId());
++                    LoadScreen.dismissLoading(); //fecha tela de carregamento
++                    //volta para a página do usuário
++                    finish();
++                }
+ 
+-            @Override
+-            public void onError(String errorMessage) {
+-
+-            }
+-        });
++                @Override
++                public void onError(String errorMessage) {
++                    LoadScreen.dismissLoading();
++                }
++            });
+ 
+-        Toast.makeText(ProfilePersonalData.this, "Dados atualizados com sucesso!", Toast.LENGTH_SHORT).show();
+-
+-        //volta para tela anterior
+-        finish();
++            Toast.makeText(ProfilePersonalData.this, "Dados atualizados com sucesso!", Toast.LENGTH_SHORT).show();
++        } else{
++            View view = findViewById(android.R.id.content); // View raiz da sua activity
++            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++        }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/grupo8/sugestordecurso/ui/register/Register.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo8.sugestordecurso.ui.register;\r\n\r\nimport android.Manifest;\r\nimport android.content.DialogInterface;\r\nimport android.content.Intent;\r\nimport android.content.pm.PackageManager;\r\nimport android.graphics.Bitmap;\r\nimport android.graphics.Matrix;\r\nimport android.icu.text.SimpleDateFormat;\r\nimport android.media.ExifInterface;\r\nimport android.net.Uri;\r\nimport android.os.Build;\r\nimport android.os.Bundle;\r\nimport android.provider.MediaStore;\r\nimport android.text.Editable;\r\nimport android.text.TextWatcher;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.activity.result.ActivityResultLauncher;\r\nimport androidx.activity.result.contract.ActivityResultContracts;\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AlertDialog;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.content.ContextCompat;\r\nimport androidx.core.content.FileProvider;\r\n\r\nimport com.google.android.material.textfield.TextInputEditText;\r\nimport com.grupo8.sugestordecurso.R;\r\nimport com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;\r\nimport com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;\r\nimport com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;\r\nimport com.grupo8.sugestordecurso.data.models.Utils.User;\r\nimport com.grupo8.sugestordecurso.data.repository.RequestRepository;\r\nimport com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;\r\n\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.util.Date;\r\nimport java.util.Locale;\r\nimport java.util.Objects;\r\n\r\nimport de.hdodenhof.circleimageview.CircleImageView;\r\n\r\n\r\npublic class Register extends AppCompatActivity {\r\n\r\n    private BodyCadastro contato;\r\n    private TextInputEditText editTextCPF;\r\n    private TextInputEditText editTextTelefone;\r\n    private TextInputEditText editTextData;\r\n    private Uri selectedImageUri;\r\n    private Uri cameraOutputUri;\r\n    private CircleImageView imageViewPerfil;\r\n    //launcher para lidar com requisição de imagem\r\n    private ActivityResultLauncher<Intent> pickImageLauncher;\r\n    private ActivityResultLauncher<Uri> takePictureLauncher;\r\n    private ActivityResultLauncher<String[]> requestPermissionLauncher;\r\n    private LoadScreen LoadScreen;\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_register);\r\n\r\n        LoadScreen = new LoadScreen(); //cria tela de carregamento para ser chamada quando necessario\r\n\r\n        editTextCPF = findViewById(R.id.CPF);\r\n        editTextTelefone = findViewById(R.id.Telefone);\r\n        editTextData = findViewById(R.id.Nascimento);\r\n\r\n        //imagem de perfil do usuario\r\n        imageViewPerfil = findViewById(R.id.imageViewPerfil);\r\n        //ao clicar no icone permite ao usuario escolher uma imagem da galeria ou tirar foto com a camera\r\n        imageViewPerfil.setOnClickListener(v -> showImagePickerDialog());\r\n\r\n        //cria uma mascara dinamicamente para que o input do usuario tenha formato xxx.xxx.xxx-xx\r\n        editTextCPF.addTextChangedListener(new TextWatcher() {\r\n            boolean isUpdating;\r\n            String oldText = \"\";\r\n\r\n            @Override\r\n            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }\r\n\r\n            @Override\r\n            public void onTextChanged(CharSequence s, int start, int before, int count) {\r\n                String str = s.toString().replaceAll(\"[^\\\\d]\", \"\");\r\n\r\n                if (isUpdating) {\r\n                    oldText = str;\r\n                    isUpdating = false;\r\n                    return;\r\n                }\r\n\r\n                StringBuilder formatted = new StringBuilder();\r\n\r\n                int len = str.length();\r\n\r\n                if (len > 0) {\r\n                    for (int i = 0; i < len && i < 11; i++) {\r\n                        char c = str.charAt(i);\r\n                        if (i == 3 || i == 6) {\r\n                            formatted.append('.');\r\n                        } else if (i == 9) {\r\n                            formatted.append('-');\r\n                        }\r\n                        formatted.append(c);\r\n                    }\r\n                }\r\n\r\n                isUpdating = true;\r\n                editTextCPF.setText(formatted.toString());\r\n                editTextCPF.setSelection(formatted.length());\r\n            }\r\n\r\n            @Override\r\n            public void afterTextChanged(Editable s) { }\r\n        });\r\n\r\n        //cria mascara para o input do usuario de data ser no formato YYYY-MM-DD\r\n        editTextData.addTextChangedListener(new TextWatcher() {\r\n            boolean isUpdating;\r\n            String oldText = \"\";\r\n\r\n            @Override\r\n            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }\r\n\r\n            @Override\r\n            public void onTextChanged(CharSequence s, int start, int before, int count) {\r\n                String str = s.toString().replaceAll(\"[^\\\\d]\", \"\");\r\n\r\n                if (isUpdating) {\r\n                    oldText = str;\r\n                    isUpdating = false;\r\n                    return;\r\n                }\r\n\r\n                StringBuilder formatted = new StringBuilder();\r\n\r\n                int len = str.length();\r\n\r\n                if (len > 0) {\r\n                    for (int i = 0; i < len && i < 8; i++) {\r\n                        if (i == 4 || i == 6) {\r\n                            formatted.append(\"-\");\r\n                        }\r\n                        formatted.append(str.charAt(i));\r\n                    }\r\n                }\r\n\r\n                isUpdating = true;\r\n                editTextData.setText(formatted.toString());\r\n                editTextData.setSelection(formatted.length());\r\n            }\r\n\r\n            @Override\r\n            public void afterTextChanged(Editable s) { }\r\n        });\r\n\r\n        //define um launcher caso ele decida escolher da galeria\r\n        pickImageLauncher = registerForActivityResult(\r\n                new ActivityResultContracts.StartActivityForResult(),\r\n                result -> {\r\n                    if (result.getResultCode() == RESULT_OK && result.getData() != null) { //se permitido\r\n                        selectedImageUri = result.getData().getData(); //pega uri da imagem selecionada\r\n                        try { //pega a imagem e garante que ela esteja na rotação correta\r\n                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);\r\n                            InputStream inputStream = getContentResolver().openInputStream(selectedImageUri);\r\n                            Bitmap rotatedBitmap = rotateBitmapIfRequired(bitmap, inputStream, selectedImageUri);\r\n                            imageViewPerfil.setImageBitmap(rotatedBitmap); //seta imagem no icone\r\n                        } catch (IOException e) {\r\n                            //caso haja erro, avisa o usuario\r\n                            Toast.makeText(this, \"Erro ao carregar imagem da galeria.\", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                    } else if (result.getResultCode() == RESULT_CANCELED) { //se nao permitido, avisa usuario\r\n                        Toast.makeText(this, \"Seleção da galeria cancelada.\", Toast.LENGTH_SHORT).show();\r\n                    }\r\n                }\r\n        );\r\n\r\n        //launcher para tirar foto com a câmera\r\n        takePictureLauncher = registerForActivityResult(\r\n                new ActivityResultContracts.TakePicture(),\r\n                success -> {\r\n                    if (success) {\r\n                        selectedImageUri = cameraOutputUri; //a imagem foi salva no URI que passamos\r\n                        try { //guarda imagem e garante que esteja na rotação correta\r\n                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);\r\n                            InputStream inputStream = getContentResolver().openInputStream(selectedImageUri);\r\n                            Bitmap rotatedBitmap = rotateBitmapIfRequired(bitmap, inputStream, selectedImageUri);\r\n                            imageViewPerfil.setImageBitmap(rotatedBitmap);\r\n                        } catch (IOException e) {\r\n                            //toast caso haja erro no carregamento da foto\r\n                            Toast.makeText(this, \"Erro ao carregar foto capturada.\", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                    } else {\r\n                        Toast.makeText(this, \"Captura de foto cancelada ou falhou.\", Toast.LENGTH_SHORT).show();\r\n                    }\r\n                }\r\n        );\r\n\r\n        //launcher para solicitar permissões\r\n        requestPermissionLauncher = registerForActivityResult(\r\n                new ActivityResultContracts.RequestMultiplePermissions(), //pede permissoes de camera e galeria\r\n                permissionsGranted -> {\r\n                    boolean allGranted = true;\r\n                    for (Boolean granted : permissionsGranted.values()) { //verifica se usuario deu todas permissoes necessarias\r\n                        if (!granted) {\r\n                            allGranted = false;\r\n                            break;\r\n                        }\r\n                    }\r\n\r\n                    if (allGranted) { //se tiver permissoes\r\n                        Toast.makeText(this, \"Permissões concedidas!\", Toast.LENGTH_SHORT).show();\r\n                        // Aqui você precisa saber qual ação (câmera ou galeria) o usuário queria.\r\n                        // Uma forma é ter uma flag ou chamar um método que verifica e inicia a intent.\r\n                        // Para simplicidade, vou apenas mostrar o toast.\r\n                        // O ideal seria que a `showImagePickerDialog()` fosse chamada novamente\r\n                        // ou a ação original fosse retomada.\r\n                    } else {\r\n                        Toast.makeText(this, \"Permissões negadas. Não é possível realizar a ação.\", Toast.LENGTH_LONG).show();\r\n                    }\r\n                }\r\n        );\r\n\r\n        //configura o clique no ícone de perfil\r\n        imageViewPerfil.setOnClickListener(v -> showImagePickerDialog());\r\n\r\n    }\r\n\r\n    private void showImagePickerDialog() {\r\n        AlertDialog.Builder builder = new AlertDialog.Builder(this);\r\n        builder.setTitle(\"Escolher Imagem\") //define uma aba com escolhas pro usuario\r\n                .setItems(new CharSequence[]{\"Tirar Foto\", \"Escolher da Galeria\"}, new DialogInterface.OnClickListener() {\r\n                    @Override\r\n                    public void onClick(DialogInterface dialog, int which) {\r\n                        switch (which) {\r\n                            case 0: // Tirar Foto\r\n                                checkAndRequestCameraPermissions();\r\n                                break;\r\n                            case 1: // Escolher da Galeria\r\n                                checkAndRequestStoragePermissions();\r\n                                break;\r\n                        }\r\n                    }\r\n                });\r\n        builder.create().show();\r\n    }\r\n\r\n    private void checkAndRequestCameraPermissions() {\r\n        String[] permissions;\r\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) { // Android 10+\r\n            permissions = new String[]{Manifest.permission.CAMERA};\r\n        } else {\r\n            permissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};\r\n        }\r\n\r\n        boolean allGranted = true;\r\n        for (String perm : permissions) { //verifica se tem todas permissoes\r\n            if (ContextCompat.checkSelfPermission(this, perm) != PackageManager.PERMISSION_GRANTED) {\r\n                allGranted = false;\r\n                break;\r\n            }\r\n        }\r\n\r\n        if (allGranted) { //se tem as permissoes, manda intent para tirar foto\r\n            dispatchTakePictureIntent();\r\n        } else {\r\n            requestPermissionLauncher.launch(permissions); //caso contrario, pede permissao\r\n        }\r\n    }\r\n\r\n    private void checkAndRequestStoragePermissions() {\r\n        String[] permissions;\r\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13 (API 33) e superior\r\n            permissions = new String[]{Manifest.permission.READ_MEDIA_IMAGES};\r\n        } else { // Android 12 (API 31) e anteriores\r\n            permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE};\r\n        }\r\n\r\n        boolean allGranted = true;\r\n        for (String perm : permissions) { //verifica se tem permissoes necessarias\r\n            if (ContextCompat.checkSelfPermission(this, perm) != PackageManager.PERMISSION_GRANTED) {\r\n                allGranted = false;\r\n                break;\r\n            }\r\n        }\r\n\r\n        if (allGranted) { //se tem, envia intent para galeria\r\n            dispatchPickImageIntent();\r\n        } else { //se nao, pede permissoes\r\n            requestPermissionLauncher.launch(permissions);\r\n        }\r\n    }\r\n\r\n    //Intent para escolher da Galeria\r\n    private void dispatchPickImageIntent() {\r\n        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);\r\n        pickImageLauncher.launch(intent);\r\n    }\r\n\r\n    //Intent para tirar foto com a Câmera\r\n    private void dispatchTakePictureIntent() {\r\n        File photoFile = null;\r\n        try {\r\n            photoFile = createImageFile();\r\n        } catch (IOException ex) {\r\n            Toast.makeText(this, \"Erro ao criar arquivo para foto.\", Toast.LENGTH_LONG).show();\r\n            return;\r\n        }\r\n\r\n        // Usa FileProvider para obter um URI seguro\r\n        cameraOutputUri = FileProvider.getUriForFile(this,\r\n                getApplicationContext().getPackageName() + \".fileprovider\",\r\n                photoFile);\r\n        takePictureLauncher.launch(cameraOutputUri);\r\n    }\r\n\r\n    // Método auxiliar para criar um arquivo temporário para a foto da câmera\r\n    private File createImageFile() throws IOException {\r\n        String timeStamp = null;\r\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {\r\n            timeStamp = new SimpleDateFormat(\"yyyyMMdd_HHmmss\", Locale.getDefault()).format(new Date());\r\n        }\r\n        //define nome do arquivo baseado na data\r\n        String imageFileName = \"JPEG_\" + timeStamp + \"_\";\r\n        File storageDir = new File(getCacheDir(), \"images\"); //salva na pasta cache do app\r\n        storageDir.mkdirs(); //cria o diretório se não existir\r\n\r\n        File image = File.createTempFile(\r\n                imageFileName,  /* prefixo */\r\n                \".jpg\",         /* sufixo */\r\n                storageDir      /* diretório */\r\n        );\r\n        return image;\r\n    }\r\n\r\n    //metodo para verificar se imagem esta na rotação correta e roda-la se necessario\r\n    private Bitmap rotateBitmapIfRequired(Bitmap img, InputStream inputStream, Uri uri) throws IOException {\r\n        ExifInterface ei = getExifInterface(inputStream, uri);\r\n        int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,\r\n                ExifInterface.ORIENTATION_NORMAL);\r\n    //verifica rotação atual da imagem e a gira caso necessario\r\n        switch (orientation) {\r\n            case ExifInterface.ORIENTATION_ROTATE_90:\r\n                return rotateBitmap(img, 90);\r\n            case ExifInterface.ORIENTATION_ROTATE_180:\r\n                return rotateBitmap(img, 180);\r\n            case ExifInterface.ORIENTATION_ROTATE_270:\r\n                return rotateBitmap(img, 270);\r\n            default:\r\n                return img;\r\n        }\r\n    }\r\n\r\n\r\n    @NonNull\r\n    private static ExifInterface getExifInterface(InputStream inputStream, Uri uri) throws IOException {\r\n        ExifInterface ei = null;\r\n        //tenta criar ExifInterface a partir do InputStream\r\n        if (inputStream != null) {\r\n            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {\r\n                ei = new ExifInterface(inputStream);\r\n            }\r\n        } else {\r\n            ei = new ExifInterface(Objects.requireNonNull(uri.getPath()));\r\n        }\r\n\r\n        assert ei != null;\r\n        return ei;\r\n    }\r\n\r\n    //rotaciona a imagem\r\n    public static Bitmap rotateBitmap(Bitmap source, float angle) {\r\n        Matrix matrix = new Matrix();\r\n        matrix.postRotate(angle);\r\n        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),\r\n                matrix, true);\r\n    }\r\n\r\n\r\n    public void onClickRegister(View v){\r\n        TextInputEditText editTextNome = findViewById(R.id.Nome);\r\n        TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);\r\n        TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);\r\n        TextInputEditText editTextEmail = findViewById(R.id.Email);\r\n        TextInputEditText editTextCPF = findViewById(R.id.CPF);\r\n\r\n        String Nome = editTextNome.getText().toString();\r\n        String NomeSocial = editTextNomeSocial.getText().toString();\r\n        String Cpf = editTextCPF.getText().toString();\r\n        String Telefone = editTextTelefone.getText().toString();\r\n        String Email = editTextEmail.getText().toString();\r\n        String Data = editTextNascimento.getText().toString();\r\n\r\n        if(Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()){\r\n            Toast.makeText(this,\"Por favor, preencha todos os dados\",Toast.LENGTH_SHORT).show();\r\n            return;\r\n        }\r\n\r\n        LoadScreen.showLoading(getSupportFragmentManager(),\"Cadastrando...\"); //chama tela de carregamento enquanto faz comunicações com a api\r\n        contato = new BodyCadastro();\r\n        // Recebe os dados\r\n        /* FORMATO DOS DADOS\r\n        {\r\n            \"nome\": \"TesteAPI\",\r\n            \"nomeSocial\": \"Teste\",\r\n            \"dataNascimento\": \"2024-12-31\",\r\n            \"emailPrincipal\": \"grupo8@gmail.com\",\r\n            \"telefonePrincipal\": \"38999999999\",\r\n            \"cpf\": \"333.333.333-33\",\r\n            \"origem\": 7,\r\n            \"token\": \"f2240ed12dca63c0a425f028cd88500e\"\r\n        }\r\n        */\r\n\r\n        contato.setNome(Nome);\r\n        contato.setNomeSocial(NomeSocial);\r\n        contato.setCpf(Cpf);\r\n        contato.setTelefonePrincipal(Telefone);\r\n        contato.setEmailPrincipal(Email);\r\n        contato.setDataNascimento(Data);\r\n\r\n        // Cria conexão com APIRubeus\r\n        RequestRepository contatoRepository = new RequestRepository();\r\n        // Envia chamada\r\n        contatoRepository.cadastrarContato(contato, new ContatoCallback() {\r\n            @Override\r\n            public void onSuccess(RespostaCadastro response) {\r\n                Log.i(\"API Teste\", \"Navegando para a tela de cadastro de notas\");\r\n                if (selectedImageUri != null) {\r\n                    //define a imagem e envia pra api rubeus\r\n                } else {\r\n                    // Se o usuário não selecionou uma imagem, pode optar por cadastrar sem foto\r\n                    // Ou forçar a seleção de uma foto\r\n                }\r\n                User user = User.getInstance();\r\n                user.setId(response.getDados());\r\n                user.setNome(contato.getNome());\r\n                user.setNomeSocial(contato.getNomeSocial());\r\n                user.setEmail(contato.getEmailPrincipal());\r\n                user.setTelefone(contato.getTelefonePrincipal());\r\n                user.setCpf(contato.getCpf());\r\n                user.setDataNascimento(contato.getDataNascimento());\r\n                Log.i(\"API Teste\", \"ID: \" + user.getId());\r\n                LoadScreen.dismissLoading(); //fecha tela de carregamento\r\n                //navega para a página do usuário\r\n                Intent it = new Intent(Register.this, RegisterData.class);\r\n                it.putExtra(\"user\", user);\r\n                startActivity(it);\r\n            }\r\n\r\n            @Override\r\n            public void onError(String errorMessage) {\r\n\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo8/sugestordecurso/ui/register/Register.java b/app/src/main/java/com/grupo8/sugestordecurso/ui/register/Register.java
+--- a/app/src/main/java/com/grupo8/sugestordecurso/ui/register/Register.java	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/java/com/grupo8/sugestordecurso/ui/register/Register.java	(date 1750966997876)
+@@ -25,12 +25,15 @@
+ import androidx.appcompat.app.AppCompatActivity;
+ import androidx.core.content.ContextCompat;
+ import androidx.core.content.FileProvider;
++import androidx.lifecycle.Observer;
+ 
++import com.google.android.material.snackbar.Snackbar;
+ import com.google.android.material.textfield.TextInputEditText;
+ import com.grupo8.sugestordecurso.R;
+ import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
+ import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
+ import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
++import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
+ import com.grupo8.sugestordecurso.data.models.Utils.User;
+ import com.grupo8.sugestordecurso.data.repository.RequestRepository;
+ import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
+@@ -59,17 +62,33 @@
+     private ActivityResultLauncher<Uri> takePictureLauncher;
+     private ActivityResultLauncher<String[]> requestPermissionLauncher;
+     private LoadScreen LoadScreen;
++    private CheckConexion verificadorConexao; //verificador de conexao
++    private boolean isConectado = false;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_register);
+ 
++        verificadorConexao = new CheckConexion(getApplicationContext());
+         LoadScreen = new LoadScreen(); //cria tela de carregamento para ser chamada quando necessario
+ 
+         editTextCPF = findViewById(R.id.CPF);
+         editTextTelefone = findViewById(R.id.Telefone);
+         editTextData = findViewById(R.id.Nascimento);
+ 
++        // Observa as mudanças no estado da conexão
++        verificadorConexao.observe(this, new Observer<Boolean>() {
++            @Override
++            public void onChanged(Boolean conectado) {
++                isConectado = conectado;
++                if (!conectado) {
++                    // Exibe uma mensagem de erro persistente se não houver conexão
++                    View view = findViewById(android.R.id.content); // View raiz da sua activity
++                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++                }
++            }
++        });
++
+         //imagem de perfil do usuario
+         imageViewPerfil = findViewById(R.id.imageViewPerfil);
+         //ao clicar no icone permite ao usuario escolher uma imagem da galeria ou tirar foto com a camera
+@@ -382,27 +401,28 @@
+ 
+ 
+     public void onClickRegister(View v){
+-        TextInputEditText editTextNome = findViewById(R.id.Nome);
+-        TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
+-        TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
+-        TextInputEditText editTextEmail = findViewById(R.id.Email);
+-        TextInputEditText editTextCPF = findViewById(R.id.CPF);
++        if(isConectado) {
++            TextInputEditText editTextNome = findViewById(R.id.Nome);
++            TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
++            TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
++            TextInputEditText editTextEmail = findViewById(R.id.Email);
++            TextInputEditText editTextCPF = findViewById(R.id.CPF);
+ 
+-        String Nome = editTextNome.getText().toString();
+-        String NomeSocial = editTextNomeSocial.getText().toString();
+-        String Cpf = editTextCPF.getText().toString();
+-        String Telefone = editTextTelefone.getText().toString();
+-        String Email = editTextEmail.getText().toString();
+-        String Data = editTextNascimento.getText().toString();
++            String Nome = editTextNome.getText().toString();
++            String NomeSocial = editTextNomeSocial.getText().toString();
++            String Cpf = editTextCPF.getText().toString();
++            String Telefone = editTextTelefone.getText().toString();
++            String Email = editTextEmail.getText().toString();
++            String Data = editTextNascimento.getText().toString();
+ 
+-        if(Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()){
+-            Toast.makeText(this,"Por favor, preencha todos os dados",Toast.LENGTH_SHORT).show();
+-            return;
+-        }
++            if (Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()) {
++                Toast.makeText(this, "Por favor, preencha todos os dados", Toast.LENGTH_SHORT).show();
++                return;
++            }
+ 
+-        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
+-        contato = new BodyCadastro();
+-        // Recebe os dados
++            LoadScreen.showLoading(getSupportFragmentManager(), "Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
++            contato = new BodyCadastro();
++            // Recebe os dados
+         /* FORMATO DOS DADOS
+         {
+             "nome": "TesteAPI",
+@@ -416,47 +436,51 @@
+         }
+         */
+ 
+-        contato.setNome(Nome);
+-        contato.setNomeSocial(NomeSocial);
+-        contato.setCpf(Cpf);
+-        contato.setTelefonePrincipal(Telefone);
+-        contato.setEmailPrincipal(Email);
+-        contato.setDataNascimento(Data);
++            contato.setNome(Nome);
++            contato.setNomeSocial(NomeSocial);
++            contato.setCpf(Cpf);
++            contato.setTelefonePrincipal(Telefone);
++            contato.setEmailPrincipal(Email);
++            contato.setDataNascimento(Data);
+ 
+-        // Cria conexão com APIRubeus
+-        RequestRepository contatoRepository = new RequestRepository();
+-        // Envia chamada
+-        contatoRepository.cadastrarContato(contato, new ContatoCallback() {
+-            @Override
+-            public void onSuccess(RespostaCadastro response) {
+-                Log.i("API Teste", "Navegando para a tela de cadastro de notas");
+-                if (selectedImageUri != null) {
+-                    //define a imagem e envia pra api rubeus
+-                } else {
+-                    // Se o usuário não selecionou uma imagem, pode optar por cadastrar sem foto
+-                    // Ou forçar a seleção de uma foto
+-                }
+-                User user = User.getInstance();
+-                user.setId(response.getDados());
+-                user.setNome(contato.getNome());
+-                user.setNomeSocial(contato.getNomeSocial());
+-                user.setEmail(contato.getEmailPrincipal());
+-                user.setTelefone(contato.getTelefonePrincipal());
+-                user.setCpf(contato.getCpf());
+-                user.setDataNascimento(contato.getDataNascimento());
+-                Log.i("API Teste", "ID: " + user.getId());
+-                LoadScreen.dismissLoading(); //fecha tela de carregamento
+-                //navega para a página do usuário
+-                Intent it = new Intent(Register.this, RegisterData.class);
+-                it.putExtra("user", user);
+-                startActivity(it);
+-            }
++            // Cria conexão com APIRubeus
++            RequestRepository contatoRepository = new RequestRepository();
++            // Envia chamada
++            contatoRepository.cadastrarContato(contato, new ContatoCallback() {
++                @Override
++                public void onSuccess(RespostaCadastro response) {
++                    Log.i("API Teste", "Navegando para a tela de cadastro de notas");
++                    if (selectedImageUri != null) {
++                        //define a imagem e envia pra api rubeus
++                    } else {
++                        // Se o usuário não selecionou uma imagem, pode optar por cadastrar sem foto
++                        // Ou forçar a seleção de uma foto
++                    }
++                    User user = User.getInstance();
++                    user.setId(response.getDados());
++                    user.setNome(contato.getNome());
++                    user.setNomeSocial(contato.getNomeSocial());
++                    user.setEmail(contato.getEmailPrincipal());
++                    user.setTelefone(contato.getTelefonePrincipal());
++                    user.setCpf(contato.getCpf());
++                    user.setDataNascimento(contato.getDataNascimento());
++                    Log.i("API Teste", "ID: " + user.getId());
++                    LoadScreen.dismissLoading(); //fecha tela de carregamento
++                    //navega para a página do usuário
++                    Intent it = new Intent(Register.this, RegisterData.class);
++                    it.putExtra("user", user);
++                    startActivity(it);
++                }
+ 
+-            @Override
+-            public void onError(String errorMessage) {
+-
+-            }
+-        });
++                @Override
++                public void onError(String errorMessage) {
++                    LoadScreen.dismissLoading();
++                }
++            });
++        } else{
++            View view = findViewById(android.R.id.content); // View raiz da sua activity
++            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++        }
+ 
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/grupo8/sugestordecurso/ui/login/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo8.sugestordecurso.ui.login;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.os.Looper;\r\nimport android.text.Editable;\r\nimport android.text.TextWatcher;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.google.android.material.textfield.TextInputEditText;\r\nimport com.grupo8.sugestordecurso.R;\r\nimport com.grupo8.sugestordecurso.data.models.BodyAPI.BodyBuscarNotas;\r\nimport com.grupo8.sugestordecurso.data.models.Interfaces.BuscarNotasCallback;\r\nimport com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaBuscarNotas;\r\nimport com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;\r\nimport com.grupo8.sugestordecurso.data.models.BodyAPI.BodyLogin;\r\nimport com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;\r\nimport com.grupo8.sugestordecurso.data.models.Utils.User;\r\nimport com.grupo8.sugestordecurso.data.repository.RequestRepository;\r\nimport com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;\r\nimport com.grupo8.sugestordecurso.ui.register.Register;\r\nimport com.grupo8.sugestordecurso.ui.userPage.UserPage;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    private BodyLogin bodyUser = new BodyLogin();\r\n    private TextInputEditText editTextCPF;\r\n    private LoadScreen LoadScreen;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente\r\n        editTextCPF = findViewById(R.id.userCPF);\r\n\r\n        //cria uma mascara dinamicamente para que o input do usuario tenha formato xxx.xxx.xxx-xx\r\n        editTextCPF.addTextChangedListener(new TextWatcher() {\r\n            boolean isUpdating;\r\n            String oldText = \"\";\r\n\r\n            @Override\r\n            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }\r\n\r\n            @Override\r\n            public void onTextChanged(CharSequence s, int start, int before, int count) {\r\n                String str = s.toString().replaceAll(\"[^\\\\d]\", \"\");\r\n\r\n                if (isUpdating) {\r\n                    oldText = str;\r\n                    isUpdating = false;\r\n                    return;\r\n                }\r\n\r\n                StringBuilder formatted = new StringBuilder();\r\n\r\n                int len = str.length();\r\n\r\n                if (len > 0) {\r\n                    for (int i = 0; i < len && i < 11; i++) {\r\n                        char c = str.charAt(i);\r\n                        if (i == 3 || i == 6) {\r\n                            formatted.append('.');\r\n                        } else if (i == 9) {\r\n                            formatted.append('-');\r\n                        }\r\n                        formatted.append(c);\r\n                    }\r\n                }\r\n\r\n                isUpdating = true;\r\n                editTextCPF.setText(formatted.toString());\r\n                editTextCPF.setSelection(formatted.length());\r\n            }\r\n\r\n            @Override\r\n            public void afterTextChanged(Editable s) { }\r\n        });\r\n\r\n    }\r\n\r\n    public void onClickLogin(View v){\r\n        Log.i(\"Load\",\"Iniciando Login\");\r\n        bodyUser.setCPF(editTextCPF.getText().toString());\r\n        Log.i(\"API Teste\", \"Passei\");\r\n        LoadScreen.showLoading(getSupportFragmentManager(),\"Logando...\"); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas\r\n        //define um tempo de atraso\r\n        final long DELAY_BEFORE_API_CALL = 1500;\r\n        User user = User.getInstance();\r\n        //agenda a chamada da API para depois do atraso\r\n        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                // Cria conexão com APIRubeus\r\n                RequestRepository contatoRepository = new RequestRepository();\r\n                // Envia chamada\r\n                contatoRepository.buscarUser(bodyUser, new UserCallback() {\r\n                    @Override\r\n                    public void onSuccess(RespostaUser response) {\r\n                        // Navega para a página do usuário\r\n                        user.setId(response.getDadosID());\r\n                        user.setNome(response.getDadosNome());\r\n                        user.setNomeSocial(response.getDadosNomeSocial());\r\n                        user.setCpf(response.getDadosCPF());\r\n                        user.setDataNascimento(response.getDadosNascimento());\r\n                        user.setEmail(response.getDadosEmail());\r\n                        user.setTelefone(response.getDadosTelefone());\r\n                        Log.i(\"API Teste\", \"Dados: \" + response.getDadosID() + \" \" + response.getDadosNomeSocial());\r\n\r\n                        // ---------------------------------------------------------------------------------\r\n                        // Requisição de notas do usuário\r\n                        Log.i(\"API Teste\", \"Iniciando requisição para recuperar as notas do usuário.\");\r\n                        BodyBuscarNotas buscarNotas = new BodyBuscarNotas();\r\n                        buscarNotas.setId(user.getId());\r\n                        contatoRepository.buscarNotas(buscarNotas, new BuscarNotasCallback() {\r\n                            @Override\r\n                            public void onSuccess(RespostaBuscarNotas response) {\r\n                                Log.i(\"API Teste\", \"Notas recuperadas, navegação para tela do usuário\");\r\n                                user.setNotaMatematica(response.getNotaMatematica());\r\n                                user.setNotaPortugues(response.getNotaPortugues());\r\n                                user.setNotaLiteratura(response.getNotaLiteratura());\r\n                                user.setNotaRedacao(response.getNotaRedacao());\r\n                                user.setNotaQuimica(response.getNotaQuimica());\r\n                                user.setNotaFisica(response.getNotaFisica());\r\n                                user.setNotaBiologia(response.getNotaBiologia());\r\n                                user.setNotaGeografia(response.getNotaGeografia());\r\n                                user.setNotaHistoria(response.getNotaHistoria());\r\n                                user.setNotaFilosofia(response.getNotaFilosofia());\r\n                                user.setNotaSociologia(response.getNotaSociologia());\r\n                                user.setNotaArtes(response.getNotaArtes());\r\n                                user.setAreaPreferencia(response.getAreaPreferencia());\r\n\r\n                                LoadScreen.dismissLoading(); //dispensa a tela de carregamento\r\n                                Intent it = new Intent(MainActivity.this, UserPage.class);\r\n                                it.putExtra(\"user\", user);\r\n                                startActivity(it);\r\n                                finish();\r\n                            }\r\n\r\n                            @Override\r\n                            public void onError(String errorMessage) {\r\n                                Log.e(\"API Test\", \"Error: \" + errorMessage);\r\n                                LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro\r\n                                Toast.makeText(MainActivity.this, \"Usuário inexistente, tente novamente\", Toast.LENGTH_LONG).show();\r\n                            }\r\n                        });\r\n                    }\r\n\r\n                    @Override\r\n                    public void onError(String errorMessage) {\r\n                        Log.e(\"API Test\", \"Error: \" + errorMessage); // Use Log.e para erros\r\n                        LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro\r\n                        Toast.makeText(MainActivity.this, \"Usuário inexistente, tente novamente\", Toast.LENGTH_LONG).show();\r\n                    }\r\n                });\r\n            }\r\n        }, DELAY_BEFORE_API_CALL);\r\n\r\n\r\n    }\r\n\r\n    public void goRegister(View v){\r\n        Intent itRegister = new Intent(this, Register.class);\r\n        startActivity(itRegister);\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo8/sugestordecurso/ui/login/MainActivity.java b/app/src/main/java/com/grupo8/sugestordecurso/ui/login/MainActivity.java
+--- a/app/src/main/java/com/grupo8/sugestordecurso/ui/login/MainActivity.java	(revision 23a9ba5fe85a46f90002fc2e5c4ed01dd44ba2d4)
++++ b/app/src/main/java/com/grupo8/sugestordecurso/ui/login/MainActivity.java	(date 1750966997867)
+@@ -11,7 +11,9 @@
+ import android.widget.Toast;
+ 
+ import androidx.appcompat.app.AppCompatActivity;
++import androidx.lifecycle.Observer;
+ 
++import com.google.android.material.snackbar.Snackbar;
+ import com.google.android.material.textfield.TextInputEditText;
+ import com.grupo8.sugestordecurso.R;
+ import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyBuscarNotas;
+@@ -20,6 +22,7 @@
+ import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaUser;
+ import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyLogin;
+ import com.grupo8.sugestordecurso.data.models.Interfaces.UserCallback;
++import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
+ import com.grupo8.sugestordecurso.data.models.Utils.User;
+ import com.grupo8.sugestordecurso.data.repository.RequestRepository;
+ import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
+@@ -31,12 +34,16 @@
+     private BodyLogin bodyUser = new BodyLogin();
+     private TextInputEditText editTextCPF;
+     private LoadScreen LoadScreen;
++    private CheckConexion verificadorConexao; //verificador de conexao
++    private boolean isConectado = false;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+ 
++        verificadorConexao = new CheckConexion(getApplicationContext());
++
+         LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
+         editTextCPF = findViewById(R.id.userCPF);
+ 
+@@ -83,85 +90,104 @@
+             public void afterTextChanged(Editable s) { }
+         });
+ 
++        // Observa as mudanças no estado da conexão
++        verificadorConexao.observe(this, new Observer<Boolean>() {
++            @Override
++            public void onChanged(Boolean conectado) {
++                isConectado = conectado;
++                if (!conectado) {
++                    // Exibe uma mensagem de erro persistente se não houver conexão
++                    View view = findViewById(android.R.id.content); // View raiz da sua activity
++                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
++                }
++            }
++        });
++
+     }
+ 
+     public void onClickLogin(View v){
+-        Log.i("Load","Iniciando Login");
+-        bodyUser.setCPF(editTextCPF.getText().toString());
+-        Log.i("API Teste", "Passei");
+-        LoadScreen.showLoading(getSupportFragmentManager(),"Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
+-        //define um tempo de atraso
+-        final long DELAY_BEFORE_API_CALL = 1500;
+-        User user = User.getInstance();
+-        //agenda a chamada da API para depois do atraso
+-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+-            @Override
+-            public void run() {
+-                // Cria conexão com APIRubeus
+-                RequestRepository contatoRepository = new RequestRepository();
+-                // Envia chamada
+-                contatoRepository.buscarUser(bodyUser, new UserCallback() {
+-                    @Override
+-                    public void onSuccess(RespostaUser response) {
+-                        // Navega para a página do usuário
+-                        user.setId(response.getDadosID());
+-                        user.setNome(response.getDadosNome());
+-                        user.setNomeSocial(response.getDadosNomeSocial());
+-                        user.setCpf(response.getDadosCPF());
+-                        user.setDataNascimento(response.getDadosNascimento());
+-                        user.setEmail(response.getDadosEmail());
+-                        user.setTelefone(response.getDadosTelefone());
+-                        Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
++        if(isConectado) {
++            Log.i("Load", "Iniciando Login");
++            bodyUser.setCPF(editTextCPF.getText().toString());
++            Log.i("API Teste", "Passei");
++            LoadScreen.showLoading(getSupportFragmentManager(), "Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
++            //define um tempo de atraso
++            final long DELAY_BEFORE_API_CALL = 1000;
++            User user = User.getInstance();
++            //agenda a chamada da API para depois do atraso
++            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
++                @Override
++                public void run() {
++                    // Cria conexão com APIRubeus
++                    RequestRepository contatoRepository = new RequestRepository();
++                    // Envia chamada
++                    contatoRepository.buscarUser(bodyUser, new UserCallback() {
++                        @Override
++                        public void onSuccess(RespostaUser response) {
++                            // Navega para a página do usuário
++                            user.setId(response.getDadosID());
++                            user.setNome(response.getDadosNome());
++                            user.setNomeSocial(response.getDadosNomeSocial());
++                            user.setCpf(response.getDadosCPF());
++                            user.setDataNascimento(response.getDadosNascimento());
++                            user.setEmail(response.getDadosEmail());
++                            user.setTelefone(response.getDadosTelefone());
++                            Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
+ 
+-                        // ---------------------------------------------------------------------------------
+-                        // Requisição de notas do usuário
+-                        Log.i("API Teste", "Iniciando requisição para recuperar as notas do usuário.");
+-                        BodyBuscarNotas buscarNotas = new BodyBuscarNotas();
+-                        buscarNotas.setId(user.getId());
+-                        contatoRepository.buscarNotas(buscarNotas, new BuscarNotasCallback() {
+-                            @Override
+-                            public void onSuccess(RespostaBuscarNotas response) {
+-                                Log.i("API Teste", "Notas recuperadas, navegação para tela do usuário");
+-                                user.setNotaMatematica(response.getNotaMatematica());
+-                                user.setNotaPortugues(response.getNotaPortugues());
+-                                user.setNotaLiteratura(response.getNotaLiteratura());
+-                                user.setNotaRedacao(response.getNotaRedacao());
+-                                user.setNotaQuimica(response.getNotaQuimica());
+-                                user.setNotaFisica(response.getNotaFisica());
+-                                user.setNotaBiologia(response.getNotaBiologia());
+-                                user.setNotaGeografia(response.getNotaGeografia());
+-                                user.setNotaHistoria(response.getNotaHistoria());
+-                                user.setNotaFilosofia(response.getNotaFilosofia());
+-                                user.setNotaSociologia(response.getNotaSociologia());
+-                                user.setNotaArtes(response.getNotaArtes());
+-                                user.setAreaPreferencia(response.getAreaPreferencia());
++                            // ---------------------------------------------------------------------------------
++                            // Requisição de notas do usuário
++                            Log.i("API Teste", "Iniciando requisição para recuperar as notas do usuário.");
++                            BodyBuscarNotas buscarNotas = new BodyBuscarNotas();
++                            buscarNotas.setId(user.getId());
++                            contatoRepository.buscarNotas(buscarNotas, new BuscarNotasCallback() {
++                                @Override
++                                public void onSuccess(RespostaBuscarNotas response) {
++                                    Log.i("API Teste", "Notas recuperadas, navegação para tela do usuário");
++                                    user.setNotaMatematica(response.getNotaMatematica());
++                                    user.setNotaPortugues(response.getNotaPortugues());
++                                    user.setNotaLiteratura(response.getNotaLiteratura());
++                                    user.setNotaRedacao(response.getNotaRedacao());
++                                    user.setNotaQuimica(response.getNotaQuimica());
++                                    user.setNotaFisica(response.getNotaFisica());
++                                    user.setNotaBiologia(response.getNotaBiologia());
++                                    user.setNotaGeografia(response.getNotaGeografia());
++                                    user.setNotaHistoria(response.getNotaHistoria());
++                                    user.setNotaFilosofia(response.getNotaFilosofia());
++                                    user.setNotaSociologia(response.getNotaSociologia());
++                                    user.setNotaArtes(response.getNotaArtes());
++                                    user.setAreaPreferencia(response.getAreaPreferencia());
+ 
+-                                LoadScreen.dismissLoading(); //dispensa a tela de carregamento
+-                                Intent it = new Intent(MainActivity.this, UserPage.class);
+-                                it.putExtra("user", user);
+-                                startActivity(it);
+-                                finish();
+-                            }
++                                    LoadScreen.dismissLoading(); //dispensa a tela de carregamento
++                                    Intent it = new Intent(MainActivity.this, UserPage.class);
++                                    it.putExtra("user", user);
++                                    startActivity(it);
++                                    finish();
++                                }
+ 
+-                            @Override
+-                            public void onError(String errorMessage) {
+-                                Log.e("API Test", "Error: " + errorMessage);
+-                                LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
+-                                Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
+-                            }
+-                        });
+-                    }
++                                @Override
++                                public void onError(String errorMessage) {
++                                    Log.e("API Test", "Error: " + errorMessage);
++                                    LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
++                                    Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
++                                }
++                            });
++                        }
+ 
+-                    @Override
+-                    public void onError(String errorMessage) {
+-                        Log.e("API Test", "Error: " + errorMessage); // Use Log.e para erros
+-                        LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
+-                        Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
+-                    }
+-                });
+-            }
+-        }, DELAY_BEFORE_API_CALL);
++                        @Override
++                        public void onError(String errorMessage) {
++                            Log.e("API Test", "Error: " + errorMessage); // Use Log.e para erros
++                            LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
++                            Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
++                        }
++                    });
++                }
++            }, DELAY_BEFORE_API_CALL);
+ 
++        } else{
++            View view = findViewById(android.R.id.content); // View raiz da sua activity
++            Snackbar.make(view, "Necessário conexão com a internet", Snackbar.LENGTH_LONG).show();
++        }
++
+ 
+     }
+ 
