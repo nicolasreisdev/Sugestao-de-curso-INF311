@@ -23,7 +23,7 @@ public final class BancoDados {
         // Abre o banco de dados já existente ou então cria um banco novo
         db = ctx.openOrCreateDatabase(NOME_BANCO, Context.MODE_PRIVATE, null);
         // Chama a função que cria as tabelas do banco se não existirem
-        String createTable = "CREATE TABLE historico_predicoes (" +
+        String createTable = "CREATE TABLE IF NOT EXISTS historico_predicoes (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "id_usuario INTEGER, " +
                 "area_preferencia TEXT, " +
@@ -34,6 +34,8 @@ public final class BancoDados {
                 "curso2 TEXT, prob2 REAL, " +
                 "curso3 TEXT, prob3 REAL, " +
                 "timestamp INTEGER)";
+
+        db.execSQL(createTable); // <--- execute a criação da tabela aqui
 
         /*
 
@@ -55,12 +57,12 @@ public final class BancoDados {
         */
     }
 
-    public void salvarPredicao(User user,
-                               String curso1, float prob1,
+    public void salvarPredicao (String curso1, float prob1,
                                String curso2, float prob2,
                                String curso3, float prob3) {
 
         ContentValues values = new ContentValues();
+        User user = User.getInstance();
 
         // Dados do usuário
         values.put("id_usuario", user.getId());
@@ -91,10 +93,22 @@ public final class BancoDados {
         // Timestamp
         values.put("timestamp", System.currentTimeMillis());
 
+        Log.d("SALVAR_PREDICAO", "Antes de insrir os dados na tabela: " + user.getId());
+
         db.insert("historico_predicoes", null, values);
+        Log.d("SALVAR_PREDICAO", "Salvando predição para usuário ID: " + user.getId());
         db.close();
     }
 
+    public Cursor buscarPredicoesPorUsuario(int idUsuario) {
+        String where = "id_usuario = ?";
+        String[] whereArgs = { String.valueOf(idUsuario) };
+        String orderBy = "timestamp DESC";
+
+        Cursor c = db.query("historico_predicoes", null, where, whereArgs, null, null, orderBy);
+        Log.i("BANCO_DADOS", "Buscou " + c.getCount() + " predições para o usuário [" + idUsuario + "]");
+        return c;
+    }
 
     public Cursor listarPredicoes() {
         return buscar("predicoes_curso", null, "", "data_hora DESC");

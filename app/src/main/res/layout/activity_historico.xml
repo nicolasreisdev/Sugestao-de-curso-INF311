@@ -6,211 +6,22 @@
     android:background="@color/background"
     android:layout_width="match_parent">
 
-        <!-- Conteúdo fixo no topo -->
-        <LinearLayout
-            android:id="@+id/topBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@color/background">
+    <LinearLayout
+        android:id="@+id/sugestoesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <!-- Este container ficará vazio inicialmente -->
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/historico_de_sugestoes"
-                android:textSize="25sp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <!-- Área com scroll abaixo do título e acima da nav -->
-    <ScrollView
-        android:id="@+id/scrollArea"
+    <ListView
+        android:id="@+id/listaHistorico"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingBottom="80dp"
-        android:layout_marginTop="70dp">
+        android:dividerHeight="8dp"
+        android:padding="12dp"/>
 
-        <LinearLayout
-            android:id="@+id/sugestoesContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="15dp">
-
-            <!-- Exemplo de sugestão -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Curso Sugerido: Engenharia de Software"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data: 05/06/2025"
-                    android:textColor="#666"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Baseado nas disciplinas: Programação I, Sistemas Lógicos..."
-                    android:textColor="#444"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- Exemplo de sugestão -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Curso Sugerido: Engenharia de Software"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data: 05/06/2025"
-                    android:textColor="#666"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Baseado nas disciplinas: Programação I, Sistemas Lógicos..."
-                    android:textColor="#444"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- Exemplo de sugestão -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Curso Sugerido: Engenharia de Software"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data: 05/06/2025"
-                    android:textColor="#666"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Baseado nas disciplinas: Programação I, Sistemas Lógicos..."
-                    android:textColor="#444"
-                    android:textSize="14sp" />
-            </LinearLayout>
-            <!-- Exemplo de sugestão -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Curso Sugerido: Engenharia de Software"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data: 05/06/2025"
-                    android:textColor="#666"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Baseado nas disciplinas: Programação I, Sistemas Lógicos..."
-                    android:textColor="#444"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- Exemplo de sugestão -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Curso Sugerido: Engenharia de Software"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data: 05/06/2025"
-                    android:textColor="#666"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Baseado nas disciplinas: Programação I, Sistemas Lógicos..."
-                    android:textColor="#444"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- Adicione mais sugestões dinamicamente -->
-
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- BottomNavigation fixa -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         style="@style/CustomNavBar"
@@ -218,11 +29,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:itemActiveIndicatorStyle="@null"
+        android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="@color/nav_item_color"
         app:itemRippleColor="@android:color/transparent"
-        app:itemBackground="@drawable/bottom_nav_item_selector"/>
+        app:itemBackground="@drawable/bottom_nav_item_selector" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
