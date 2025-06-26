@@ -50,7 +50,7 @@ public class UserPage extends Base {
         halfPieChart = findViewById(R.id.halfPieChart);
         //halfPieChartTend = findViewById(R.id.halfPieChartT);
 
-        // settar as probabilidades de cada curso retornado pelo modelo e as cores usadas
+        // settar as prbabilidades de cada curso retornado pelo modelo e as cores usadas
         textViewCurso1Nome = findViewById(R.id.textViewCurso1Nome);
         textViewCurso1Prob = findViewById(R.id.textViewCurso1Prob);
         colorCurso1 = findViewById(R.id.colorCurso1);
@@ -209,8 +209,8 @@ public class UserPage extends Base {
                 String nomeCurso3 = response.get(1).getCurso();
                 float probCurso3 = response.get(1).getProbabilidadeAptidao();
                 atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
-                Log.d("SALVAR_PREDICAO", "Salvando predição: " + user.getId());
                 BancoDados.getInstance().salvarPredicao(
+                        user.getInstance(),
                         nomeCurso1, probCurso1,
                         nomeCurso2, probCurso2,
                         nomeCurso3, probCurso3

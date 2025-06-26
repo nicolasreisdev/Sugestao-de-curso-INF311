@@ -25,12 +25,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.lifecycle.Observer;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.grupo8.sugestordecurso.R;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyCadastro;
 import com.grupo8.sugestordecurso.data.models.Interfaces.ContatoCallback;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaCadastro;
+import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
@@ -59,16 +62,32 @@ public class Register extends AppCompatActivity {
     private ActivityResultLauncher<Uri> takePictureLauncher;
     private ActivityResultLauncher<String[]> requestPermissionLauncher;
     private LoadScreen LoadScreen;
+    private CheckConexion verificadorConexao; //verificador de conexao
+    private boolean isConectado = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        verificadorConexao = new CheckConexion(getApplicationContext());
         LoadScreen = new LoadScreen(); //cria tela de carregamento para ser chamada quando necessario
 
         editTextCPF = findViewById(R.id.CPF);
         editTextTelefone = findViewById(R.id.Telefone);
         editTextData = findViewById(R.id.Nascimento);
+
+        // Observa as mudanças no estado da conexão
+        verificadorConexao.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean conectado) {
+                isConectado = conectado;
+                if (!conectado) {
+                    // Exibe uma mensagem de erro persistente se não houver conexão
+                    View view = findViewById(android.R.id.content); // View raiz da sua activity
+                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
 
         //imagem de perfil do usuario
         imageViewPerfil = findViewById(R.id.imageViewPerfil);
@@ -382,27 +401,28 @@ public class Register extends AppCompatActivity {
 
 
     public void onClickRegister(View v){
-        TextInputEditText editTextNome = findViewById(R.id.Nome);
-        TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
-        TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
-        TextInputEditText editTextEmail = findViewById(R.id.Email);
-        TextInputEditText editTextCPF = findViewById(R.id.CPF);
+        if(isConectado) {
+            TextInputEditText editTextNome = findViewById(R.id.Nome);
+            TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
+            TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
+            TextInputEditText editTextEmail = findViewById(R.id.Email);
+            TextInputEditText editTextCPF = findViewById(R.id.CPF);
 
-        String Nome = editTextNome.getText().toString();
-        String NomeSocial = editTextNomeSocial.getText().toString();
-        String Cpf = editTextCPF.getText().toString();
-        String Telefone = editTextTelefone.getText().toString();
-        String Email = editTextEmail.getText().toString();
-        String Data = editTextNascimento.getText().toString();
+            String Nome = editTextNome.getText().toString();
+            String NomeSocial = editTextNomeSocial.getText().toString();
+            String Cpf = editTextCPF.getText().toString();
+            String Telefone = editTextTelefone.getText().toString();
+            String Email = editTextEmail.getText().toString();
+            String Data = editTextNascimento.getText().toString();
 
-        if(Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()){
-            Toast.makeText(this,"Por favor, preencha todos os dados",Toast.LENGTH_SHORT).show();
-            return;
-        }
+            if (Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()) {
+                Toast.makeText(this, "Por favor, preencha todos os dados", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-        LoadScreen.showLoading(getSupportFragmentManager(),"Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
-        contato = new BodyCadastro();
-        // Recebe os dados
+            LoadScreen.showLoading(getSupportFragmentManager(), "Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
+            contato = new BodyCadastro();
+            // Recebe os dados
         /* FORMATO DOS DADOS
         {
             "nome": "TesteAPI",
@@ -416,47 +436,51 @@ public class Register extends AppCompatActivity {
         }
         */
 
-        contato.setNome(Nome);
-        contato.setNomeSocial(NomeSocial);
-        contato.setCpf(Cpf);
-        contato.setTelefonePrincipal(Telefone);
-        contato.setEmailPrincipal(Email);
-        contato.setDataNascimento(Data);
+            contato.setNome(Nome);
+            contato.setNomeSocial(NomeSocial);
+            contato.setCpf(Cpf);
+            contato.setTelefonePrincipal(Telefone);
+            contato.setEmailPrincipal(Email);
+            contato.setDataNascimento(Data);
 
-        // Cria conexão com APIRubeus
-        RequestRepository contatoRepository = new RequestRepository();
-        // Envia chamada
-        contatoRepository.cadastrarContato(contato, new ContatoCallback() {
-            @Override
-            public void onSuccess(RespostaCadastro response) {
-                Log.i("API Teste", "Navegando para a tela de cadastro de notas");
-                if (selectedImageUri != null) {
-                    //define a imagem e envia pra api rubeus
-                } else {
-                    // Se o usuário não selecionou uma imagem, pode optar por cadastrar sem foto
-                    // Ou forçar a seleção de uma foto
+            // Cria conexão com APIRubeus
+            RequestRepository contatoRepository = new RequestRepository();
+            // Envia chamada
+            contatoRepository.cadastrarContato(contato, new ContatoCallback() {
+                @Override
+                public void onSuccess(RespostaCadastro response) {
+                    Log.i("API Teste", "Navegando para a tela de cadastro de notas");
+                    if (selectedImageUri != null) {
+                        //define a imagem e envia pra api rubeus
+                    } else {
+                        // Se o usuário não selecionou uma imagem, pode optar por cadastrar sem foto
+                        // Ou forçar a seleção de uma foto
+                    }
+                    User user = User.getInstance();
+                    user.setId(response.getDados());
+                    user.setNome(contato.getNome());
+                    user.setNomeSocial(contato.getNomeSocial());
+                    user.setEmail(contato.getEmailPrincipal());
+                    user.setTelefone(contato.getTelefonePrincipal());
+                    user.setCpf(contato.getCpf());
+                    user.setDataNascimento(contato.getDataNascimento());
+                    Log.i("API Teste", "ID: " + user.getId());
+                    LoadScreen.dismissLoading(); //fecha tela de carregamento
+                    //navega para a página do usuário
+                    Intent it = new Intent(Register.this, RegisterData.class);
+                    it.putExtra("user", user);
+                    startActivity(it);
                 }
-                User user = User.getInstance();
-                user.setId(response.getDados());
-                user.setNome(contato.getNome());
-                user.setNomeSocial(contato.getNomeSocial());
-                user.setEmail(contato.getEmailPrincipal());
-                user.setTelefone(contato.getTelefonePrincipal());
-                user.setCpf(contato.getCpf());
-                user.setDataNascimento(contato.getDataNascimento());
-                Log.i("API Teste", "ID: " + user.getId());
-                LoadScreen.dismissLoading(); //fecha tela de carregamento
-                //navega para a página do usuário
-                Intent it = new Intent(Register.this, RegisterData.class);
-                it.putExtra("user", user);
-                startActivity(it);
-            }
 
-            @Override
-            public void onError(String errorMessage) {
-
-            }
-        });
+                @Override
+                public void onError(String errorMessage) {
+                    LoadScreen.dismissLoading();
+                }
+            });
+        } else{
+            View view = findViewById(android.R.id.content); // View raiz da sua activity
+            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+        }
 
     }
 }

@@ -4,19 +4,53 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.grupo8.sugestordecurso.R;
-import com.grupo8.sugestordecurso.data.models.Utils.User;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
-public class ProfileGradeData extends Activity {
+import com.google.android.material.snackbar.Snackbar;
+import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
+import com.grupo8.sugestordecurso.data.models.Utils.User;
+import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
+
+public class ProfileGradeData extends AppCompatActivity {
     //editTexts com os dados do usuário passíveis de serem alterados
     EditText edtMat, edtPort, edtRed, edtLit, edtQuim, edtFis, edtBio, edtGeo, edtHist, edtFilo, edtSocio, edtArtes;
-
+    LoadScreen LoadScreen;
+    private CheckConexion verificadorConexao; //verificador de conexao
+    private boolean isConectado = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_grade_data);
+
+        LoadScreen = new LoadScreen();
+        verificadorConexao = new CheckConexion(getApplicationContext());
+
+        ImageButton btnVoltar = findViewById(R.id.btn_voltar);
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Ação para voltar: Simula o botão "voltar" do sistema
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
+
+        // Observa as mudanças no estado da conexão
+        verificadorConexao.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean conectado) {
+                isConectado = conectado;
+                if (!conectado) {
+                    // Exibe uma mensagem de erro persistente se não houver conexão
+                    View view = findViewById(android.R.id.content); // View raiz da sua activity
+                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
 
         edtMat = findViewById(R.id.NotaMat);
         edtPort = findViewById(R.id.NotaPort);
@@ -48,13 +82,20 @@ public class ProfileGradeData extends Activity {
     }
 
     public void onClickUpdateGrade(View v){
-        String notaMat = edtMat.getText().toString();
+        if(isConectado) {
+            LoadScreen.showLoading(getSupportFragmentManager(), "Salvando");
+            String notaMat = edtMat.getText().toString();
 
-        //Atualização dos dados via api
+            //Atualização dos dados via api
 
-        Toast.makeText(ProfileGradeData.this, "Notas atualizadas com sucesso!", Toast.LENGTH_SHORT).show();
+            LoadScreen.dismissLoading();
+            Toast.makeText(ProfileGradeData.this, "Notas atualizadas com sucesso!", Toast.LENGTH_SHORT).show();
 
-        //volta para tela anterior
-        finish();
+            //volta para tela anterior
+            finish();
+        } else{
+            View view = findViewById(android.R.id.content); // View raiz da sua activity
+            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+        }
     }
 }
