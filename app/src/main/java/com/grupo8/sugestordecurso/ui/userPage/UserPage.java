@@ -40,6 +40,7 @@ public class UserPage extends Base {
     private LoadScreen LoadScreen;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,7 @@ public class UserPage extends Base {
         user = User.getInstance();
 
         halfPieChart = findViewById(R.id.halfPieChart);
+        requisitaModelo(user.getAreaPreferencia());
 
         // settar as prbabilidades de cada curso retornado pelo modelo e as cores usadas
         textViewCurso1Nome = findViewById(R.id.textViewCurso1Nome);
@@ -80,15 +82,15 @@ public class UserPage extends Base {
         colorCurso3T = findViewById(R.id.colorCurso3T);
 
         //faz requisição para o modelo e atualiza grafico com as predições
-        //requisitaModelo("Saúde");
+
 
     }
 
     private void atualizaInformacoesTendencias(String nome1, float p1, String nome2, float p2, String nome3, float p3){
         // Definir nomes dos cursos
-        textViewCurso1NomeT.setText(nome1 + ":");
-        textViewCurso2NomeT.setText(nome2 + ":");
-        textViewCurso3NomeT.setText(nome3 + ":");
+        textViewCurso1NomeT.setText(nome1);
+        textViewCurso2NomeT.setText(nome2);
+        textViewCurso3NomeT.setText(nome3);
 
         // Definir probabilidades em porcentagem
         textViewCurso1ProbT.setText(String.format("%.0f%%", p1 * 100));
@@ -104,9 +106,9 @@ public class UserPage extends Base {
 
     private void atualizarInformacoesCursos(String nome1, float p1, String nome2, float p2, String nome3, float p3) {
         // Definir nomes dos cursos
-        textViewCurso1Nome.setText(nome1 + ":");
-        textViewCurso2Nome.setText(nome2 + ":");
-        textViewCurso3Nome.setText(nome3 + ":");
+        textViewCurso1Nome.setText(nome1);
+        textViewCurso2Nome.setText(nome2);
+        textViewCurso3Nome.setText(nome3);
 
         // Definir probabilidades em porcentagem
         textViewCurso1Prob.setText(String.format("%.0f%%", p1 * 100));
@@ -137,6 +139,7 @@ public class UserPage extends Base {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         areaEscolhida[0] = areas[which]; //define a nova area por ele escolhida
+                        user.setAreaPreferencia(areaEscolhida[0]);
 
                         //chama tela de carregamento enquanto processa requisição do modelo
                         LoadScreen.showLoading(getSupportFragmentManager(),"Atualizando...");
@@ -157,6 +160,9 @@ public class UserPage extends Base {
     }
 
     public void requisitaModelo(String area){
+
+        TextView pref = (TextView) findViewById(R.id.textViewPref);
+        pref.setText(area);
         BodySugestor notas = getBodySugestor();
         // atualiza a UI com os dados
         RequestRepository sugestaoRepository = new RequestRepository();
@@ -171,33 +177,51 @@ public class UserPage extends Base {
                 String nomeCurso2 = response.get(1).getCurso();
                 float probCurso2 = response.get(1).getProbabilidadeAptidao();
 
-                String nomeCurso3 = response.get(1).getCurso();
-                float probCurso3 = response.get(1).getProbabilidadeAptidao();
+                String nomeCurso3 = response.get(2).getCurso();
+                float probCurso3 = response.get(2).getProbabilidadeAptidao();
 
-//                String nomeCurso1T;
-//                float probCurso1T;
-//
-//                String nomeCurso2T;
-//                float probCurso2T;
-//
-//                String nomeCurso3T;
-//                float probCurso3T;
-//
-//                if(area.equals("Saude")){
-//
-//                } else if(area.equals("Exatas")){
-//
-//                } else if(area.equals("Linguagens")){
-//
-//                } else if(area.equals("Biologicas")){
-//
-//                } else if(area.equals("Humanas")){
-//
-//                } else if(area.equals("Artes")){
-//
-//                } else if(area.equals("Tecnologia")){
-//
-//                }
+                float total = probCurso1 + probCurso2 + probCurso3;
+                probCurso1 /= total;
+                probCurso2 /= total;
+                probCurso3 /= total;
+
+                String nomeCurso1T;
+                float probCurso1T;
+
+                String nomeCurso2T;
+                float probCurso2T;
+
+                String nomeCurso3T;
+                float probCurso3T;
+
+                String tend[] = new String[3];
+
+                if(area.equals("Saude")){
+                    tend = sugestao.getTendSaude();
+
+                } else if(area.equals("Exatas")){
+                    tend = sugestao.getTendExatas();
+                } else if(area.equals("Linguagens")){
+                    tend = sugestao.getTendLinguagens();
+                } else if(area.equals("Biologicas")){
+                    tend = sugestao.getTendBiologicas();
+                } else if(area.equals("Humanas")){
+                    tend = sugestao.getTendHumanas();
+                } else if(area.equals("Artes")){
+                    tend = sugestao.getTendArtes();
+                } else if(area.equals("Tecnologia")){
+                    tend = sugestao.getTendTecnologia();
+                }
+                else if(area.equals("Comunicacao")){
+                    tend = sugestao.getTendComunicacao();
+                }
+
+                nomeCurso1T = tend[0];
+                probCurso1T = 0.5F;
+                nomeCurso2T = tend[1];
+                probCurso2T = 0.3F;
+                nomeCurso3T = tend[2];
+                probCurso3T = 0.2F;
 
                 atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
                 //atualizaInformacoesTendencias(nomeCurso1T,probCurso1T,nomeCurso2T,probCurso2T,nomeCurso3T,probCurso3T);

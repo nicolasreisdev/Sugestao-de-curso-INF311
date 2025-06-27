@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
             }, DELAY_BEFORE_API_CALL);
 
         } else{
-            View view = findViewById(android.R.id.content); // View raiz da sua activity
+            View view = findViewById(android.R.id.content);
             Snackbar.make(view, "Necessário conexão com a internet", Snackbar.LENGTH_LONG).show();
         }
 

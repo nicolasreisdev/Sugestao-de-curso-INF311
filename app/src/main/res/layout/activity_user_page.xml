@@ -228,7 +228,8 @@
                         android:id="@+id/colorCurso1T"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="#FF6384" /> <TextView
+                        android:background="#FF6384" />
+                    <TextView
                     android:id="@+id/textViewCurso1NomeT"
                     android:layout_width="0dp"
                     android:layout_weight="1"

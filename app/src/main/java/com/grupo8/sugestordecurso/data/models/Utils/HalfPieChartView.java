@@ -17,7 +17,6 @@ public class HalfPieChartView extends View {
 
     private Paint paint;
     private RectF rectF;
-    private float[] probabilities = {0f, 0f, 0f}; // Probabilidades para os 3 cursos
     private int[] colors = {Color.parseColor("#eb3455"), Color.parseColor("#eb34b1"), Color.parseColor("#e30733")};
     private ValueAnimator animator;
     private float[] animatedProbabilities = {0f, 0f, 0f};
