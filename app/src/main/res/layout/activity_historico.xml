@@ -13,14 +13,29 @@
         android:orientation="vertical"
         android:padding="15dp">
         <!-- Este container ficará vazio inicialmente -->
+        <TextView
+            android:id="@+id/tituloHistorico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/titulo_historico"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:id="@+id/listaHistorico"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:dividerHeight="15dp"
+            android:padding="12dp"/>
+
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listaHistorico"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="8dp"
-        android:padding="12dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

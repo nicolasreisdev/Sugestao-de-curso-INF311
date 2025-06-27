@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ui.profile.ProfilePersonalData">
+    tools:context=".ui.profile.ProfilePersonalData"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
 
 
     <ScrollView
