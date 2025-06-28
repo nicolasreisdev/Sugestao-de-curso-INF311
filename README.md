@@ -7,7 +7,7 @@
 - [Júlia Galvão](https://github.com/jucalia)
 ## Contextualização e Objetivo:
   Esse trabalho, proposto na disciplina de INF 311 pelo professor [Lucas Vegi](https://github.com/lucasvegi), tem como objetivo desenvolver um aplicativo mobile para dispositivos Android que, por meio de informações dadas pelo usuário, como notas e área de preferência, faça uso de um modelo preditivo que ofereça sugestões de cursos possivelmente adequados ao aluno.
-  Vale ressaltar que, o trabalho da disciplina orientada pelo professor [Lucas Vegi](https://github.com/lucasvegi) poussui uma parceria de valor com a [Rubeus](https://rubeus.com.br/), uma empresa de soluções educacionais. Tal associação é de valor fundamental para a qualidade do produto desenvolvido e crescimento acadêmico dos alunos envolvidos.
+  Vale ressaltar que, o trabalho da disciplina orientada pelo professor [Lucas Vegi](https://github.com/lucasvegi) possui uma parceria de valor com a [Rubeus](https://rubeus.com.br/), uma empresa de soluções educacionais. Tal associação é de valor fundamental para a qualidade do produto desenvolvido e crescimento acadêmico dos alunos envolvidos.
 ## Execução:
   O projeto foi quase completamente desenvolvido no ambiente do Android Studio. Por esse motivo, para executá-lo, carregue ou clone o repositório na IDE e o execute conforme o padrão do prórpio ambiente.
 ## Organização:
