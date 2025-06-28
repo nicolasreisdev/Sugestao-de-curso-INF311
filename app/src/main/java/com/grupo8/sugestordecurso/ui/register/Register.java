@@ -51,43 +51,22 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Register extends AppCompatActivity {
 
     private BodyCadastro contato;
-    private TextInputEditText editTextCPF;
-    private TextInputEditText editTextTelefone;
-    private TextInputEditText editTextData;
-    private Uri selectedImageUri;
-    private Uri cameraOutputUri;
+    private Uri selectedImageUri, cameraOutputUri;
     private CircleImageView imageViewPerfil;
     //launcher para lidar com requisição de imagem
     private ActivityResultLauncher<Intent> pickImageLauncher;
     private ActivityResultLauncher<Uri> takePictureLauncher;
     private ActivityResultLauncher<String[]> requestPermissionLauncher;
     private LoadScreen LoadScreen;
-    private CheckConexion verificadorConexao; //verificador de conexao
     private boolean isConectado = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        verificadorConexao = new CheckConexion(getApplicationContext());
         LoadScreen = new LoadScreen(); //cria tela de carregamento para ser chamada quando necessario
 
-        editTextCPF = findViewById(R.id.CPF);
-        editTextTelefone = findViewById(R.id.Telefone);
-        editTextData = findViewById(R.id.Nascimento);
-
-        // Observa as mudanças no estado da conexão
-        verificadorConexao.observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean conectado) {
-                isConectado = conectado;
-                if (!conectado) {
-                    // Exibe uma mensagem de erro persistente se não houver conexão
-                    View view = findViewById(android.R.id.content); // View raiz da sua activity
-                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
-                }
-            }
-        });
+        verificaConexao();
 
         //imagem de perfil do usuario
         imageViewPerfil = findViewById(R.id.imageViewPerfil);
@@ -95,87 +74,9 @@ public class Register extends AppCompatActivity {
         imageViewPerfil.setOnClickListener(v -> showImagePickerDialog());
 
         //cria uma mascara dinamicamente para que o input do usuario tenha formato xxx.xxx.xxx-xx
-        editTextCPF.addTextChangedListener(new TextWatcher() {
-            boolean isUpdating;
-            String oldText = "";
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String str = s.toString().replaceAll("[^\\d]", "");
-
-                if (isUpdating) {
-                    oldText = str;
-                    isUpdating = false;
-                    return;
-                }
-
-                StringBuilder formatted = new StringBuilder();
-
-                int len = str.length();
-
-                if (len > 0) {
-                    for (int i = 0; i < len && i < 11; i++) {
-                        char c = str.charAt(i);
-                        if (i == 3 || i == 6) {
-                            formatted.append('.');
-                        } else if (i == 9) {
-                            formatted.append('-');
-                        }
-                        formatted.append(c);
-                    }
-                }
-
-                isUpdating = true;
-                editTextCPF.setText(formatted.toString());
-                editTextCPF.setSelection(formatted.length());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
-        });
-
+        defineMascaraCpf();
         //cria mascara para o input do usuario de data ser no formato YYYY-MM-DD
-        editTextData.addTextChangedListener(new TextWatcher() {
-            boolean isUpdating;
-            String oldText = "";
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String str = s.toString().replaceAll("[^\\d]", "");
-
-                if (isUpdating) {
-                    oldText = str;
-                    isUpdating = false;
-                    return;
-                }
-
-                StringBuilder formatted = new StringBuilder();
-
-                int len = str.length();
-
-                if (len > 0) {
-                    for (int i = 0; i < len && i < 8; i++) {
-                        if (i == 4 || i == 6) {
-                            formatted.append("-");
-                        }
-                        formatted.append(str.charAt(i));
-                    }
-                }
-
-                isUpdating = true;
-                editTextData.setText(formatted.toString());
-                editTextData.setSelection(formatted.length());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
-        });
+        defineMascaraData();
 
         //define um launcher caso ele decida escolher da galeria
         pickImageLauncher = registerForActivityResult(
@@ -233,11 +134,6 @@ public class Register extends AppCompatActivity {
 
                     if (allGranted) { //se tiver permissoes
                         Toast.makeText(this, "Permissões concedidas!", Toast.LENGTH_SHORT).show();
-                        // Aqui você precisa saber qual ação (câmera ou galeria) o usuário queria.
-                        // Uma forma é ter uma flag ou chamar um método que verifica e inicia a intent.
-                        // Para simplicidade, vou apenas mostrar o toast.
-                        // O ideal seria que a `showImagePickerDialog()` fosse chamada novamente
-                        // ou a ação original fosse retomada.
                     } else {
                         Toast.makeText(this, "Permissões negadas. Não é possível realizar a ação.", Toast.LENGTH_LONG).show();
                     }
@@ -402,46 +298,12 @@ public class Register extends AppCompatActivity {
 
     public void onClickRegister(View v){
         if(isConectado) {
-            TextInputEditText editTextNome = findViewById(R.id.Nome);
-            TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
-            TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
-            TextInputEditText editTextEmail = findViewById(R.id.Email);
-            TextInputEditText editTextCPF = findViewById(R.id.CPF);
-
-            String Nome = editTextNome.getText().toString();
-            String NomeSocial = editTextNomeSocial.getText().toString();
-            String Cpf = editTextCPF.getText().toString();
-            String Telefone = editTextTelefone.getText().toString();
-            String Email = editTextEmail.getText().toString();
-            String Data = editTextNascimento.getText().toString();
-
-            if (Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()) {
-                Toast.makeText(this, "Por favor, preencha todos os dados", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
             LoadScreen.showLoading(getSupportFragmentManager(), "Cadastrando..."); //chama tela de carregamento enquanto faz comunicações com a api
-            contato = new BodyCadastro();
-            // Recebe os dados
-        /* FORMATO DOS DADOS
-        {
-            "nome": "TesteAPI",
-            "nomeSocial": "Teste",
-            "dataNascimento": "2024-12-31",
-            "emailPrincipal": "grupo8@gmail.com",
-            "telefonePrincipal": "38999999999",
-            "cpf": "333.333.333-33",
-            "origem": 7,
-            "token": "f2240ed12dca63c0a425f028cd88500e"
-        }
-        */
 
-            contato.setNome(Nome);
-            contato.setNomeSocial(NomeSocial);
-            contato.setCpf(Cpf);
-            contato.setTelefonePrincipal(Telefone);
-            contato.setEmailPrincipal(Email);
-            contato.setDataNascimento(Data);
+            contato = new BodyCadastro();
+
+            boolean ok = setDados(contato);
+            if(!ok) return;
 
             // Cria conexão com APIRubeus
             RequestRepository contatoRepository = new RequestRepository();
@@ -450,12 +312,12 @@ public class Register extends AppCompatActivity {
                 @Override
                 public void onSuccess(RespostaCadastro response) {
                     Log.i("API Teste", "Navegando para a tela de cadastro de notas");
-                    if (selectedImageUri != null) {
-                        //define a imagem e envia pra api rubeus
-                    } else {
-                        // Se o usuário não selecionou uma imagem, pode optar por cadastrar sem foto
-                        // Ou forçar a seleção de uma foto
-                    }
+//                    if (selectedImageUri != null) {
+//                        //define a imagem e envia pra api rubeus
+//                    } else {
+//                        // Se o usuário não selecionou uma imagem, pode optar por cadastrar sem foto
+//                        // Ou forçar a seleção de uma foto
+//                    }
                     User user = User.getInstance();
                     user.setId(response.getDados());
                     user.setNome(contato.getNome());
@@ -468,13 +330,13 @@ public class Register extends AppCompatActivity {
                     LoadScreen.dismissLoading(); //fecha tela de carregamento
                     //navega para a página do usuário
                     Intent it = new Intent(Register.this, RegisterData.class);
-                    it.putExtra("user", user);
                     startActivity(it);
                 }
 
                 @Override
                 public void onError(String errorMessage) {
                     LoadScreen.dismissLoading();
+                    Toast.makeText(Register.this, "Erro ao cadastrar contato: " + errorMessage, Toast.LENGTH_LONG).show();
                 }
             });
         } else{
@@ -482,5 +344,141 @@ public class Register extends AppCompatActivity {
             Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
         }
 
+    }
+
+    private void verificaConexao(){
+        //verificador de conexao
+        CheckConexion verificadorConexao = new CheckConexion(getApplicationContext());
+
+        // Observa as mudanças no estado da conexão
+        verificadorConexao.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean conectado) {
+                isConectado = conectado;
+                if (!conectado) {
+                    // Exibe uma mensagem de erro persistente se não houver conexão
+                    View view = findViewById(android.R.id.content); // View raiz da sua activity
+                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void defineMascaraCpf(){
+        TextInputEditText editTextCPF = findViewById(R.id.CPF);
+        editTextCPF.addTextChangedListener(new TextWatcher() {
+            boolean isUpdating;
+            String oldText = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String str = s.toString().replaceAll("[^\\d]", "");
+
+                if (isUpdating) {
+                    oldText = str;
+                    isUpdating = false;
+                    return;
+                }
+
+                StringBuilder formatted = new StringBuilder();
+
+                int len = str.length();
+
+                if (len > 0) {
+                    for (int i = 0; i < len && i < 11; i++) {
+                        char c = str.charAt(i);
+                        if (i == 3 || i == 6) {
+                            formatted.append('.');
+                        } else if (i == 9) {
+                            formatted.append('-');
+                        }
+                        formatted.append(c);
+                    }
+                }
+
+                isUpdating = true;
+                editTextCPF.setText(formatted.toString());
+                editTextCPF.setSelection(formatted.length());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+    }
+
+    private void defineMascaraData(){
+        TextInputEditText editTextData = findViewById(R.id.Nascimento);
+        editTextData.addTextChangedListener(new TextWatcher() {
+            boolean isUpdating;
+            String oldText = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String str = s.toString().replaceAll("[^\\d]", "");
+
+                if (isUpdating) {
+                    oldText = str;
+                    isUpdating = false;
+                    return;
+                }
+
+                StringBuilder formatted = new StringBuilder();
+
+                int len = str.length();
+
+                if (len > 0) {
+                    for (int i = 0; i < len && i < 8; i++) {
+                        if (i == 4 || i == 6) {
+                            formatted.append("-");
+                        }
+                        formatted.append(str.charAt(i));
+                    }
+                }
+
+                isUpdating = true;
+                editTextData.setText(formatted.toString());
+                editTextData.setSelection(formatted.length());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+    }
+
+    private boolean setDados(BodyCadastro contato){
+        TextInputEditText editTextNome = findViewById(R.id.Nome);
+        TextInputEditText editTextNomeSocial = findViewById(R.id.NomeSocial);
+        TextInputEditText editTextNascimento = findViewById(R.id.Nascimento);
+        TextInputEditText editTextEmail = findViewById(R.id.Email);
+        TextInputEditText editTextCPF = findViewById(R.id.CPF);
+        TextInputEditText editTextTelefone = findViewById(R.id.Telefone);
+
+        String Nome = Objects.requireNonNull(editTextNome.getText()).toString();
+        String NomeSocial = Objects.requireNonNull(editTextNomeSocial.getText()).toString();
+        String Cpf = Objects.requireNonNull(editTextCPF.getText()).toString();
+        String Telefone = Objects.requireNonNull(editTextTelefone.getText()).toString();
+        String Email = Objects.requireNonNull(editTextEmail.getText()).toString();
+        String Data = Objects.requireNonNull(editTextNascimento.getText()).toString();
+
+        if (Nome.trim().isEmpty() || NomeSocial.trim().isEmpty() || Cpf.trim().isEmpty() || Telefone.trim().isEmpty() || Email.trim().isEmpty() || Data.trim().isEmpty()) {
+            Toast.makeText(this, "Por favor, preencha todos os dados", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else{
+            // Recebe os dados
+            contato.setNome(Nome);
+            contato.setNomeSocial(NomeSocial);
+            contato.setCpf(Cpf);
+            contato.setTelefonePrincipal(Telefone);
+            contato.setEmailPrincipal(Email);
+            contato.setDataNascimento(Data);
+            return true;
+        }
     }
 }

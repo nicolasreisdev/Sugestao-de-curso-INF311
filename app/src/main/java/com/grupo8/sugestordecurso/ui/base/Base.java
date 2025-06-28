@@ -3,7 +3,6 @@ package com.grupo8.sugestordecurso.ui.base;
 import android.content.Intent;
 
 import com.grupo8.sugestordecurso.R;
-import android.app.Activity;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;

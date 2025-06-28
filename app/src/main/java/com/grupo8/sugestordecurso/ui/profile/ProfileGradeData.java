@@ -1,13 +1,11 @@
 package com.grupo8.sugestordecurso.ui.profile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,27 +13,20 @@ import androidx.lifecycle.Observer;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.grupo8.sugestordecurso.R;
-import com.grupo8.sugestordecurso.data.database.BancoDados;
 import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
-import com.grupo8.sugestordecurso.data.models.BodyAPI.BodySugestor;
 import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;
-import com.grupo8.sugestordecurso.data.models.Interfaces.SugestoesCallback;
 import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
-import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaSugestor;
 import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
 import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
-import com.grupo8.sugestordecurso.ui.register.RegisterData;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
-
-import java.util.ArrayList;
 
 public class ProfileGradeData extends AppCompatActivity {
     //editTexts com os dados do usuário passíveis de serem alterados
     EditText edtMat, edtPort, edtRed, edtLit, edtQuim, edtFis, edtBio, edtGeo, edtHist, edtFilo, edtSocio, edtArtes;
     LoadScreen LoadScreen;
-    private CheckConexion verificadorConexao; //verificador de conexao
+    User user;
     private boolean isConectado = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +34,47 @@ public class ProfileGradeData extends AppCompatActivity {
         setContentView(R.layout.activity_profile_grade_data);
 
         LoadScreen = new LoadScreen();
-        verificadorConexao = new CheckConexion(getApplicationContext());
+        user = User.getInstance();
 
+        onClickVoltar();
+        verificaConexao();
+
+        setNotas();
+    }
+
+    public void onClickUpdateGrade(View v){
+        if(isConectado) {
+            LoadScreen.showLoading(getSupportFragmentManager(), "Salvando");
+            BodyNotas notas = new BodyNotas();
+
+            updateNotas(notas);
+
+            RequestRepository notasRepository = new RequestRepository();
+            notasRepository.adicionarNotas(notas, new NotasCallback() {
+                @Override
+                public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
+                    LoadScreen.dismissLoading();
+                    Toast.makeText(ProfileGradeData.this, "Notas atualizadas com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent it = new Intent(ProfileGradeData.this, UserPage.class);
+                    it.putExtra("profile","profile");
+                    startActivity(it);
+                    Log.i("API Teste", "Notas atualizadas com sucesso");
+                }
+
+                @Override
+                public void onError(String errorMessage) {
+                    LoadScreen.dismissLoading();
+                    Toast.makeText(ProfileGradeData.this, "Erro ao atualizar notas", Toast.LENGTH_SHORT).show();
+                    Log.i("API Teste", "Error");
+                }
+            });
+        } else{
+            View view = findViewById(android.R.id.content);
+            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+        }
+    }
+
+    private void onClickVoltar(){
         ImageButton btnVoltar = findViewById(R.id.btn_voltar);
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +83,11 @@ public class ProfileGradeData extends AppCompatActivity {
                 getOnBackPressedDispatcher().onBackPressed();
             }
         });
+    }
 
+    private void verificaConexao(){
+        //verificador de conexao
+        CheckConexion verificadorConexao = new CheckConexion(getApplicationContext());
         // Observa as mudanças no estado da conexão
         verificadorConexao.observe(this, new Observer<Boolean>() {
             @Override
@@ -66,7 +100,9 @@ public class ProfileGradeData extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private void setNotas(){
         edtMat = findViewById(R.id.NotaMat);
         edtPort = findViewById(R.id.NotaPort);
         edtRed = findViewById(R.id.NotaRed);
@@ -81,7 +117,6 @@ public class ProfileGradeData extends AppCompatActivity {
         edtArtes = findViewById(R.id.NotaArte);
 
         //colocar os dados do aluno retirados da api da rubeus
-        User user = User.getInstance();
         edtMat.setText(user.getNotaMatematica() + "");
         edtPort.setText(user.getNotaPortugues() + "");
         edtLit.setText(user.getNotaLiteratura() + "");
@@ -96,62 +131,34 @@ public class ProfileGradeData extends AppCompatActivity {
         edtArtes.setText(user.getNotaArtes() + "");
     }
 
-    public void onClickUpdateGrade(View v){
-        if(isConectado) {
-            LoadScreen.showLoading(getSupportFragmentManager(), "Salvando");
-            String notaMat = edtMat.getText().toString();
-            String notaPort = edtPort.getText().toString();
-            String notaLit = edtLit.getText().toString();
-            String notaRed = edtRed.getText().toString();
-            String notaQuim = edtQuim.getText().toString();
-            String notaFis = edtFis.getText().toString();
-            String notaBio = edtBio.getText().toString();
-            String notaGeo = edtGeo.getText().toString();
-            String notaHist = edtHist.getText().toString();
-            String notaFilo = edtFilo.getText().toString();
-            String notaSocio = edtSocio.getText().toString();
-            String notaArt = edtArtes.getText().toString();
-            //Atualização dos dados via api
-            BodyNotas notas = new BodyNotas();
-            notas.setPessoa(User.getInstance().getId());
-            notas.setMatematica(Double.parseDouble(notaMat));
-            notas.setPortugues(Double.parseDouble(notaPort));
-            notas.setLiteratura(Double.parseDouble(notaLit));
-            notas.setRedacao(Double.parseDouble(notaRed));
-            notas.setQuimica(Double.parseDouble(notaQuim));
-            notas.setFisica(Double.parseDouble(notaFis));
-            notas.setBiologia(Double.parseDouble(notaBio));
-            notas.setGeografia(Double.parseDouble(notaGeo));
-            notas.setHistoria(Double.parseDouble(notaHist));
-            notas.setFilosofia(Double.parseDouble(notaFilo));
-            notas.setArea(User.getInstance().getAreaPreferencia());
-
-            RequestRepository notasRepository = new RequestRepository();
-
-            notasRepository.adicionarNotas(notas, new NotasCallback() {
-                @Override
-                public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
-                    Intent it = new Intent(ProfileGradeData.this, UserPage.class);
-                    it.putExtra("profile","profile");
-                    startActivity(it);
-                    Log.i("API Teste", "Notas atualizadas com sucesso");
-                }
-
-                @Override
-                public void onError(String errorMessage) {
-                    LoadScreen.dismissLoading();
-                    Log.i("API Teste", "Error");
-                }
-            });
-            LoadScreen.dismissLoading();
-            Toast.makeText(ProfileGradeData.this, "Notas atualizadas com sucesso!", Toast.LENGTH_SHORT).show();
-
-            //volta para tela anterior
-            finish();
-        } else{
-            View view = findViewById(android.R.id.content); // View raiz da sua activity
-            Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
-        }
+    private void updateNotas(BodyNotas notas){
+        String notaMat = edtMat.getText().toString();
+        String notaPort = edtPort.getText().toString();
+        String notaLit = edtLit.getText().toString();
+        String notaRed = edtRed.getText().toString();
+        String notaQuim = edtQuim.getText().toString();
+        String notaFis = edtFis.getText().toString();
+        String notaBio = edtBio.getText().toString();
+        String notaGeo = edtGeo.getText().toString();
+        String notaHist = edtHist.getText().toString();
+        String notaFilo = edtFilo.getText().toString();
+        String notaSocio = edtSocio.getText().toString();
+        String notaArt = edtArtes.getText().toString();
+        //Atualização dos dados via api
+        notas.setPessoa(user.getId());
+        notas.setMatematica(Double.parseDouble(notaMat));
+        notas.setPortugues(Double.parseDouble(notaPort));
+        notas.setLiteratura(Double.parseDouble(notaLit));
+        notas.setRedacao(Double.parseDouble(notaRed));
+        notas.setQuimica(Double.parseDouble(notaQuim));
+        notas.setFisica(Double.parseDouble(notaFis));
+        notas.setBiologia(Double.parseDouble(notaBio));
+        notas.setGeografia(Double.parseDouble(notaGeo));
+        notas.setHistoria(Double.parseDouble(notaHist));
+        notas.setFilosofia(Double.parseDouble(notaFilo));
+        notas.setSociologia(Double.parseDouble(notaSocio));
+        notas.setArtes(Double.parseDouble(notaArt));
+        notas.setArea(user.getAreaPreferencia());
     }
 
 }

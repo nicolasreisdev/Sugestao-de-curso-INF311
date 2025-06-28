@@ -13,10 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -26,7 +23,6 @@ import androidx.fragment.app.FragmentManager;
 public class LoadScreen extends DialogFragment {
 
     private static final String ARG_MESSAGE = "message";
-    private ImageView gifImageView; //image view para guardar gif
 
     //cria a instancia do fragmento
     public static LoadScreen newInstance(String message) {
@@ -56,7 +52,8 @@ public class LoadScreen extends DialogFragment {
         //infla a view de tela
         View view = inflater.inflate(R.layout.fragment_loading_screen, container, false);
 
-        gifImageView = view.findViewById(R.id.LoadGifImageView); //image view que ira guardar o gif
+        //image view para guardar gif
+        ImageView gifImageView = view.findViewById(R.id.LoadGifImageView);
 
         //carregando o gif
         Glide.with(this)

@@ -1,16 +1,13 @@
 package com.grupo8.sugestordecurso.ui.register;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,33 +26,22 @@ import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
 import com.grupo8.sugestordecurso.ui.profile.Profile;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
+import java.util.Objects;
+
 public class RegisterData extends AppCompatActivity {
     User user;
     private LoadScreen LoadScreen;
-    private CheckConexion verificadorConexao; //verificador de conexao
     private boolean isConectado = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_data);
 
-        verificadorConexao = new CheckConexion(getApplicationContext());
-
-        // Observa as mudanças no estado da conexão
-        verificadorConexao.observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean conectado) {
-                isConectado = conectado;
-                if (!conectado) {
-                    // Exibe uma mensagem de erro persistente se não houver conexão
-                    View view = findViewById(android.R.id.content); // View raiz da sua activity
-                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
-                }
-            }
-        });
+        verificaConexao();
 
         LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
         user = User.getInstance();
+
         Log.i("API Teste", "ID Register Data: " + user.getId());
         //Spinner com as opções pré-determinadas de áreas de preferencia
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
@@ -93,18 +79,18 @@ public class RegisterData extends AppCompatActivity {
             TextInputEditText editTextArtes = findViewById(R.id.NotaArte);
             AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
 
-            String NotaMat = editTextMatematica.getText().toString();
-            String NotaPort = editTextPortugues.getText().toString();
-            String NotaLit = editTextLiteratura.getText().toString();
-            String NotaBio = editTextBiologia.getText().toString();
-            String NotaFis = editTextFisica.getText().toString();
-            String NotaFilo = editTextFilosofia.getText().toString();
-            String NotaGeo = editTextGeografia.getText().toString();
-            String NotaHist = editTextHistoria.getText().toString();
-            String NotaQuim = editTextQuimica.getText().toString();
-            String NotaRed = editTextRedacao.getText().toString();
-            String NotaSocio = editTextSociologia.getText().toString();
-            String NotaArt = editTextArtes.getText().toString();
+            String NotaMat = Objects.requireNonNull(editTextMatematica.getText()).toString();
+            String NotaPort = Objects.requireNonNull(editTextPortugues.getText()).toString();
+            String NotaLit = Objects.requireNonNull(editTextLiteratura.getText()).toString();
+            String NotaBio = Objects.requireNonNull(editTextBiologia.getText()).toString();
+            String NotaFis = Objects.requireNonNull(editTextFisica.getText()).toString();
+            String NotaFilo = Objects.requireNonNull(editTextFilosofia.getText()).toString();
+            String NotaGeo = Objects.requireNonNull(editTextGeografia.getText()).toString();
+            String NotaHist = Objects.requireNonNull(editTextHistoria.getText()).toString();
+            String NotaQuim = Objects.requireNonNull(editTextQuimica.getText()).toString();
+            String NotaRed = Objects.requireNonNull(editTextRedacao.getText()).toString();
+            String NotaSocio = Objects.requireNonNull(editTextSociologia.getText()).toString();
+            String NotaArt = Objects.requireNonNull(editTextArtes.getText()).toString();
             String areaPreferencia = autoCompleteTextView.getText().toString();
 
             //garante que todos os campos foram preenchidos, incluindo o spinner
@@ -184,6 +170,24 @@ public class RegisterData extends AppCompatActivity {
             View view = findViewById(android.R.id.content); // View raiz da sua activity
             Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
         }
+    }
+
+    private void verificaConexao(){
+        //verificador de conexao
+        CheckConexion verificadorConexao = new CheckConexion(getApplicationContext());
+
+        // Observa as mudanças no estado da conexão
+        verificadorConexao.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean conectado) {
+                isConectado = conectado;
+                if (!conectado) {
+                    // Exibe uma mensagem de erro persistente se não houver conexão
+                    View view = findViewById(android.R.id.content); // View raiz da sua activity
+                    Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
 

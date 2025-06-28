@@ -1,7 +1,6 @@
 package com.grupo8.sugestordecurso.data.models.Utils;
 
-import java.util.ArrayList;
-
+//cursos em alta no mercado de cada area (pesquisados no google)
 public class SugestaoTendencias {
     private String[] tendSaude = {"Medicina", "Enfermagem","Fisioterapia"};
     private String[] tendExatas = {"Engenharia Civil", "Engenharia Ambiental","Engenharia Sanitária"};
@@ -16,60 +15,28 @@ public class SugestaoTendencias {
         return this.tendSaude;
     }
 
-    public void setTendSaude(String[] tendSaude) {
-        this.tendSaude = tendSaude;
-    }
-
     public String[] getTendExatas() {
         return this.tendExatas;
-    }
-
-    public void setTendExatas(String[] tendExatas) {
-        this.tendExatas = tendExatas;
     }
 
     public String[] getTendHumanas() {
         return this.tendHumanas;
     }
 
-    public void setTendHumanas(String[] tendHumanas) {
-        this.tendHumanas = tendHumanas;
-    }
-
     public String[] getTendBiologicas() {
         return this.tendBiologicas;
-    }
-
-    public void setTendBiologicas(String[] tendBiologicas) {
-        this.tendBiologicas = tendBiologicas;
     }
 
     public String[] getTendArtes() {
         return this.tendArtes;
     }
 
-    public void setTendArtes(String[] tendArtes) {
-        this.tendArtes = tendArtes;
-    }
-
     public String[] getTendTecnologia() {
         return this.tendTecnologia;
     }
 
-    public void setTendTecnologia(String[] tendTecnologia) {
-        this.tendTecnologia = tendTecnologia;
-    }
-
     public String[] getTendLinguagens() {
         return this.tendLinguagens;
-    }
-
-    public void setTendLinguagens(String[] tendLinguagens) {
-        this.tendLinguagens = tendLinguagens;
-    }
-
-    public void setTendComunicacao(String[] tendComunicacao) {
-        this.tendComunicacao = tendComunicacao;
     }
 
     public String[] getTendComunicacao() {

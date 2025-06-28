@@ -1,8 +1,8 @@
 package com.grupo8.sugestordecurso.data.models.Utils;
 
 import java.io.Serializable;
-import org.json.JSONObject;
 
+//classe singleton
 public class User implements Serializable {
 
     private static User instance;

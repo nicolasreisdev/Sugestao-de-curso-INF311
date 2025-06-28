@@ -29,12 +29,13 @@ import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
 import com.grupo8.sugestordecurso.ui.register.Register;
 import com.grupo8.sugestordecurso.ui.userPage.UserPage;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
-    private BodyLogin bodyUser = new BodyLogin();
+    private final BodyLogin bodyUser = new BodyLogin();
     private TextInputEditText editTextCPF;
     private LoadScreen LoadScreen;
-    private CheckConexion verificadorConexao; //verificador de conexao
     private boolean isConectado = false;
 
     @Override
@@ -42,12 +43,96 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        verificadorConexao = new CheckConexion(getApplicationContext());
+        //verificador de conexao
+        CheckConexion verificadorConexao = new CheckConexion(getApplicationContext());
 
         LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
         editTextCPF = findViewById(R.id.userCPF);
 
         //cria uma mascara dinamicamente para que o input do usuario tenha formato xxx.xxx.xxx-xx
+        defineMascaraCpf();
+
+        // Observa as mudanças no estado da conexão
+        verificaConexao(verificadorConexao);
+
+    }
+
+    public void onClickLogin(View v){
+        if(isConectado) {
+            Log.i("Load", "Iniciando Login");
+            bodyUser.setCPF(Objects.requireNonNull(editTextCPF.getText()).toString());
+            User user = User.getInstance();
+            Log.i("API Teste", "Passei");
+            LoadScreen.showLoading(getSupportFragmentManager(), "Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
+            //define um tempo de atraso
+            final long DELAY_BEFORE_API_CALL = 1000;
+
+            //agenda a chamada da API para depois do atraso
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Cria conexão com APIRubeus
+                    RequestRepository contatoRepository = new RequestRepository();
+                    // Envia chamada
+                    contatoRepository.buscarUser(bodyUser, new UserCallback() {
+                        @Override
+                        public void onSuccess(RespostaUser response) {
+                            // Navega para a página do usuário
+                            setDadosUser(response,user);
+                            Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
+
+                            // ---------------------------------------------------------------------------------
+                            // Requisição de notas do usuário
+                            Log.i("API Teste", "Iniciando requisição para recuperar as notas do usuário.");
+                            BodyBuscarNotas buscarNotas = new BodyBuscarNotas();
+                            buscarNotas.setId(user.getId());
+                            contatoRepository.buscarNotas(buscarNotas, new BuscarNotasCallback() {
+                                @Override
+                                public void onSuccess(RespostaBuscarNotas response) {
+                                    Log.i("API Teste", "Notas recuperadas, navegação para tela do usuário");
+
+                                    setNotasUser(response,user);
+                                    LoadScreen.dismissLoading(); //dispensa a tela de carregamento
+
+                                    Intent it = new Intent(MainActivity.this, UserPage.class);
+                                    it.putExtra("login", "login");
+                                    startActivity(it);
+                                    finish();
+                                }
+
+                                @Override
+                                public void onError(String errorMessage) {
+                                    Log.e("API Test", "Error: " + errorMessage);
+                                    LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
+                                    Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.e("API Test", "Error: " + errorMessage); // Use Log.e para erros
+                            LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
+                            Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }, DELAY_BEFORE_API_CALL);
+
+        } else{
+            View view = findViewById(android.R.id.content);
+            Snackbar.make(view, "Necessário conexão com a internet", Snackbar.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    public void goRegister(View v){
+        Intent itRegister = new Intent(this, Register.class);
+        startActivity(itRegister);
+    }
+
+    private void defineMascaraCpf(){
         editTextCPF.addTextChangedListener(new TextWatcher() {
             boolean isUpdating;
             String oldText = "";
@@ -89,9 +174,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) { }
         });
+    }
 
-        // Observa as mudanças no estado da conexão
-        verificadorConexao.observe(this, new Observer<Boolean>() {
+    private void verificaConexao(CheckConexion checkConexion){
+        checkConexion.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean conectado) {
                 isConectado = conectado;
@@ -102,101 +188,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
-    public void onClickLogin(View v){
-        if(isConectado) {
-            Log.i("Load", "Iniciando Login");
-            bodyUser.setCPF(editTextCPF.getText().toString());
-            Log.i("API Teste", "Passei");
-            LoadScreen.showLoading(getSupportFragmentManager(), "Logando..."); //chama uma tela de carregamento enquanto as requisições de api e processamentos do modelo são feitas
-            //define um tempo de atraso
-            final long DELAY_BEFORE_API_CALL = 1000;
-            User user = User.getInstance();
-            //agenda a chamada da API para depois do atraso
-            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Cria conexão com APIRubeus
-                    RequestRepository contatoRepository = new RequestRepository();
-                    // Envia chamada
-                    contatoRepository.buscarUser(bodyUser, new UserCallback() {
-                        @Override
-                        public void onSuccess(RespostaUser response) {
-                            // Navega para a página do usuário
-                            user.setId(response.getDadosID());
-                            user.setNome(response.getDadosNome());
-                            user.setNomeSocial(response.getDadosNomeSocial());
-                            user.setCpf(response.getDadosCPF());
-                            user.setDataNascimento(response.getDadosNascimento());
-                            user.setEmail(response.getDadosEmail());
-                            user.setTelefone(response.getDadosTelefone());
-                            Log.i("API Teste", "Dados: " + response.getDadosID() + " " + response.getDadosNomeSocial());
-
-                            // ---------------------------------------------------------------------------------
-                            // Requisição de notas do usuário
-                            Log.i("API Teste", "Iniciando requisição para recuperar as notas do usuário.");
-                            BodyBuscarNotas buscarNotas = new BodyBuscarNotas();
-                            buscarNotas.setId(user.getId());
-                            contatoRepository.buscarNotas(buscarNotas, new BuscarNotasCallback() {
-                                @Override
-                                public void onSuccess(RespostaBuscarNotas response) {
-                                    Log.i("API Teste", "Notas recuperadas, navegação para tela do usuário");
-                                    user.setNotaMatematica(response.getNotaMatematica());
-                                    user.setNotaPortugues(response.getNotaPortugues());
-                                    user.setNotaLiteratura(response.getNotaLiteratura());
-                                    user.setNotaRedacao(response.getNotaRedacao());
-                                    user.setNotaQuimica(response.getNotaQuimica());
-                                    user.setNotaFisica(response.getNotaFisica());
-                                    user.setNotaBiologia(response.getNotaBiologia());
-                                    user.setNotaGeografia(response.getNotaGeografia());
-                                    user.setNotaHistoria(response.getNotaHistoria());
-                                    user.setNotaFilosofia(response.getNotaFilosofia());
-                                    user.setNotaSociologia(response.getNotaSociologia());
-                                    user.setNotaArtes(response.getNotaArtes());
-                                    user.setAreaPreferencia(response.getAreaPreferencia());
-
-                                    LoadScreen.dismissLoading(); //dispensa a tela de carregamento
-                                    Intent it = new Intent(MainActivity.this, UserPage.class);
-                                    it.putExtra("login", "login");
-                                    startActivity(it);
-                                    finish();
-                                }
-
-                                @Override
-                                public void onError(String errorMessage) {
-                                    Log.e("API Test", "Error: " + errorMessage);
-                                    LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
-                                    Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onError(String errorMessage) {
-                            Log.e("API Test", "Error: " + errorMessage); // Use Log.e para erros
-                            LoadScreen.dismissLoading(); //dispensa a tela de carregamento em caso de erro
-                            Toast.makeText(MainActivity.this, "Usuário inexistente, tente novamente", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
-            }, DELAY_BEFORE_API_CALL);
-
-        } else{
-            View view = findViewById(android.R.id.content);
-            Snackbar.make(view, "Necessário conexão com a internet", Snackbar.LENGTH_LONG).show();
-        }
-
-
+    private void setDadosUser(RespostaUser response, User user){
+        user.setId(response.getDadosID());
+        user.setNome(response.getDadosNome());
+        user.setNomeSocial(response.getDadosNomeSocial());
+        user.setCpf(response.getDadosCPF());
+        user.setDataNascimento(response.getDadosNascimento());
+        user.setEmail(response.getDadosEmail());
+        user.setTelefone(response.getDadosTelefone());
     }
 
-    public void goRegister(View v){
-        Intent itRegister = new Intent(this, Register.class);
-        startActivity(itRegister);
+    private void setNotasUser(RespostaBuscarNotas response, User user){
+        user.setNotaMatematica(response.getNotaMatematica());
+        user.setNotaPortugues(response.getNotaPortugues());
+        user.setNotaLiteratura(response.getNotaLiteratura());
+        user.setNotaRedacao(response.getNotaRedacao());
+        user.setNotaQuimica(response.getNotaQuimica());
+        user.setNotaFisica(response.getNotaFisica());
+        user.setNotaBiologia(response.getNotaBiologia());
+        user.setNotaGeografia(response.getNotaGeografia());
+        user.setNotaHistoria(response.getNotaHistoria());
+        user.setNotaFilosofia(response.getNotaFilosofia());
+        user.setNotaSociologia(response.getNotaSociologia());
+        user.setNotaArtes(response.getNotaArtes());
+        user.setAreaPreferencia(response.getAreaPreferencia());
     }
-
-
 
 
 

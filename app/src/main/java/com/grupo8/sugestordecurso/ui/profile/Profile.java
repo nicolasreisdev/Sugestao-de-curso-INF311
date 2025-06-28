@@ -21,7 +21,7 @@ public class Profile extends Base {
 
         setupBottomNavigation(R.id.nav_profile);
 
-        ImageView imagemPerfil = findViewById(R.id.ImagemPerfil);
+        //ImageView imagemPerfil = findViewById(R.id.ImagemPerfil);
         TextView textNome = findViewById(R.id.TextNomeSobrenome);
 
         String nome = User.getInstance().getNomeSocial();
@@ -30,8 +30,6 @@ public class Profile extends Base {
 
         menuNotas = findViewById(R.id.MenuNotas);
         menuDados = findViewById(R.id.MenuDadosPessoais);
-
-        //setar o nome e imagem de acordo com o usuário
 
         //tratamento de clique nos menus
         menuNotas.setOnClickListener(new View.OnClickListener(){

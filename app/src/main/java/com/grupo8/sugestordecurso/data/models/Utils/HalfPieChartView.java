@@ -41,7 +41,7 @@ public class HalfPieChartView extends View {
         init();
     }
 
-    private int[] gerarCores() {
+    private int[] gerarCores() { // gera tres cores novas ha cada nova instancia do grafico
         float baseHue = (float) (Math.random() * 360); // tom aleatório entre 0 e 360
         float saturation = 0.7f; // saturação alta para cores vivas
         float value = 0.9f;      // valor alto para cores claras
@@ -129,12 +129,10 @@ public class HalfPieChartView extends View {
         float radius = Math.min(width / 2, height / 2); //o raio será baseado na menor dimensão
 
         //define o retângulo que conterá a "pizza"
-        //ajuste os valores de left, top, right, bottom conforme necessário para centralizar
         float centerX = width / 2;
         float centerY = getHeight(); //para que a base da meia pizza fique na parte inferior da View
 
         //rectF define os limites do oval onde os arcos serão desenhados
-        //para uma meia pizza na parte de baixo, o centro Y do oval imaginário estaria na borda inferior da view
         rectF.set(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
 
         float totalAngle = 180.0f; //meia pizza
