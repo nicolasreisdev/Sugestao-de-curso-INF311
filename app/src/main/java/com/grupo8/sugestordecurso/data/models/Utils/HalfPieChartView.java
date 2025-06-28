@@ -27,6 +27,10 @@ public class HalfPieChartView extends View {
         init();
     }
 
+    public int[] getColors(){
+        return colors;
+    }
+
     public HalfPieChartView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
@@ -36,6 +40,20 @@ public class HalfPieChartView extends View {
         super(context, attrs, defStyleAttr);
         init();
     }
+
+    private int[] gerarCores() {
+        float baseHue = (float) (Math.random() * 360); // tom aleatório entre 0 e 360
+        float saturation = 0.7f; // saturação alta para cores vivas
+        float value = 0.9f;      // valor alto para cores claras
+
+        int[] cores = new int[3];
+        for (int i = 0; i < 3; i++) {
+            float hue = (baseHue + i * 120f) % 360f; // espaçamento de 120° para triádicas
+            cores[i] = Color.HSVToColor(new float[]{hue, saturation, value});
+        }
+        return cores;
+    }
+
 
     private void init() {
         paint = new Paint();
@@ -47,6 +65,8 @@ public class HalfPieChartView extends View {
     //desenha as probabilidades no grafico criando uma animação de construção
     public void setProbabilities(float prob1, float prob2, float prob3) {
         final float[] targetProbabilities = {prob1, prob2, prob3};
+
+        colors = gerarCores();
 
         if (isAnimating && animator != null) {
             animator.cancel(); //cancela a animação anterior se estiver rodando

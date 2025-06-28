@@ -55,7 +55,7 @@ public class RegisterData extends AppCompatActivity {
         });
 
         LoadScreen = new LoadScreen(); //inicializa a tela de carregamento para ser usada posteriormente
-        user = (User) getIntent().getSerializableExtra("user");
+        user = User.getInstance();
         Log.i("API Teste", "ID Register Data: " + user.getId());
         //Spinner com as opções pré-determinadas de áreas de preferencia
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autocomplete);
@@ -142,6 +142,7 @@ public class RegisterData extends AppCompatActivity {
                     Log.i("API Teste", "Passando id");
                     // id do usuário
                     notas.setPessoa(user.getId());
+                    user.setAreaPreferencia(areaPreferencia);
 
                     Log.i("API Teste", "Passando notas");
                     // notas do usuário
@@ -166,7 +167,7 @@ public class RegisterData extends AppCompatActivity {
                         public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
                             Intent it = new Intent(RegisterData.this, UserPage.class);
                             Log.i("Nav", "Indo de cadastro para userpage");
-                            it.putExtra("user", user);
+                            it.putExtra("register", "register");
                             LoadScreen.dismissLoading();
                             startActivity(it);
                         }

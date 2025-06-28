@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class SugestaoTendencias {
     private String[] tendSaude = {"Medicina", "Enfermagem","Fisioterapia"};
-    private String[] tendExatas = {"Matemática", "Física","Engenharia Civil"};
+    private String[] tendExatas = {"Engenharia Civil", "Engenharia Ambiental","Engenharia Sanitária"};
     private String[] tendHumanas = {"Administração", "Pedagogia","Direito"};
     private String[] tendBiologicas = {"Medicina Veterinária", "Nutrição","Biomedicina"};
     private String[] tendArtes = {"Design Gráfico", "Design de Moda", "Artes Visuais"};
     private String[] tendTecnologia = {"Ciência da Computação", "Sistemas de Informação", "ADS"};
-    private String[] tendLinguagens = {"Letras Francês", "Letras Inglês", "Letras Mandarim"};
+    private String[] tendLinguagens = {"Tradução e Interpretação", "Letras Inglês", "Linguística"};
     private String[] tendComunicacao = {"Jornalismo", "Marketing", "Publicidade e Propaganda"};
 
     public String[] getTendSaude() {
-        return tendSaude;
+        return this.tendSaude;
     }
 
     public void setTendSaude(String[] tendSaude) {
@@ -21,7 +21,7 @@ public class SugestaoTendencias {
     }
 
     public String[] getTendExatas() {
-        return tendExatas;
+        return this.tendExatas;
     }
 
     public void setTendExatas(String[] tendExatas) {
@@ -29,7 +29,7 @@ public class SugestaoTendencias {
     }
 
     public String[] getTendHumanas() {
-        return tendHumanas;
+        return this.tendHumanas;
     }
 
     public void setTendHumanas(String[] tendHumanas) {
@@ -37,7 +37,7 @@ public class SugestaoTendencias {
     }
 
     public String[] getTendBiologicas() {
-        return tendBiologicas;
+        return this.tendBiologicas;
     }
 
     public void setTendBiologicas(String[] tendBiologicas) {
@@ -45,7 +45,7 @@ public class SugestaoTendencias {
     }
 
     public String[] getTendArtes() {
-        return tendArtes;
+        return this.tendArtes;
     }
 
     public void setTendArtes(String[] tendArtes) {
@@ -53,7 +53,7 @@ public class SugestaoTendencias {
     }
 
     public String[] getTendTecnologia() {
-        return tendTecnologia;
+        return this.tendTecnologia;
     }
 
     public void setTendTecnologia(String[] tendTecnologia) {
@@ -61,7 +61,7 @@ public class SugestaoTendencias {
     }
 
     public String[] getTendLinguagens() {
-        return tendLinguagens;
+        return this.tendLinguagens;
     }
 
     public void setTendLinguagens(String[] tendLinguagens) {

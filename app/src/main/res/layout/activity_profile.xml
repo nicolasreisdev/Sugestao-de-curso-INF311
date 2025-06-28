@@ -44,13 +44,7 @@
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/TextDescricao"
-                        android:text="@string/titulo_aluno"
-                        android:textSize="14sp"
-                        android:textColor="#666" />
+
                 </LinearLayout>
             </LinearLayout>
 

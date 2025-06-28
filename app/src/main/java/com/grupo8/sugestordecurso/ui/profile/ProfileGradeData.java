@@ -1,10 +1,13 @@
 package com.grupo8.sugestordecurso.ui.profile;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +15,21 @@ import androidx.lifecycle.Observer;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.grupo8.sugestordecurso.R;
+import com.grupo8.sugestordecurso.data.database.BancoDados;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodyNotas;
+import com.grupo8.sugestordecurso.data.models.BodyAPI.BodySugestor;
+import com.grupo8.sugestordecurso.data.models.Interfaces.NotasCallback;
+import com.grupo8.sugestordecurso.data.models.Interfaces.SugestoesCallback;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaAddNotas;
+import com.grupo8.sugestordecurso.data.models.RespostasAPI.RespostaSugestor;
 import com.grupo8.sugestordecurso.data.models.Utils.CheckConexion;
 import com.grupo8.sugestordecurso.data.models.Utils.User;
+import com.grupo8.sugestordecurso.data.repository.RequestRepository;
 import com.grupo8.sugestordecurso.ui.loadScreen.LoadScreen;
+import com.grupo8.sugestordecurso.ui.register.RegisterData;
+import com.grupo8.sugestordecurso.ui.userPage.UserPage;
+
+import java.util.ArrayList;
 
 public class ProfileGradeData extends AppCompatActivity {
     //editTexts com os dados do usuário passíveis de serem alterados
@@ -85,9 +100,49 @@ public class ProfileGradeData extends AppCompatActivity {
         if(isConectado) {
             LoadScreen.showLoading(getSupportFragmentManager(), "Salvando");
             String notaMat = edtMat.getText().toString();
-
+            String notaPort = edtPort.getText().toString();
+            String notaLit = edtLit.getText().toString();
+            String notaRed = edtRed.getText().toString();
+            String notaQuim = edtQuim.getText().toString();
+            String notaFis = edtFis.getText().toString();
+            String notaBio = edtBio.getText().toString();
+            String notaGeo = edtGeo.getText().toString();
+            String notaHist = edtHist.getText().toString();
+            String notaFilo = edtFilo.getText().toString();
+            String notaSocio = edtSocio.getText().toString();
+            String notaArt = edtArtes.getText().toString();
             //Atualização dos dados via api
+            BodyNotas notas = new BodyNotas();
+            notas.setPessoa(User.getInstance().getId());
+            notas.setMatematica(Double.parseDouble(notaMat));
+            notas.setPortugues(Double.parseDouble(notaPort));
+            notas.setLiteratura(Double.parseDouble(notaLit));
+            notas.setRedacao(Double.parseDouble(notaRed));
+            notas.setQuimica(Double.parseDouble(notaQuim));
+            notas.setFisica(Double.parseDouble(notaFis));
+            notas.setBiologia(Double.parseDouble(notaBio));
+            notas.setGeografia(Double.parseDouble(notaGeo));
+            notas.setHistoria(Double.parseDouble(notaHist));
+            notas.setFilosofia(Double.parseDouble(notaFilo));
+            notas.setArea(User.getInstance().getAreaPreferencia());
 
+            RequestRepository notasRepository = new RequestRepository();
+
+            notasRepository.adicionarNotas(notas, new NotasCallback() {
+                @Override
+                public void onSuccess(RespostaAddNotas response) { // notas cadastradas com sucesso
+                    Intent it = new Intent(ProfileGradeData.this, UserPage.class);
+                    it.putExtra("profile","profile");
+                    startActivity(it);
+                    Log.i("API Teste", "Notas atualizadas com sucesso");
+                }
+
+                @Override
+                public void onError(String errorMessage) {
+                    LoadScreen.dismissLoading();
+                    Log.i("API Teste", "Error");
+                }
+            });
             LoadScreen.dismissLoading();
             Toast.makeText(ProfileGradeData.this, "Notas atualizadas com sucesso!", Toast.LENGTH_SHORT).show();
 
@@ -98,4 +153,5 @@ public class ProfileGradeData extends AppCompatActivity {
             Snackbar.make(view, "Sem conexão com a internet", Snackbar.LENGTH_LONG).show();
         }
     }
+
 }

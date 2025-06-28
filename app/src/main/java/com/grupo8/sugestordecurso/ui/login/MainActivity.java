@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     LoadScreen.dismissLoading(); //dispensa a tela de carregamento
                                     Intent it = new Intent(MainActivity.this, UserPage.class);
-                                    it.putExtra("user", user);
+                                    it.putExtra("login", "login");
                                     startActivity(it);
                                     finish();
                                 }

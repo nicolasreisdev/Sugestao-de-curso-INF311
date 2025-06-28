@@ -35,6 +35,7 @@ public abstract class Base extends AppCompatActivity {
 
             if (id == R.id.nav_home) {
                 it = new Intent(this, UserPage.class);
+                it.putExtra("nav","nav" );
                 Log.i("Nav","Indo para userpage");
             } else if (id == R.id.nav_historico) {
                 it = new Intent(this, Historico.class);
@@ -46,9 +47,6 @@ public abstract class Base extends AppCompatActivity {
 
             if (it != null) {
                 Log.i("Nav","startar activity");
-                if (user != null) {
-                    it.putExtra("user", user); // reenviando o objeto user
-                }
                 startActivity(it);
                 overridePendingTransition(0, 0);
                 finish();

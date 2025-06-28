@@ -2,6 +2,7 @@ package com.grupo8.sugestordecurso.ui.userPage;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,6 +39,9 @@ public class UserPage extends Base {
     private View colorCurso1, colorCurso2, colorCurso3;
     private View colorCurso1T, colorCurso2T, colorCurso3T;
     private LoadScreen LoadScreen;
+    int[] cores; //cores do grafico e legendas
+    private Intent it;
+    private boolean click = false;
 
 
 
@@ -51,8 +55,10 @@ public class UserPage extends Base {
 
         setupBottomNavigation(R.id.nav_home);
         user = User.getInstance();
+        sugestao = new SugestaoTendencias();
 
         halfPieChart = findViewById(R.id.halfPieChart);
+        it = getIntent();
         requisitaModelo(user.getAreaPreferencia());
 
         // settar as prbabilidades de cada curso retornado pelo modelo e as cores usadas
@@ -81,9 +87,6 @@ public class UserPage extends Base {
         textViewCurso3ProbT = findViewById(R.id.textViewCurso3ProbT);
         colorCurso3T = findViewById(R.id.colorCurso3T);
 
-        //faz requisição para o modelo e atualiza grafico com as predições
-
-
     }
 
     private void atualizaInformacoesTendencias(String nome1, float p1, String nome2, float p2, String nome3, float p3){
@@ -98,7 +101,6 @@ public class UserPage extends Base {
         textViewCurso3ProbT.setText(String.format("%.0f%%", p3 * 100));
 
         // Cores para a legenda
-        int[] cores = {Color.parseColor("#eb3455"), Color.parseColor("#eb34b1"), Color.parseColor("#e30733")};
         colorCurso1T.setBackgroundColor(cores[0]);
         colorCurso2T.setBackgroundColor(cores[1]);
         colorCurso3T.setBackgroundColor(cores[2]);
@@ -116,15 +118,18 @@ public class UserPage extends Base {
         textViewCurso3Prob.setText(String.format("%.0f%%", p3 * 100));
 
         // Cores para a legenda
-        int[] cores = {Color.parseColor("#eb3455"), Color.parseColor("#eb34b1"), Color.parseColor("#e30733")};
-        colorCurso1.setBackgroundColor(cores[0]);
-        colorCurso2.setBackgroundColor(cores[1]);
-        colorCurso3.setBackgroundColor(cores[2]);
+
+         cores = new int[3];
 
         // Atualizar o gráfico (View Customizada)
         if (halfPieChart != null) {
             halfPieChart.setProbabilities(p1, p2, p3);
+            cores = halfPieChart.getColors();
         }
+
+        colorCurso1.setBackgroundColor(cores[0]);
+        colorCurso2.setBackgroundColor(cores[1]);
+        colorCurso3.setBackgroundColor(cores[2]);
 
 
     }
@@ -140,6 +145,7 @@ public class UserPage extends Base {
                     public void onClick(DialogInterface dialog, int which) {
                         areaEscolhida[0] = areas[which]; //define a nova area por ele escolhida
                         user.setAreaPreferencia(areaEscolhida[0]);
+                        click = true;
 
                         //chama tela de carregamento enquanto processa requisição do modelo
                         LoadScreen.showLoading(getSupportFragmentManager(),"Atualizando...");
@@ -160,6 +166,7 @@ public class UserPage extends Base {
     }
 
     public void requisitaModelo(String area){
+        Log.i("Tend",area);
 
         TextView pref = (TextView) findViewById(R.id.textViewPref);
         pref.setText(area);
@@ -194,26 +201,33 @@ public class UserPage extends Base {
                 String nomeCurso3T;
                 float probCurso3T;
 
-                String tend[] = new String[3];
+                String[] tend = new String[3];
 
-                if(area.equals("Saude")){
-                    tend = sugestao.getTendSaude();
-
-                } else if(area.equals("Exatas")){
-                    tend = sugestao.getTendExatas();
-                } else if(area.equals("Linguagens")){
-                    tend = sugestao.getTendLinguagens();
-                } else if(area.equals("Biologicas")){
-                    tend = sugestao.getTendBiologicas();
-                } else if(area.equals("Humanas")){
-                    tend = sugestao.getTendHumanas();
-                } else if(area.equals("Artes")){
-                    tend = sugestao.getTendArtes();
-                } else if(area.equals("Tecnologia")){
-                    tend = sugestao.getTendTecnologia();
-                }
-                else if(area.equals("Comunicacao")){
-                    tend = sugestao.getTendComunicacao();
+                switch (area) {
+                    case "Saúde":
+                        tend = sugestao.getTendSaude();
+                        break;
+                    case "Exatas":
+                        tend = sugestao.getTendExatas();
+                        break;
+                    case "Linguagens":
+                        tend = sugestao.getTendLinguagens();
+                        break;
+                    case "Biológicas":
+                        tend = sugestao.getTendBiologicas();
+                        break;
+                    case "Humanas":
+                        tend = sugestao.getTendHumanas();
+                        break;
+                    case "Artes":
+                        tend = sugestao.getTendArtes();
+                        break;
+                    case "Tecnologia":
+                        tend = sugestao.getTendTecnologia();
+                        break;
+                    case "Comunicação":
+                        tend = sugestao.getTendComunicacao();
+                        break;
                 }
 
                 nomeCurso1T = tend[0];
@@ -224,12 +238,15 @@ public class UserPage extends Base {
                 probCurso3T = 0.2F;
 
                 atualizarInformacoesCursos(nomeCurso1, probCurso1, nomeCurso2, probCurso2, nomeCurso3, probCurso3);
-                //atualizaInformacoesTendencias(nomeCurso1T,probCurso1T,nomeCurso2T,probCurso2T,nomeCurso3T,probCurso3T);
-                BancoDados.getInstance().salvarPredicao(
-                        nomeCurso1, probCurso1,
-                        nomeCurso2, probCurso2,
-                        nomeCurso3, probCurso3
-                );
+                atualizaInformacoesTendencias(nomeCurso1T,probCurso1T,nomeCurso2T,probCurso2T,nomeCurso3T,probCurso3T);
+                if((it!=null && (it.getStringExtra("login")!=null || it.getStringExtra("profile")!=null || it.getStringExtra("register")!=null)) || click) {
+                    BancoDados.getInstance().salvarPredicao(
+                            nomeCurso1, probCurso1,
+                            nomeCurso2, probCurso2,
+                            nomeCurso3, probCurso3
+                    );
+                }
+                click = false;
 
             }
 
