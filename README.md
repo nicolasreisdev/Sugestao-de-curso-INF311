@@ -11,12 +11,12 @@
 ## Execução:
   O projeto foi quase completamente desenvolvido no ambiente do Android Studio. Por esse motivo, para executá-lo, carregue ou clone o repositório na IDE e o execute conforme o padrão do prórpio ambiente.
 ## Organização:
-  O repositório está organizado conforme padronizado pelo ambiente de desenvolvimento do Android Studio. Entretanto, para que sirva de guia:
-    - No caminho: app/src/main/java/com/grupo8/sugestordecurso
-      - data: diretórios com arquivos em java que determinam a conexão com a API de Rubeus e do modelo preditivo, conexão e criação do banco de dados e models com interfaces, body e respostas da API.
-      - ui: diretórios que organizam os comportamentos das telas.
-    - No caminho: app/src/main/res
-      - contém os dados, informações e códigos quanto às características gráficas e design.
+- O repositório está organizado conforme padronizado pelo ambiente de desenvolvimento do Android Studio. Entretanto, para que sirva de guia:
+  - No caminho: app/src/main/java/com/grupo8/sugestordecurso
+    - data: diretórios com arquivos em java que determinam a conexão com a API de Rubeus e do modelo preditivo, conexão e criação do banco de dados e models com interfaces, body e respostas da API.
+    - ui: diretórios que organizam os comportamentos das telas.
+  - No caminho: app/src/main/res
+    - contém os dados, informações e códigos quanto às características gráficas e design.
 ## Tecnologias
 - Android Studio: <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/android.svg" width="25" height="15"/>
   - IDE usada para o desenvolvimento do aplicativo.
